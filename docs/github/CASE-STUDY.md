@@ -92,7 +92,7 @@ Before a broader release, the highest-value work is to close gaps that could cha
 - Extend runtime evidence to older supported macOS versions, Intel where applicable, physical mobile devices, and real document providers.
 - Resolve distribution signing, notarization, and licensing before presenting a public release as ready to install. Public source visibility alone does not establish distribution readiness.
 
-The portfolio value of Yeoback lies in the connection between a visual decision and the behavior it governs. The case study will grow with the evidence: decisions made, limitations found, and changes verified.
+Yeoback's design connects each visual decision to the behavior it governs. The case study will grow with the evidence: decisions made, limitations found, and changes verified.
 
 ---
 

@@ -19,7 +19,7 @@ Both targets use the Yeoback paper, ink and coral palette in Light and Dark. Cla
 
 ## Build and verification
 
-The [mobile workflow](https://github.com/EricEremos/Yeoback-portfolio/actions/workflows/mobile.yml) is configured to build native targets and run disposable-fixture tests. Artifacts expire after seven days. A green workflow proves its tested fixtures; real iCloud, third-party document providers and physical devices require separate verification.
+The [mobile workflow](https://github.com/EricEremos/Yeoback/actions/workflows/mobile.yml) is configured to build native targets and run disposable-fixture tests. Artifacts expire after seven days. A green workflow proves its tested fixtures; real iCloud, third-party document providers and physical devices require separate verification.
 
 For iOS, open `ios/Yeoback.xcodeproj` in Xcode with the iOS SDK installed. The checked-in project can be regenerated with `python3 ios/make-project.py`; `python3 ios/make-assets.py` regenerates named color assets from the brand palette. CI builds without code signing for an iPhone simulator. Physical-device signing is deliberately not configured with an invented Apple team.
 

@@ -63,8 +63,8 @@ The **iPhone and Android development previews** explore the same review principl
 **Mac local preview: 0.3.4 (8).** Recorded runtime verification covers Apple Silicon on macOS 26.5.2. The deployment target is macOS 14; older macOS versions and Intel runtime behavior remain unverified. Building requires an Apple toolchain with the macOS 26 SDK for Foundation Models APIs.
 
 ```sh
-git clone https://github.com/EricEremos/Yeoback-portfolio.git
-cd Yeoback-portfolio
+git clone https://github.com/EricEremos/Yeoback.git
+cd Yeoback
 zsh scripts/build-app.sh
 open dist/Yeoback.app
 ```
@@ -98,4 +98,4 @@ The current evidence does not establish participant-validated usability, a compl
 
 ---
 
-Created by [EricEremos](https://github.com/EricEremos). This public portfolio snapshot starts with the current source and design documentation; earlier development commits remain in a separate private repository. The app retains its development-preview status. See [contribution guidelines](CONTRIBUTING.md) and [security reporting](SECURITY.md) before proposing changes. Public visibility does not grant an open-source license.
+Created by [EricEremos](https://github.com/EricEremos). This is the main repository for Yeoback's ongoing development, source code, and design documentation. Earlier development history is preserved separately in a private repository. The app retains its development-preview status. See [contribution guidelines](CONTRIBUTING.md) and [security reporting](SECURITY.md) before proposing changes. Public visibility does not grant an open-source license.

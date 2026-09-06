@@ -1,6 +1,6 @@
 # Yeoback mobile: capability evidence and first release scope
 
-> Historical development record: this document predates the public portfolio snapshot. Earlier commit IDs and CI run numbers refer to private development evidence and are not publicly retrievable. For new runs, see the [public workflows](https://github.com/EricEremos/Yeoback-portfolio/actions).
+> Historical development record: this document predates the first public commit. Earlier commit IDs and CI run numbers refer to private development evidence and are not publicly retrievable. For new runs, see the [public workflows](https://github.com/EricEremos/Yeoback/actions).
 
 Date: 2026-09-06
 Status: native iOS and Android private previews built and verified on simulator/emulator CI. No physical-device installation or store release claimed.

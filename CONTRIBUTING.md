@@ -1,6 +1,6 @@
 # Contributing
 
-This repository presents Yeoback as a public portfolio source snapshot. Keep changes focused on a concrete user outcome and preserve existing work.
+This is Yeoback's main development repository. Keep changes focused on a concrete user outcome and preserve existing work.
 
 1. Branch from `main` and describe the trigger, observed problem, and intended behavior.
 2. Read `AGENTS.md`, the [design foundation](docs/DESIGN-FOUNDATION.md), and the relevant [safety boundary](docs/github/SAFETY.md).
