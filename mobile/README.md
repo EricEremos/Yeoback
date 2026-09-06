@@ -23,6 +23,8 @@ The [mobile workflow](https://github.com/EricEremos/Yeoback/actions/workflows/mo
 
 For iOS, open `ios/Yeoback.xcodeproj` in Xcode with the iOS SDK installed. The checked-in project can be regenerated with `python3 ios/make-project.py`; `python3 ios/make-assets.py` regenerates named color assets from the brand palette. CI builds without code signing for an iPhone simulator. Physical-device signing is deliberately not configured with an invented Apple team.
 
+For your own iPhone, connect and unlock it, then accept its Trust prompt. In Xcode, sign in under Settings → Apple Accounts, select the Yeoback target → Signing & Capabilities, and choose your Personal Team with automatic signing enabled. Select the connected iPhone as the run destination and press Run. Enable Developer Mode on the phone if Xcode requests it. If the bundle identifier is unavailable, choose a unique identifier for your local installation. The project permits device signing; only CI explicitly disables it. A free Personal Team installation needs periodic rebuilding as its provisioning expires. The simulator ZIP cannot be installed on an iPhone through AirDrop. See Apple's [device setup instructions](https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices).
+
 For Android, see [native build instructions](android/README.md). The project pins its Gradle distribution and verifies its checksum. A JDK 17 and Android SDK 35 are required; CI supplies them without installing SDKs on the user's Mac.
 
 The iOS file engine also has a local macOS fixture smoke test, `zsh scripts/check-mobile-core.sh` from the repository root. This exercises real temporary-file scanning and removal but does not replace iOS permission or UI testing.

@@ -49,7 +49,7 @@ for name, kind, sources in [
         "PRODUCT_BUNDLE_IDENTIFIER": "app.yeoback.mobile" + ("" if kind == "application" else "." + name),
         "PRODUCT_NAME": "$(TARGET_NAME)", "SWIFT_VERSION": "5.0", "IPHONEOS_DEPLOYMENT_TARGET": "17.0",
         "TARGETED_DEVICE_FAMILY": "1,2", "GENERATE_INFOPLIST_FILE": "YES", "CODE_SIGN_STYLE": "Automatic",
-        "CODE_SIGNING_ALLOWED": "NO", "SUPPORTED_PLATFORMS": "iphoneos iphonesimulator", "SDKROOT": "iphoneos",
+        "SUPPORTED_PLATFORMS": "iphoneos iphonesimulator", "SDKROOT": "iphoneos",
     }
     if kind == "application":
         settings.update({"INFOPLIST_KEY_CFBundleDisplayName": "Yeoback", "INFOPLIST_KEY_UILaunchScreen_Generation": "YES",
