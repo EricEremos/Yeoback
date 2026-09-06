@@ -1,0 +1,910 @@
+{
+  "screens": [
+    {
+      "key": "G01",
+      "id": "37:327",
+      "captionId": "37:369",
+      "title": "Liquid navigation"
+    },
+    {
+      "key": "G04",
+      "id": "37:376",
+      "captionId": "37:418",
+      "title": "Aqua gel"
+    },
+    {
+      "key": "G06",
+      "id": "37:425",
+      "captionId": "37:466",
+      "title": "Smoked glass"
+    },
+    {
+      "key": "G02",
+      "id": "38:269",
+      "captionId": "38:311",
+      "title": "Frosted utility"
+    },
+    {
+      "key": "G03",
+      "id": "38:318",
+      "captionId": "38:356",
+      "title": "Acrylic flyout"
+    },
+    {
+      "key": "G05",
+      "id": "38:363",
+      "captionId": "38:405",
+      "title": "Aero horizon"
+    },
+    {
+      "key": "G07",
+      "id": "38:412",
+      "captionId": "38:458",
+      "title": "Prismatic edge"
+    },
+    {
+      "key": "G08",
+      "id": "38:465",
+      "captionId": "38:533",
+      "title": "Fluted glass"
+    },
+    {
+      "key": "G09",
+      "id": "38:540",
+      "captionId": "38:584",
+      "title": "Etched precision"
+    },
+    {
+      "key": "G10",
+      "id": "38:591",
+      "captionId": "38:629",
+      "title": "Floating crystal"
+    },
+    {
+      "key": "G11",
+      "id": "38:636",
+      "captionId": "38:673",
+      "title": "Bubble controls"
+    },
+    {
+      "key": "G12",
+      "id": "38:680",
+      "captionId": "38:730",
+      "title": "Stained accents"
+    },
+    {
+      "key": "G13",
+      "id": "38:737",
+      "captionId": "38:775",
+      "title": "Obsidian lens"
+    },
+    {
+      "key": "G14",
+      "id": "38:782",
+      "captionId": "38:822",
+      "title": "Mica calm"
+    },
+    {
+      "key": "G15",
+      "id": "38:829",
+      "captionId": "38:894",
+      "title": "Brushed studio"
+    },
+    {
+      "key": "G16",
+      "id": "38:901",
+      "captionId": "38:969",
+      "title": "Satin translucency"
+    },
+    {
+      "key": "R01",
+      "id": "38:976",
+      "captionId": "38:1081",
+      "title": "Macintosh monochrome"
+    },
+    {
+      "key": "R02",
+      "id": "38:1088",
+      "captionId": "38:1133",
+      "title": "Platinum desktop"
+    },
+    {
+      "key": "R03",
+      "id": "38:1140",
+      "captionId": "38:1173",
+      "title": "Windows 3.1 office"
+    },
+    {
+      "key": "R04",
+      "id": "38:1180",
+      "captionId": "38:1217",
+      "title": "Windows 95 utility"
+    },
+    {
+      "key": "R05",
+      "id": "38:1224",
+      "captionId": "38:1264",
+      "title": "XP optimistic"
+    },
+    {
+      "key": "R06",
+      "id": "38:1271",
+      "captionId": "38:1304",
+      "title": "Amiga workbench"
+    },
+    {
+      "key": "R07",
+      "id": "38:1311",
+      "captionId": "38:1351",
+      "title": "BeOS tabbed"
+    },
+    {
+      "key": "R08",
+      "id": "38:1358",
+      "captionId": "38:1397",
+      "title": "NeXT instrument"
+    },
+    {
+      "key": "R09",
+      "id": "38:1404",
+      "captionId": "38:1437",
+      "title": "OS/2 workspace"
+    },
+    {
+      "key": "R10",
+      "id": "38:1444",
+      "captionId": "38:1483",
+      "title": "CDE workstation"
+    },
+    {
+      "key": "R11",
+      "id": "38:1490",
+      "captionId": "38:1526",
+      "title": "IRIX violet"
+    },
+    {
+      "key": "R12",
+      "id": "38:1533",
+      "captionId": "38:1547",
+      "title": "Green phosphor"
+    },
+    {
+      "key": "R13",
+      "id": "38:1554",
+      "captionId": "38:1568",
+      "title": "Amber monitor"
+    },
+    {
+      "key": "R14",
+      "id": "38:1575",
+      "captionId": "38:1611",
+      "title": "DOS file manager"
+    },
+    {
+      "key": "R15",
+      "id": "38:1618",
+      "captionId": "38:1717",
+      "title": "Pocket LCD"
+    },
+    {
+      "key": "R16",
+      "id": "38:1724",
+      "captionId": "38:1819",
+      "title": "8-bit cartridge"
+    },
+    {
+      "key": "R17",
+      "id": "38:1826",
+      "captionId": "38:1865",
+      "title": "Arcade cabinet"
+    },
+    {
+      "key": "R18",
+      "id": "38:1872",
+      "captionId": "38:1886",
+      "title": "Teletext service"
+    },
+    {
+      "key": "R19",
+      "id": "38:1893",
+      "captionId": "38:1932",
+      "title": "Winamp microconsole"
+    },
+    {
+      "key": "R20",
+      "id": "38:1939",
+      "captionId": "38:1974",
+      "title": "Early personal web"
+    },
+    {
+      "key": "R21",
+      "id": "38:1981",
+      "captionId": "38:2016",
+      "title": "Y2K chrome portal"
+    },
+    {
+      "key": "R22",
+      "id": "38:2023",
+      "captionId": "38:2093",
+      "title": "Synthwave grid"
+    },
+    {
+      "key": "R23",
+      "id": "38:2100",
+      "captionId": "38:2171",
+      "title": "Vaporwave desktop"
+    },
+    {
+      "key": "R24",
+      "id": "38:2178",
+      "captionId": "38:2215",
+      "title": "Frutiger eco desktop"
+    },
+    {
+      "key": "P01",
+      "id": "38:2222",
+      "captionId": "38:2262",
+      "title": "Swiss ledger"
+    },
+    {
+      "key": "P02",
+      "id": "38:2269",
+      "captionId": "38:2312",
+      "title": "Bauhaus workshop"
+    },
+    {
+      "key": "P03",
+      "id": "38:2319",
+      "captionId": "38:2363",
+      "title": "De Stijl grid"
+    },
+    {
+      "key": "P04",
+      "id": "38:2370",
+      "captionId": "38:2413",
+      "title": "Constructivist signal"
+    },
+    {
+      "key": "P05",
+      "id": "38:2420",
+      "captionId": "38:2462",
+      "title": "Art Deco cabinet"
+    },
+    {
+      "key": "P06",
+      "id": "38:2469",
+      "captionId": "38:2506",
+      "title": "Art Nouveau folio"
+    },
+    {
+      "key": "P07",
+      "id": "38:2513",
+      "captionId": "38:2557",
+      "title": "Memphis desktop"
+    },
+    {
+      "key": "P08",
+      "id": "38:2564",
+      "captionId": "38:2607",
+      "title": "Psychedelic reserve"
+    },
+    {
+      "key": "P09",
+      "id": "38:2614",
+      "captionId": "38:2657",
+      "title": "Swiss New Wave"
+    },
+    {
+      "key": "P10",
+      "id": "38:2664",
+      "captionId": "38:2708",
+      "title": "Punk repair zine"
+    },
+    {
+      "key": "P11",
+      "id": "38:2715",
+      "captionId": "38:2763",
+      "title": "Risograph sheet"
+    },
+    {
+      "key": "P12",
+      "id": "38:2770",
+      "captionId": "38:2810",
+      "title": "Letterpress record"
+    },
+    {
+      "key": "P13",
+      "id": "38:2817",
+      "captionId": "38:2852",
+      "title": "Editorial journal"
+    },
+    {
+      "key": "P14",
+      "id": "38:2859",
+      "captionId": "38:2895",
+      "title": "Web brutalist tool"
+    },
+    {
+      "key": "P15",
+      "id": "38:2902",
+      "captionId": "38:2942",
+      "title": "Corporate manual"
+    },
+    {
+      "key": "P16",
+      "id": "38:2949",
+      "captionId": "38:2996",
+      "title": "Op Art field"
+    },
+    {
+      "key": "T01",
+      "id": "38:3003",
+      "captionId": "38:3043",
+      "title": "Soft clay"
+    },
+    {
+      "key": "T02",
+      "id": "38:3050",
+      "captionId": "38:3089",
+      "title": "Neumorphic console"
+    },
+    {
+      "key": "T03",
+      "id": "38:3096",
+      "captionId": "38:3137",
+      "title": "Cut-paper desk"
+    },
+    {
+      "key": "T04",
+      "id": "38:3144",
+      "captionId": "38:3184",
+      "title": "Sticker comic"
+    },
+    {
+      "key": "T05",
+      "id": "38:3191",
+      "captionId": "38:3231",
+      "title": "Kawaii helper"
+    },
+    {
+      "key": "T06",
+      "id": "38:3238",
+      "captionId": "38:3278",
+      "title": "Hand-drawn notebook"
+    },
+    {
+      "key": "T07",
+      "id": "38:3285",
+      "captionId": "38:3321",
+      "title": "Cel-shaded station"
+    },
+    {
+      "key": "T08",
+      "id": "38:3328",
+      "captionId": "38:3369",
+      "title": "Isometric workshop"
+    },
+    {
+      "key": "T09",
+      "id": "38:3376",
+      "captionId": "38:3444",
+      "title": "Leather archive"
+    },
+    {
+      "key": "T10",
+      "id": "38:3451",
+      "captionId": "38:3516",
+      "title": "Wood instrument"
+    },
+    {
+      "key": "T11",
+      "id": "38:3523",
+      "captionId": "38:3574",
+      "title": "Industrial service"
+    },
+    {
+      "key": "T12",
+      "id": "38:3581",
+      "captionId": "38:3621",
+      "title": "E-ink quiet"
+    },
+    {
+      "key": "T13",
+      "id": "38:3628",
+      "captionId": "38:3668",
+      "title": "Botanical care"
+    },
+    {
+      "key": "T14",
+      "id": "38:3675",
+      "captionId": "38:3716",
+      "title": "Solarpunk workshop"
+    },
+    {
+      "key": "T15",
+      "id": "38:3723",
+      "captionId": "38:3772",
+      "title": "Cyberpunk diagnostic"
+    },
+    {
+      "key": "T16",
+      "id": "38:3779",
+      "captionId": "38:3856",
+      "title": "Blueprint bench"
+    },
+    {
+      "key": "E01",
+      "id": "50:415",
+      "captionId": "50:450",
+      "title": "Arts & Crafts folio"
+    },
+    {
+      "key": "E02",
+      "id": "51:415",
+      "captionId": "51:449",
+      "title": "Woodblock landscape"
+    },
+    {
+      "key": "E03",
+      "id": "51:460",
+      "captionId": "51:489",
+      "title": "Suprematist reserve"
+    },
+    {
+      "key": "E04",
+      "id": "51:500",
+      "captionId": "51:536",
+      "title": "Dada repair desk"
+    },
+    {
+      "key": "E05",
+      "id": "51:547",
+      "captionId": "51:594",
+      "title": "Frasurbane study"
+    },
+    {
+      "key": "E06",
+      "id": "51:605",
+      "captionId": "51:637",
+      "title": "Utopian learning desk"
+    },
+    {
+      "key": "E07",
+      "id": "51:648",
+      "captionId": "51:691",
+      "title": "Cassette reserve deck"
+    },
+    {
+      "key": "E08",
+      "id": "51:702",
+      "captionId": "51:733",
+      "title": "Vectorheart signal"
+    },
+    {
+      "key": "E09",
+      "id": "51:744",
+      "captionId": "51:774",
+      "title": "Gen X city pause"
+    },
+    {
+      "key": "E10",
+      "id": "51:785",
+      "captionId": "51:813",
+      "title": "Type specimen utility"
+    },
+    {
+      "key": "E11",
+      "id": "51:824",
+      "captionId": "51:853",
+      "title": "Overprint workshop"
+    },
+    {
+      "key": "E12",
+      "id": "51:864",
+      "captionId": "51:911",
+      "title": "Engraved inventory"
+    },
+    {
+      "key": "E13",
+      "id": "51:922",
+      "captionId": "51:944",
+      "title": "Chrome ribbon"
+    },
+    {
+      "key": "E14",
+      "id": "51:955",
+      "captionId": "51:977",
+      "title": "Holographic foil"
+    },
+    {
+      "key": "E15",
+      "id": "51:988",
+      "captionId": "51:1018",
+      "title": "Aurora focus"
+    },
+    {
+      "key": "E16",
+      "id": "51:1029",
+      "captionId": "51:1056",
+      "title": "Jelly category tiles"
+    },
+    {
+      "key": "E17",
+      "id": "51:1067",
+      "captionId": "51:1110",
+      "title": "Porcelain instrument"
+    },
+    {
+      "key": "E18",
+      "id": "51:1121",
+      "captionId": "51:1151",
+      "title": "Darkroom layers"
+    },
+    {
+      "key": "E19",
+      "id": "51:1162",
+      "captionId": "51:1196",
+      "title": "Low-poly landscape"
+    },
+    {
+      "key": "E20",
+      "id": "51:1207",
+      "captionId": "51:1242",
+      "title": "Wireframe lens"
+    },
+    {
+      "key": "E21",
+      "id": "51:1253",
+      "captionId": "51:1293",
+      "title": "Monolithic stone"
+    },
+    {
+      "key": "E22",
+      "id": "51:1304",
+      "captionId": "51:1351",
+      "title": "Glass evidence ledger"
+    },
+    {
+      "key": "E23",
+      "id": "51:1362",
+      "captionId": "51:1389",
+      "title": "Prismatic action dock"
+    },
+    {
+      "key": "E24",
+      "id": "51:1400",
+      "captionId": "51:1427",
+      "title": "Quiet focus capsules"
+    },
+    {
+      "key": "X01",
+      "id": "57:463",
+      "captionId": "57:492",
+      "title": "Transit interchange"
+    },
+    {
+      "key": "X02",
+      "id": "59:465",
+      "captionId": "59:495",
+      "title": "Departure board"
+    },
+    {
+      "key": "X03",
+      "id": "59:508",
+      "captionId": "59:536",
+      "title": "Harbor signal"
+    },
+    {
+      "key": "X04",
+      "id": "59:549",
+      "captionId": "59:589",
+      "title": "Symbol census"
+    },
+    {
+      "key": "X05",
+      "id": "59:602",
+      "captionId": "59:633",
+      "title": "Library drawer"
+    },
+    {
+      "key": "X06",
+      "id": "59:646",
+      "captionId": "59:675",
+      "title": "Microfiche reader"
+    },
+    {
+      "key": "X07",
+      "id": "59:688",
+      "captionId": "59:728",
+      "title": "Punch-card manifest"
+    },
+    {
+      "key": "X08",
+      "id": "59:741",
+      "captionId": "59:771",
+      "title": "Mechanical counter"
+    },
+    {
+      "key": "X09",
+      "id": "59:784",
+      "captionId": "59:818",
+      "title": "Rinpa folding reserve"
+    },
+    {
+      "key": "X10",
+      "id": "59:831",
+      "captionId": "59:860",
+      "title": "Precisionist silos"
+    },
+    {
+      "key": "X11",
+      "id": "59:873",
+      "captionId": "59:905",
+      "title": "Orphic orbit"
+    },
+    {
+      "key": "X12",
+      "id": "59:918",
+      "captionId": "59:943",
+      "title": "Modernist floorplan"
+    },
+    {
+      "key": "X13",
+      "id": "59:956",
+      "captionId": "59:984",
+      "title": "Postmodern portico"
+    },
+    {
+      "key": "X14",
+      "id": "59:997",
+      "captionId": "59:1018",
+      "title": "Museum label wall"
+    },
+    {
+      "key": "X15",
+      "id": "59:1031",
+      "captionId": "59:1052",
+      "title": "Concrete word field"
+    },
+    {
+      "key": "X16",
+      "id": "59:1065",
+      "captionId": "59:1096",
+      "title": "Scientific specimen plate"
+    },
+    {
+      "key": "X17",
+      "id": "57:505",
+      "captionId": "57:525",
+      "title": "Nested area atlas"
+    },
+    {
+      "key": "X18",
+      "id": "59:1109",
+      "captionId": "59:1129",
+      "title": "Icicle directory"
+    },
+    {
+      "key": "X19",
+      "id": "59:1142",
+      "captionId": "59:1162",
+      "title": "Candidate flow"
+    },
+    {
+      "key": "X20",
+      "id": "59:1175",
+      "captionId": "59:1205",
+      "title": "Reserve waterfall"
+    },
+    {
+      "key": "X21",
+      "id": "59:1218",
+      "captionId": "59:1250",
+      "title": "Lollipop ranking"
+    },
+    {
+      "key": "X22",
+      "id": "59:1263",
+      "captionId": "59:1290",
+      "title": "Target bullet instrument"
+    },
+    {
+      "key": "X23",
+      "id": "59:1303",
+      "captionId": "59:1462",
+      "title": "Reserve mosaic"
+    },
+    {
+      "key": "X24",
+      "id": "59:1475",
+      "captionId": "59:1497",
+      "title": "Radial directory"
+    },
+    {
+      "key": "X25",
+      "id": "59:1510",
+      "captionId": "59:1534",
+      "title": "Review lanes"
+    },
+    {
+      "key": "X26",
+      "id": "59:1547",
+      "captionId": "59:1571",
+      "title": "Disclosure dossier"
+    },
+    {
+      "key": "X27",
+      "id": "59:1584",
+      "captionId": "59:1607",
+      "title": "Column trail"
+    },
+    {
+      "key": "X28",
+      "id": "59:1620",
+      "captionId": "59:1647",
+      "title": "Focused checkpoint"
+    },
+    {
+      "key": "X29",
+      "id": "59:1660",
+      "captionId": "59:1683",
+      "title": "Before / possible"
+    },
+    {
+      "key": "X30",
+      "id": "59:1696",
+      "captionId": "59:1722",
+      "title": "Review itinerary"
+    },
+    {
+      "key": "X31",
+      "id": "59:1735",
+      "captionId": "59:1767",
+      "title": "Evidence matrix"
+    },
+    {
+      "key": "X32",
+      "id": "59:1780",
+      "captionId": "59:1809",
+      "title": "Expandable outline"
+    },
+    {
+      "key": "X33",
+      "id": "57:538",
+      "captionId": "57:567",
+      "title": "Optical loupe"
+    },
+    {
+      "key": "X34",
+      "id": "59:1822",
+      "captionId": "59:1853",
+      "title": "Glass light table"
+    },
+    {
+      "key": "X35",
+      "id": "59:1866",
+      "captionId": "59:1886",
+      "title": "Cut-crystal aperture"
+    },
+    {
+      "key": "X36",
+      "id": "59:1899",
+      "captionId": "59:1948",
+      "title": "Lenticular rail"
+    },
+    {
+      "key": "X37",
+      "id": "59:1961",
+      "captionId": "59:1989",
+      "title": "Folded review steps"
+    },
+    {
+      "key": "X38",
+      "id": "59:2002",
+      "captionId": "59:2035",
+      "title": "Woven evidence ledger"
+    }
+  ],
+  "updated": "2026-09-05",
+  "fileKey": "olCrS1PxKWJjMiVlGbC3zR",
+  "status": "150 editable explorations verified; design selection pending",
+  "navigation": {
+    "hub": "43:3602",
+    "comparison_sheets": {
+      "G": "43:342",
+      "R": "43:1090",
+      "P": "43:2175",
+      "T": "43:2851",
+      "E": "52:434",
+      "X": "61:496"
+    }
+  },
+  "counts": {
+    "new_studies": 134,
+    "rationale_panels": 134,
+    "catalogue_boards": 31,
+    "catalogue_cards": 738,
+    "analysis_boards": 8,
+    "analyses": 32,
+    "research_briefs": 4,
+    "total_explorations": 150
+  },
+  "verification": {
+    "preserved_original_frames": 23,
+    "missing_original_frames": 0,
+    "source_links": 834,
+    "comparison_sheets_visually_inspected": 5,
+    "text_bounds_check": "No text outside immediate parent across new study/rationale/research boards",
+    "contrast_corrections": [
+      "G01",
+      "G06",
+      "R03",
+      "T16"
+    ],
+    "final_navigation_opened": true
+  },
+  "wave2": {
+    "count": 24,
+    "comparison": "52:434",
+    "text_nodes": 568,
+    "source_links": 24,
+    "primary_instances": 24,
+    "auto_layout_containers": 63,
+    "text_overflow": 0,
+    "verification": {
+      "screens": 24,
+      "text": 568,
+      "links": 24,
+      "instances": 24,
+      "layouts": 63,
+      "overflow": [],
+      "originalPreserved": 23,
+      "missing": [],
+      "comparisonFrames": 24,
+      "comparisonLinks": 24,
+      "pages": [
+        {
+          "id": "0:1",
+          "name": "Cleanup / Product & Components"
+        },
+        {
+          "id": "19:266",
+          "name": "Style Lab / Choose a direction"
+        }
+      ]
+    }
+  },
+  "wave3": {
+    "count": 38,
+    "comparison": "61:496",
+    "text_nodes": 598,
+    "source_links": 38,
+    "primary_instances": 38
+  },
+  "wave3_verification": {
+    "checked": "2026-09-05",
+    "total_explorations": 150,
+    "study_frames": 134,
+    "original_concepts": 16,
+    "rationales": 134,
+    "new_screens": 38,
+    "new_source_links": 38,
+    "new_shared_instances": 38,
+    "new_screen_overflow": [],
+    "new_rationale_overflow": [],
+    "comparison_frames": 38,
+    "comparison_links": 38,
+    "original_frames_preserved": 23,
+    "original_pages_preserved": 2,
+    "gallery_cards": 134,
+    "gallery_images": 68,
+    "valid_png_responses": 68,
+    "desktop_width": 1440,
+    "narrow_width": 390,
+    "horizontal_overflow": false,
+    "canonical_comparator_names_verified": true,
+    "generator_syntax": "pass",
+    "renderer": "pass",
+    "learning_report": "WAVE3-DESIGN-LEARNING.md"
+  }
+}

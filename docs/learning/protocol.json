@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-09-05T09:40:56.016904+00:00",
+  "phase": "prospective-before-full-150-analysis",
+  "outcome": "Analyze every existing exploration and consolidate bounded reusable design knowledge; preserve unselected product direction.",
+  "predictions": [
+    {
+      "id": "P1",
+      "claim": "At least half of the 150 studies will offer a reusable material, typography or composition ingredient but insufficient evidence to adopt their complete screen as the main Cleanup interface.",
+      "probability": 0.85,
+      "test": "Count analysis dispositions other than shell candidate after individual review."
+    },
+    {
+      "id": "P2",
+      "claim": "All eight X17\u2013X24 quantitative displays need an explicit denominator or scale and a textual value alternative.",
+      "probability": 0.95,
+      "test": "Inspect each encoding and specify its denominator, exact-value route and failure case."
+    },
+    {
+      "id": "P3",
+      "claim": "The 16 glass studies express fewer than 16 distinct interaction structures.",
+      "probability": 0.95,
+      "test": "Compare recorded layouts and rendered collection; count unique structural layouts separately from material recipes."
+    }
+  ],
+  "transfer_protocol": {
+    "new_cases": [
+      "Backup restore planner with overlapping file versions and irreversible replacement",
+      "Cloud cost dashboard with an uncertain month-end estimate",
+      "Photo-library duplicate review with similar but nonidentical images"
+    ],
+    "acceptance": [
+      "Separate observed, estimated and target states",
+      "Choose visual form by decision task",
+      "Keep consequence and permission visible",
+      "Identify a counterexample and correction"
+    ],
+    "limit": "Author self-check only; same-context reconstruction is not blinded or delayed memory evidence."
+  },
+  "stop": "150 individual records, bounded synthesis, counterexample/transfer records, rendered searchable reader, and scoped Wiki capture verified."
+}

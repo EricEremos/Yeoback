@@ -1,0 +1,6 @@
+# Astral uv 0.12.8, MIT OR Apache-2.0; upstream commit
+# 68209e5c61ce4b76c2e685bea7913876bc929dc9. macOS wheels only.
+# https://pypi.org/project/uv/0.12.8/
+uv==0.12.8 \
+    --hash=sha256:842e27b85ec85c32369919b6dc72a4ae0c737b4376165d34a6ebb8329ce9d744 \
+    --hash=sha256:edfb42bc830b4c473653ed5470ac4d967ae2cd40c1b7409ec4c7c8b655d04235

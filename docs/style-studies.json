@@ -1,0 +1,2670 @@
+{
+  "checked": "2026-09-05",
+  "status": "134 focused studies plus 16 original concepts; 150 total visual explorations. New X studies have individual composition, difference and learning records.",
+  "studies": [
+    {
+      "id": "G01",
+      "name": "Liquid navigation",
+      "group": "Glass & materials",
+      "classes": "glass liquid",
+      "palette": "lavender",
+      "layout": "sidebar",
+      "influence": "Liquid Glass",
+      "principle": "Floating control chrome over an opaque file review surface.",
+      "boundary": "Keep glass in navigation; this static study does not implement native refraction.",
+      "source": {
+        "url": "https://developer.apple.com/videos/play/wwdc2025/219/",
+        "label": "Apple \u00b7 Meet Liquid Glass",
+        "evidence": "Primary vendor transcript; static approximation here"
+      }
+    },
+    {
+      "id": "G02",
+      "name": "Frosted utility",
+      "group": "Glass & materials",
+      "classes": "glass frost",
+      "palette": "ice",
+      "layout": "sidebar",
+      "influence": "Glassmorphism",
+      "principle": "A dense frost softens the backdrop while labels stay dark.",
+      "boundary": "Check every backdrop; blur alone cannot guarantee contrast.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Glassmorphism",
+        "label": "IndexStyle \u00b7 Glassmorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G03",
+      "name": "Acrylic flyout",
+      "group": "Glass & materials",
+      "classes": "glass acrylic",
+      "palette": "blue",
+      "layout": "split",
+      "influence": "Acrylic",
+      "principle": "A translucent peripheral panel beside a stable content sheet.",
+      "boundary": "Use Acrylic as a transient surface in its source platform, not an all-window prescription.",
+      "source": {
+        "url": "https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/materials",
+        "label": "Microsoft \u00b7 Materials",
+        "evidence": "Primary vendor guidance"
+      }
+    },
+    {
+      "id": "G04",
+      "name": "Aqua gel",
+      "group": "Glass & materials",
+      "classes": "gloss aqua",
+      "palette": "ice",
+      "layout": "sidebar",
+      "influence": "Aqua",
+      "principle": "Glossy blue gel controls and fine pinstripes make actions feel dimensional.",
+      "boundary": "Reserve shine for controls; avoid reflections across filenames.",
+      "source": {
+        "url": "https://www.apple.com/newsroom/2000/01/05Apple-Unveils-Mac-OS-X/",
+        "label": "Apple \u00b7 Aqua introduction, 2000",
+        "evidence": "Primary historical announcement"
+      }
+    },
+    {
+      "id": "G05",
+      "name": "Aero horizon",
+      "group": "Glass & materials",
+      "classes": "glass aero",
+      "palette": "sky",
+      "layout": "sidebar",
+      "influence": "Aero",
+      "principle": "A glowing glass frame surrounds a quiet white file area.",
+      "boundary": "Treat the historical window effect as inspiration, not a current macOS convention.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=17#:~:text=Aero",
+        "label": "IndexStyle \u00b7 Aero",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G06",
+      "name": "Smoked glass",
+      "group": "Glass & materials",
+      "classes": "glass smoke",
+      "palette": "night",
+      "layout": "instrument",
+      "influence": "Glassmorphism",
+      "principle": "Dark smoked panels let a single reserve figure lead.",
+      "boundary": "Dark glass still needs a solid fallback and visible boundaries.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Glassmorphism",
+        "label": "IndexStyle \u00b7 Glassmorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G07",
+      "name": "Prismatic edge",
+      "group": "Glass & materials",
+      "classes": "glass prism",
+      "palette": "pearl",
+      "layout": "split",
+      "influence": "Glassmorphism",
+      "principle": "Spectral edge highlights define a mostly neutral pane.",
+      "boundary": "Iridescence must remain decoration, never encode cleanup risk.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Glassmorphism",
+        "label": "IndexStyle \u00b7 Glassmorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G08",
+      "name": "Fluted glass",
+      "group": "Glass & materials",
+      "classes": "glass fluted",
+      "palette": "sage",
+      "layout": "sidebar",
+      "influence": "Venetian Glass",
+      "principle": "Vertical ribs sit behind a flat, legible review panel.",
+      "boundary": "Ribbed glass is an authored material translation, not an established UI system.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=22#:~:text=Venetian%20Glass",
+        "label": "IndexStyle \u00b7 Venetian Glass",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G09",
+      "name": "Etched precision",
+      "group": "Glass & materials",
+      "classes": "glass etched",
+      "palette": "ice",
+      "layout": "instrument",
+      "influence": "Glassmorphism",
+      "principle": "Fine registration marks and thin borders give the surface an engraved character.",
+      "boundary": "Keep decorative ticks separate from quantitative scales.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Glassmorphism",
+        "label": "IndexStyle \u00b7 Glassmorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G10",
+      "name": "Floating crystal",
+      "group": "Glass & materials",
+      "classes": "glass crystal",
+      "palette": "lavender",
+      "layout": "split",
+      "influence": "Glassmorphism",
+      "principle": "A strongly cut edge makes the app feel like one floating slab.",
+      "boundary": "Large edge highlights consume space; keep the review sheet spacious.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Glassmorphism",
+        "label": "IndexStyle \u00b7 Glassmorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G11",
+      "name": "Bubble controls",
+      "group": "Glass & materials",
+      "classes": "glass bubble",
+      "palette": "peach",
+      "layout": "poster",
+      "influence": "Aqua",
+      "principle": "Rounded gel-like control forms create a softer, playful glass direction.",
+      "boundary": "Do not turn destructive actions into toy-like rewards.",
+      "source": {
+        "url": "https://www.apple.com/newsroom/2000/01/05Apple-Unveils-Mac-OS-X/",
+        "label": "Apple \u00b7 Aqua introduction, 2000",
+        "evidence": "Primary historical announcement"
+      }
+    },
+    {
+      "id": "G12",
+      "name": "Stained accents",
+      "group": "Glass & materials",
+      "classes": "glass stained",
+      "palette": "cream",
+      "layout": "sidebar",
+      "influence": "Stained Glass",
+      "principle": "Colored geometric panes frame a neutral operational center.",
+      "boundary": "The color blocks are ornament, not file-category measurements.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=3#:~:text=Stained%20Glass",
+        "label": "IndexStyle \u00b7 Stained Glass",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G13",
+      "name": "Obsidian lens",
+      "group": "Glass & materials",
+      "classes": "glass obsidian",
+      "palette": "night",
+      "layout": "split",
+      "influence": "Liquid Glass",
+      "principle": "One dark lens-shaped control rail sits above an opaque instrument.",
+      "boundary": "Authored dark study; real Apple material behavior must use native components.",
+      "source": {
+        "url": "https://developer.apple.com/videos/play/wwdc2025/219/",
+        "label": "Apple \u00b7 Meet Liquid Glass",
+        "evidence": "Primary vendor transcript; static approximation here"
+      }
+    },
+    {
+      "id": "G14",
+      "name": "Mica calm",
+      "group": "Glass & materials",
+      "classes": "mica",
+      "palette": "lavender",
+      "layout": "sidebar",
+      "influence": "Mica",
+      "principle": "A quiet opaque tint brings desktop atmosphere into the window.",
+      "boundary": "Mica is opaque; do not describe this as frosted transparency.",
+      "source": {
+        "url": "https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/materials",
+        "label": "Microsoft \u00b7 Materials",
+        "evidence": "Primary vendor guidance"
+      }
+    },
+    {
+      "id": "G15",
+      "name": "Brushed studio",
+      "group": "Glass & materials",
+      "classes": "metal brushed",
+      "palette": "silver",
+      "layout": "instrument",
+      "influence": "Skeuomorphism",
+      "principle": "Machined gradients and inset controls suggest a physical utility panel.",
+      "boundary": "Texture must not reduce text contrast or imply nonexistent hardware controls.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Skeuomorphism",
+        "label": "IndexStyle \u00b7 Skeuomorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "G16",
+      "name": "Satin translucency",
+      "group": "Glass & materials",
+      "classes": "glass satin",
+      "palette": "sage",
+      "layout": "sidebar",
+      "influence": "Glassmorphism",
+      "principle": "A warm matte edge with low-chroma translucency feels restrained.",
+      "boundary": "An original finish study; use a fully opaque file table.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Glassmorphism",
+        "label": "IndexStyle \u00b7 Glassmorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R01",
+      "name": "Macintosh monochrome",
+      "group": "Retro interfaces",
+      "classes": "retro macmono",
+      "palette": "mono",
+      "layout": "sidebar",
+      "influence": "System 1.1",
+      "principle": "One-bit texture, striped title chrome and strict rectangles.",
+      "boundary": "Borrow the hierarchy; production controls need modern hit targets.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=System%201.1",
+        "label": "GUIdebook \u00b7 System 1.1",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R02",
+      "name": "Platinum desktop",
+      "group": "Retro interfaces",
+      "classes": "retro platinum",
+      "palette": "silver",
+      "layout": "sidebar",
+      "influence": "Mac OS 8.0",
+      "principle": "Beveled neutral controls and a small ordered desktop vocabulary.",
+      "boundary": "A nostalgic shell must still support current keyboard and accessibility conventions.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=Mac%20OS%208.0",
+        "label": "GUIdebook \u00b7 Mac OS 8.0",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R03",
+      "name": "Windows 3.1 office",
+      "group": "Retro interfaces",
+      "classes": "retro win31",
+      "palette": "silver",
+      "layout": "split",
+      "influence": "Windows 3.1",
+      "principle": "A dark title strip and hard-edged panels emphasize explicit grouping.",
+      "boundary": "Do not reproduce tiny legacy typography in the shipped product.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=Windows%203.1",
+        "label": "GUIdebook \u00b7 Windows 3.1",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R04",
+      "name": "Windows 95 utility",
+      "group": "Retro interfaces",
+      "classes": "retro win95",
+      "palette": "teal",
+      "layout": "sidebar",
+      "influence": "Windows 95",
+      "principle": "Teal desktop, raised grey controls and navy active title chrome.",
+      "boundary": "Historical appearance is separate from modern deletion recovery.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=Windows%2095",
+        "label": "GUIdebook \u00b7 Windows 95",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R05",
+      "name": "XP optimistic",
+      "group": "Retro interfaces",
+      "classes": "retro xp",
+      "palette": "sky",
+      "layout": "sidebar",
+      "influence": "Windows XP Pro",
+      "principle": "Saturated curved title chrome creates an optimistic consumer tone.",
+      "boundary": "Keep the file review area quieter than the nostalgic frame.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=Windows%20XP%20Pro",
+        "label": "GUIdebook \u00b7 Windows XP Pro",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R06",
+      "name": "Amiga workbench",
+      "group": "Retro interfaces",
+      "classes": "retro amiga",
+      "palette": "blue",
+      "layout": "split",
+      "influence": "Workbench 1.0",
+      "principle": "Orange-blue contrast and crisp rectangular blocks make state conspicuous.",
+      "boundary": "A visual quotation needs restrained color use for warning semantics.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=Workbench%201.0",
+        "label": "GUIdebook \u00b7 Workbench 1.0",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R07",
+      "name": "BeOS tabbed",
+      "group": "Retro interfaces",
+      "classes": "retro beos",
+      "palette": "cream",
+      "layout": "sidebar",
+      "influence": "BeOS R5.0.1 PE",
+      "principle": "A compact yellow title tab breaks the full-width window convention.",
+      "boundary": "The study borrows a silhouette; modern window management remains native.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=BeOS%20R5.0.1%20PE",
+        "label": "GUIdebook \u00b7 BeOS R5.0.1 PE",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R08",
+      "name": "NeXT instrument",
+      "group": "Retro interfaces",
+      "classes": "retro next",
+      "palette": "silver",
+      "layout": "instrument",
+      "influence": "OPENSTEP 4.2",
+      "principle": "Dark title chrome and grey sculpted controls feel like workstation tools.",
+      "boundary": "Do not let heavy chrome crowd long paths.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=OPENSTEP%204.2",
+        "label": "GUIdebook \u00b7 OPENSTEP 4.2",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R09",
+      "name": "OS/2 workspace",
+      "group": "Retro interfaces",
+      "classes": "retro os2",
+      "palette": "blue",
+      "layout": "split",
+      "influence": "OS/2 Warp 3",
+      "principle": "Square panels and a technical blue desktop favor explicit inspection.",
+      "boundary": "This is an original layout influenced by archived screenshots.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=OS%2F2%20Warp%203",
+        "label": "GUIdebook \u00b7 OS/2 Warp 3",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "CDE workstation",
+      "group": "Retro interfaces",
+      "classes": "retro cde",
+      "palette": "sand",
+      "layout": "instrument",
+      "influence": "CDE 1.5 in Solaris 9",
+      "principle": "A muted colored workspace and framed control dock suggest a UNIX station.",
+      "boundary": "Decorative dock items must not masquerade as working controls.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=CDE%201.5%20in%20Solaris%209",
+        "label": "GUIdebook \u00b7 CDE 1.5 in Solaris 9",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R11",
+      "name": "IRIX violet",
+      "group": "Retro interfaces",
+      "classes": "retro irix",
+      "palette": "lavender",
+      "layout": "split",
+      "influence": "IRIX 5.3",
+      "principle": "Violet-grey frames and inset panels establish a distinct workstation mood.",
+      "boundary": "Modern text metrics should replace historical compact sizing.",
+      "source": {
+        "url": "https://guidebookgallery.org/screenshots/firstrun/#:~:text=IRIX%205.3",
+        "label": "GUIdebook \u00b7 IRIX 5.3",
+        "evidence": "Archived GUI screenshots; original adaptation, not exact reproduction"
+      }
+    },
+    {
+      "id": "R12",
+      "name": "Green phosphor",
+      "group": "Retro interfaces",
+      "classes": "terminal phosphor",
+      "palette": "green",
+      "layout": "terminal",
+      "influence": "Terminal",
+      "principle": "Monospaced bright text and spare rules make the view read like an audit console.",
+      "boundary": "Provide full names and outcomes instead of requiring command knowledge.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=14#:~:text=Terminal%20UI",
+        "label": "IndexStyle \u00b7 Terminal UI",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R13",
+      "name": "Amber monitor",
+      "group": "Retro interfaces",
+      "classes": "terminal amber",
+      "palette": "amber",
+      "layout": "terminal",
+      "influence": "Terminal",
+      "principle": "Warm amber phosphor gives the same audit flow a quieter terminal tone.",
+      "boundary": "This is a palette/material variant of terminal design, not another philosophy.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=14#:~:text=Terminal%20UI",
+        "label": "IndexStyle \u00b7 Terminal UI",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R14",
+      "name": "DOS file manager",
+      "group": "Retro interfaces",
+      "classes": "terminal dos",
+      "palette": "blue",
+      "layout": "split",
+      "influence": "Terminal",
+      "principle": "Paired blue panes put category and inspection content in parallel.",
+      "boundary": "Navigation shortcuts must supplement a discoverable pointer interface.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=14#:~:text=Terminal%20UI",
+        "label": "IndexStyle \u00b7 Terminal UI",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R15",
+      "name": "Pocket LCD",
+      "group": "Retro interfaces",
+      "classes": "retro lcd",
+      "palette": "green",
+      "layout": "instrument",
+      "influence": "Pixel Art",
+      "principle": "A monochrome LCD and stepped blocks evoke an early handheld instrument.",
+      "boundary": "Avoid gamifying risky deletion or hiding exact byte totals.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=4#:~:text=Pixel%20Art",
+        "label": "IndexStyle \u00b7 Pixel Art",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R16",
+      "name": "8-bit cartridge",
+      "group": "Retro interfaces",
+      "classes": "retro pixel",
+      "palette": "cream",
+      "layout": "poster",
+      "influence": "Pixel Art",
+      "principle": "Pixel edges and large block numerals give the status an arcade-like identity.",
+      "boundary": "Keep pixel decoration out of long filenames and accessibility text.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=4#:~:text=Pixel%20Art",
+        "label": "IndexStyle \u00b7 Pixel Art",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R17",
+      "name": "Arcade cabinet",
+      "group": "Retro interfaces",
+      "classes": "retro arcade",
+      "palette": "night",
+      "layout": "instrument",
+      "influence": "Pixel Art",
+      "principle": "A hard bezel, bright accent and score-like figure turn storage into a control display.",
+      "boundary": "The reserve figure is a measurement, not a game score.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=4#:~:text=Pixel%20Art",
+        "label": "IndexStyle \u00b7 Pixel Art",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R18",
+      "name": "Teletext service",
+      "group": "Retro interfaces",
+      "classes": "terminal teletext",
+      "palette": "night",
+      "layout": "terminal",
+      "influence": "Teletext",
+      "principle": "Chunked primary-color strips and fixed-grid text feel like a broadcast information page.",
+      "boundary": "Use explicit labels; blocks of color cannot carry meaning alone.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=14#:~:text=Teletext%20Art",
+        "label": "IndexStyle \u00b7 Teletext Art",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R19",
+      "name": "Winamp microconsole",
+      "group": "Retro interfaces",
+      "classes": "retro player",
+      "palette": "night",
+      "layout": "instrument",
+      "influence": "Webamp",
+      "principle": "Compact display windows, metallic rails and tiny meter motifs evoke a media utility.",
+      "boundary": "The miniature meters are decorative; full review details remain necessary.",
+      "source": {
+        "url": "https://github.com/captbaritone/webamp",
+        "label": "Webamp \u00b7 Winamp browser reimplementation",
+        "evidence": "Primary project; reference only, no code installed"
+      }
+    },
+    {
+      "id": "R20",
+      "name": "Early personal web",
+      "group": "Retro interfaces",
+      "classes": "retro earlyweb",
+      "palette": "cream",
+      "layout": "poster",
+      "influence": "Early Web",
+      "principle": "Underlined links, inset boxes and a conspicuous title feel intentionally handmade.",
+      "boundary": "A nostalgic link vocabulary still needs clear action hierarchy.",
+      "source": {
+        "url": "https://info.cern.ch/hypertext/WWW/TheProject.html",
+        "label": "CERN \u00b7 Preserved early web page",
+        "evidence": "Historical web artifact"
+      }
+    },
+    {
+      "id": "R21",
+      "name": "Y2K chrome portal",
+      "group": "Retro interfaces",
+      "classes": "metal y2k",
+      "palette": "silver",
+      "layout": "poster",
+      "influence": "Y2K",
+      "principle": "Reflective chrome, capsule shapes and orbiting lines suggest a digital future.",
+      "boundary": "Chrome is an accent; do not reflect over destructive-action text.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Y2K",
+        "label": "IndexStyle \u00b7 Y2K",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R22",
+      "name": "Synthwave grid",
+      "group": "Retro interfaces",
+      "classes": "retro synth",
+      "palette": "night",
+      "layout": "poster",
+      "influence": "Laser Grid",
+      "principle": "A horizon grid and luminous sunset frame a centered reserve readout.",
+      "boundary": "The background grid is decorative and carries no storage scale.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/laser-grid",
+        "label": "CARI \u00b7 Laser Grid",
+        "evidence": "Curated secondary visual history"
+      }
+    },
+    {
+      "id": "R23",
+      "name": "Vaporwave desktop",
+      "group": "Retro interfaces",
+      "classes": "retro vapor",
+      "palette": "lavender",
+      "layout": "split",
+      "influence": "Vaporwave",
+      "principle": "Pastel gradients and a classical-window fragment create digital nostalgia.",
+      "boundary": "An authored collage treatment; not a claim that all vaporwave follows one formula.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Vaporwave",
+        "label": "IndexStyle \u00b7 Vaporwave",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "R24",
+      "name": "Frutiger eco desktop",
+      "group": "Retro interfaces",
+      "classes": "gloss frutiger",
+      "palette": "sky",
+      "layout": "poster",
+      "influence": "Frutiger Aero",
+      "principle": "Glossy controls, sky-like space and green terrain motifs suggest optimistic computing.",
+      "boundary": "Environmental imagery must not imply verified ecological benefits.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/frutiger-aero",
+        "label": "CARI \u00b7 Frutiger Aero",
+        "evidence": "Curated secondary visual history"
+      }
+    },
+    {
+      "id": "P01",
+      "name": "Swiss ledger",
+      "group": "Graphic traditions",
+      "classes": "graphic swiss",
+      "palette": "cream",
+      "layout": "sidebar",
+      "influence": "Swiss",
+      "principle": "Asymmetric typography, strict alignment and one red signal sharpen the review hierarchy.",
+      "boundary": "Minimal presentation must retain reasons and recovery guidance.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Swiss",
+        "label": "IndexStyle \u00b7 Swiss",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P02",
+      "name": "Bauhaus workshop",
+      "group": "Graphic traditions",
+      "classes": "graphic bauhaus",
+      "palette": "cream",
+      "layout": "poster",
+      "influence": "Bauhaus",
+      "principle": "Circle, triangle and bar compose a functional geometric identity.",
+      "boundary": "Geometry is an authored translation, not the whole Bauhaus philosophy.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Bauhaus",
+        "label": "IndexStyle \u00b7 Bauhaus",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P03",
+      "name": "De Stijl grid",
+      "group": "Graphic traditions",
+      "classes": "graphic destijl",
+      "palette": "mono",
+      "layout": "split",
+      "influence": "De Stijl",
+      "principle": "Black structural lines and primary-color planes define compartments.",
+      "boundary": "Decorative rectangles must not be mistaken for a treemap.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=3#:~:text=De%20Stijl",
+        "label": "IndexStyle \u00b7 De Stijl",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P04",
+      "name": "Constructivist signal",
+      "group": "Graphic traditions",
+      "classes": "graphic construct",
+      "palette": "cream",
+      "layout": "poster",
+      "influence": "Constructivism",
+      "principle": "Diagonal red interruption gives the reserve warning strong urgency.",
+      "boundary": "Do not make routine maintenance look like a crisis.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Constructivism",
+        "label": "IndexStyle \u00b7 Constructivism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P05",
+      "name": "Art Deco cabinet",
+      "group": "Graphic traditions",
+      "classes": "graphic deco",
+      "palette": "night",
+      "layout": "instrument",
+      "influence": "Art Deco",
+      "principle": "Stepped ornament and gold rules give the utility a precise ceremonial character.",
+      "boundary": "Gold ornament should not bury exact numbers.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Art%20Deco",
+        "label": "IndexStyle \u00b7 Art Deco",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P06",
+      "name": "Art Nouveau folio",
+      "group": "Graphic traditions",
+      "classes": "graphic nouveau",
+      "palette": "sage",
+      "layout": "poster",
+      "influence": "Art Nouveau",
+      "principle": "Curving botanical frames and serif type soften a formal information sheet.",
+      "boundary": "Use ornament at the perimeter, not through the review rows.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Art%20Nouveau",
+        "label": "IndexStyle \u00b7 Art Nouveau",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P07",
+      "name": "Memphis desktop",
+      "group": "Graphic traditions",
+      "classes": "graphic memphis",
+      "palette": "peach",
+      "layout": "split",
+      "influence": "Memphis",
+      "principle": "Contrasting shapes and broken rhythm establish an expressive postmodern identity.",
+      "boundary": "Keep information encoding stable beneath the patterned background.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Memphis",
+        "label": "IndexStyle \u00b7 Memphis",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P08",
+      "name": "Psychedelic reserve",
+      "group": "Graphic traditions",
+      "classes": "graphic psych",
+      "palette": "peach",
+      "layout": "poster",
+      "influence": "Psychedelic",
+      "principle": "Undulating bands and oversized display type make the status the focal point.",
+      "boundary": "Reserve distorted lettering for short display copy.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Psychedelic",
+        "label": "IndexStyle \u00b7 Psychedelic",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P09",
+      "name": "Swiss New Wave",
+      "group": "Graphic traditions",
+      "classes": "graphic newwave",
+      "palette": "lavender",
+      "layout": "poster",
+      "influence": "Swiss Punk Typography",
+      "principle": "Offset typography and disrupted grid lines add energy to a typographic system.",
+      "boundary": "Maintain a stable baseline for operational data.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=11#:~:text=Swiss%20Punk%20Typography",
+        "label": "IndexStyle \u00b7 Swiss Punk Typography",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P10",
+      "name": "Punk repair zine",
+      "group": "Graphic traditions",
+      "classes": "graphic punk",
+      "palette": "cream",
+      "layout": "split",
+      "influence": "Punk",
+      "principle": "Torn-paper blocks and stark stamps turn maintenance into a repair notebook.",
+      "boundary": "A rough aesthetic still needs precise language and readable file paths.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Punk",
+        "label": "IndexStyle \u00b7 Punk",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P11",
+      "name": "Risograph sheet",
+      "group": "Graphic traditions",
+      "classes": "graphic riso",
+      "palette": "peach",
+      "layout": "poster",
+      "influence": "Risograph",
+      "principle": "Limited spot colors and slight overprint suggest an economical printed edition.",
+      "boundary": "Simulated misregistration belongs in ornament, not numbers.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Risograph",
+        "label": "IndexStyle \u00b7 Risograph",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P12",
+      "name": "Letterpress record",
+      "group": "Graphic traditions",
+      "classes": "graphic letterpress",
+      "palette": "cream",
+      "layout": "sidebar",
+      "influence": "Letterpress",
+      "principle": "Debossed rules and ink-like type give the interface the weight of a printed record.",
+      "boundary": "Texture must not be confused with disabled controls.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=3#:~:text=Letterpress",
+        "label": "IndexStyle \u00b7 Letterpress",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P13",
+      "name": "Editorial journal",
+      "group": "Graphic traditions",
+      "classes": "graphic editorial",
+      "palette": "cream",
+      "layout": "poster",
+      "influence": "Editorial Design",
+      "principle": "A large serif headline and quiet columns frame storage as a readable report.",
+      "boundary": "Preserve a direct path from explanation to file review.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Swiss",
+        "label": "IndexStyle \u00b7 Swiss",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P14",
+      "name": "Web brutalist tool",
+      "group": "Graphic traditions",
+      "classes": "graphic brutal",
+      "palette": "mono",
+      "layout": "split",
+      "influence": "Web Brutalism",
+      "principle": "Exposed borders and direct labels keep the utility deliberately raw.",
+      "boundary": "Raw presentation does not justify inaccessible contrast or unclear actions.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Web%20Brutalism",
+        "label": "IndexStyle \u00b7 Web Brutalism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P15",
+      "name": "Corporate manual",
+      "group": "Graphic traditions",
+      "classes": "graphic corporate",
+      "palette": "ice",
+      "layout": "sidebar",
+      "influence": "Corporate Modernism",
+      "principle": "A disciplined blue grid and numbered sections suggest a professional handbook.",
+      "boundary": "Avoid giving uncertain recommendations an undeserved aura of authority.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=13#:~:text=Corporate%20Modernism",
+        "label": "IndexStyle \u00b7 Corporate Modernism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "P16",
+      "name": "Op Art field",
+      "group": "Graphic traditions",
+      "classes": "graphic opart",
+      "palette": "mono",
+      "layout": "instrument",
+      "influence": "Op Art",
+      "principle": "High-contrast optical lines frame a still central instrument.",
+      "boundary": "Static decoration only; offer a plain background for visual comfort.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=3#:~:text=Op%20Art",
+        "label": "IndexStyle \u00b7 Op Art",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T01",
+      "name": "Soft clay",
+      "group": "Tactile & playful",
+      "classes": "tactile clay",
+      "palette": "peach",
+      "layout": "poster",
+      "influence": "Claymorphism",
+      "principle": "Pillowy solids and soft inset shadows create a friendly, sculpted utility.",
+      "boundary": "Keep action boundaries visible without relying on shadow alone.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Claymorphism",
+        "label": "IndexStyle \u00b7 Claymorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T02",
+      "name": "Neumorphic console",
+      "group": "Tactile & playful",
+      "classes": "tactile neumorph",
+      "palette": "silver",
+      "layout": "instrument",
+      "influence": "Neumorphism",
+      "principle": "Raised and recessed controls appear cut from one continuous surface.",
+      "boundary": "Low-contrast affordances need explicit borders and focus states.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Neumorphism",
+        "label": "IndexStyle \u00b7 Neumorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T03",
+      "name": "Cut-paper desk",
+      "group": "Tactile & playful",
+      "classes": "tactile paper",
+      "palette": "cream",
+      "layout": "split",
+      "influence": "Paper Cutout",
+      "principle": "Layered paper edges separate summary, recommendation and review.",
+      "boundary": "Use elevation consistently; do not make status chips look like actions.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=12#:~:text=Jianzhi%20(Chinese%20Paper%20Cutting)",
+        "label": "IndexStyle \u00b7 Jianzhi (Chinese Paper Cutting)",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T04",
+      "name": "Sticker comic",
+      "group": "Tactile & playful",
+      "classes": "tactile comic",
+      "palette": "peach",
+      "layout": "poster",
+      "influence": "Golden and Silver Age Comic Book Style",
+      "principle": "Heavy outlines, offset shadows and a burst frame make the tool feel illustrated.",
+      "boundary": "The character should invite review, never celebrate deletion before confirmation.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=18#:~:text=Golden%20and%20Silver%20Age%20Comic%20Book%20Style",
+        "label": "IndexStyle \u00b7 Golden and Silver Age Comic Book Style",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T05",
+      "name": "Kawaii helper",
+      "group": "Tactile & playful",
+      "classes": "tactile kawaii",
+      "palette": "lavender",
+      "layout": "poster",
+      "influence": "Kawaii",
+      "principle": "Rounded shapes and a small friendly face give the utility a companion identity.",
+      "boundary": "Cute tone must not soften the explanation of irreversible consequences.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=14#:~:text=Kawaii",
+        "label": "IndexStyle \u00b7 Kawaii",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T06",
+      "name": "Hand-drawn notebook",
+      "group": "Tactile & playful",
+      "classes": "tactile sketch",
+      "palette": "cream",
+      "layout": "sidebar",
+      "influence": "Sketch",
+      "principle": "Uneven rules and a notebook grid make the interface feel personally maintained.",
+      "boundary": "Keep the real content typeset; handwriting is an accent.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Blueprint",
+        "label": "IndexStyle \u00b7 Blueprint",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T07",
+      "name": "Cel-shaded station",
+      "group": "Tactile & playful",
+      "classes": "tactile cel",
+      "palette": "ice",
+      "layout": "split",
+      "influence": "Cel Shading",
+      "principle": "Flat shadow planes and decisive edges imply a three-dimensional cartoon scene.",
+      "boundary": "Do not let stylization flatten the distinction between selected and disabled.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=25#:~:text=Cel%20Shading",
+        "label": "IndexStyle \u00b7 Cel Shading",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T08",
+      "name": "Isometric workshop",
+      "group": "Tactile & playful",
+      "classes": "tactile iso",
+      "palette": "sage",
+      "layout": "split",
+      "influence": "Isometric",
+      "principle": "A slanted structural motif suggests files as organized physical volumes.",
+      "boundary": "Keep quantitative values in text; illustration is not a size map.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Isometric%20Illustration",
+        "label": "IndexStyle \u00b7 Isometric Illustration",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T09",
+      "name": "Leather archive",
+      "group": "Tactile & playful",
+      "classes": "tactile leather",
+      "palette": "sand",
+      "layout": "sidebar",
+      "influence": "Skeuomorphism",
+      "principle": "Stitch-like borders and warm folders evoke a kept personal archive.",
+      "boundary": "Use material cues sparingly so it does not feel like a file owner's document was edited.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Skeuomorphism",
+        "label": "IndexStyle \u00b7 Skeuomorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T10",
+      "name": "Wood instrument",
+      "group": "Tactile & playful",
+      "classes": "tactile wood",
+      "palette": "sand",
+      "layout": "instrument",
+      "influence": "Skeuomorphism",
+      "principle": "A wood frame surrounds a plain instrument face.",
+      "boundary": "Grain is peripheral; data and controls use a flat readable surface.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Skeuomorphism",
+        "label": "IndexStyle \u00b7 Skeuomorphism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T11",
+      "name": "Industrial service",
+      "group": "Tactile & playful",
+      "classes": "tactile industrial",
+      "palette": "silver",
+      "layout": "instrument",
+      "influence": "Industrial Americana",
+      "principle": "Bolts, stamped labels and a caution stripe suggest a repair instrument.",
+      "boundary": "Use hazard stripes only decoratively here; real warnings require semantic labels.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=28#:~:text=Industrial%20Americana",
+        "label": "IndexStyle \u00b7 Industrial Americana",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T12",
+      "name": "E-ink quiet",
+      "group": "Tactile & playful",
+      "classes": "tactile eink",
+      "palette": "mono",
+      "layout": "sidebar",
+      "influence": "Minimalism",
+      "principle": "Almost-white planes and a thin monospaced readout minimize visual noise.",
+      "boundary": "Quietness must not hide a reserve deficit or blocked cleanup.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary#:~:text=Minimalism",
+        "label": "IndexStyle \u00b7 Minimalism",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T13",
+      "name": "Botanical care",
+      "group": "Tactile & playful",
+      "classes": "tactile botanical",
+      "palette": "sage",
+      "layout": "poster",
+      "influence": "Nouveau Organic",
+      "principle": "Leaf-like outlines and natural spacing connect the app to routine care.",
+      "boundary": "The plant motif does not represent actual storage growth.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=28#:~:text=Nouveau%20Organic",
+        "label": "IndexStyle \u00b7 Nouveau Organic",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T14",
+      "name": "Solarpunk workshop",
+      "group": "Tactile & playful",
+      "classes": "tactile solar",
+      "palette": "sage",
+      "layout": "split",
+      "influence": "Solarpunk",
+      "principle": "Warm technical drawings and green geometric forms suggest repair and stewardship.",
+      "boundary": "Do not claim carbon savings from disk cleanup without measurement.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Solarpunk",
+        "label": "IndexStyle \u00b7 Solarpunk",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T15",
+      "name": "Cyberpunk diagnostic",
+      "group": "Tactile & playful",
+      "classes": "tactile cyber",
+      "palette": "night",
+      "layout": "terminal",
+      "influence": "Cyberpunk",
+      "principle": "Sharp cut corners, bright accents and an audit-like display create a diagnostic identity.",
+      "boundary": "Glitch effects must never distort paths or status.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Cyberpunk",
+        "label": "IndexStyle \u00b7 Cyberpunk",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "T16",
+      "name": "Blueprint bench",
+      "group": "Tactile & playful",
+      "classes": "tactile blueprint",
+      "palette": "blue",
+      "layout": "instrument",
+      "influence": "Blueprint",
+      "principle": "Fine drafting lines and technical labels turn the view into a maintenance drawing.",
+      "boundary": "Construction lines remain decorative; actual quantities need explicit units.",
+      "source": {
+        "url": "https://indexstyle.org/dictionary?page=2#:~:text=Blueprint",
+        "label": "IndexStyle \u00b7 Blueprint",
+        "evidence": "Discovery reference; individual primary bibliography not audited"
+      }
+    },
+    {
+      "id": "E01",
+      "name": "Arts & Crafts folio",
+      "group": "Further explorations",
+      "influence": "Historical craft principles",
+      "layout": "folio",
+      "motif": "botanical",
+      "headline": "Room, thoughtfully kept.",
+      "principle": "Use a bound folio and original leaf border to foreground deliberate care and material honesty.",
+      "boundary": "Arts and Crafts concerns making and labor; a floral border alone does not reproduce that philosophy.",
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/arts-and-crafts-an-introduction",
+        "label": "V&A / Arts and Crafts",
+        "evidence": "Museum interpretation"
+      },
+      "colors": [
+        "#BAC7AC",
+        "#F7F2E5",
+        "#233B2C",
+        "#385F40"
+      ],
+      "font": "Ancizar Serif",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E02",
+      "name": "Woodblock landscape",
+      "group": "Further explorations",
+      "influence": "Historical print tradition",
+      "layout": "folio",
+      "motif": "wave",
+      "headline": "A quieter horizon.",
+      "principle": "Layer flat contours and a narrow title field beside an undisturbed evidence column.",
+      "boundary": "An original contour study, not a reproduction or a claim to represent Japanese design as a whole.",
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/japanese-woodblock-prints-ukiyo-e",
+        "label": "V&A / Japanese woodblock prints",
+        "evidence": "Museum collection and process"
+      },
+      "colors": [
+        "#B5C4CE",
+        "#FAF3DF",
+        "#183A55",
+        "#A13E31"
+      ],
+      "font": "Ancizar Serif",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E03",
+      "name": "Suprematist reserve",
+      "group": "Further explorations",
+      "influence": "Historical art reference",
+      "layout": "collage",
+      "motif": "suprematist",
+      "headline": "SPACE / HELD",
+      "principle": "Use asymmetric planes and empty ground to distinguish identity from precise storage figures.",
+      "boundary": "Floating shapes are decorative. Their area and angle do not encode available or reclaimable bytes.",
+      "source": {
+        "url": "https://www.moma.org/collection/terms/suprematism",
+        "label": "MoMA / Suprematism collection",
+        "evidence": "Museum works; composition interpreted"
+      },
+      "colors": [
+        "#DDD9CE",
+        "#F8F6EE",
+        "#181A19",
+        "#A83228"
+      ],
+      "font": "SF Pro",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E04",
+      "name": "Dada repair desk",
+      "group": "Further explorations",
+      "influence": "Historical art reference",
+      "layout": "collage",
+      "motif": "dada",
+      "headline": "A LITTLE DISORDER.",
+      "principle": "Place cut-letter energy in the headline, with a stable review list beside it.",
+      "boundary": "Keep filenames, quantities and destructive confirmations outside the expressive collage.",
+      "source": {
+        "url": "https://www.moma.org/collection/terms/dada",
+        "label": "MoMA / Dada",
+        "evidence": "Museum collection; original typographic collage"
+      },
+      "colors": [
+        "#BDB7A4",
+        "#F6F1E2",
+        "#22201C",
+        "#923328"
+      ],
+      "font": "IBM Plex Mono",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E05",
+      "name": "Frasurbane study",
+      "group": "Further explorations",
+      "influence": "Community aesthetic",
+      "layout": "folio",
+      "motif": "engrave",
+      "headline": "The well-kept volume.",
+      "principle": "Use a warm editorial spread, serif scale changes and fine rules around a quiet review.",
+      "boundary": "This borrows the archive\u2019s visual cues, not its class associations as product values.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/frasurbane",
+        "label": "CARI / Frasurbane",
+        "evidence": "Community aesthetic taxonomy; not peer-reviewed"
+      },
+      "colors": [
+        "#A69B83",
+        "#EEE8D8",
+        "#37392D",
+        "#5D533A"
+      ],
+      "font": "Ancizar Serif",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E06",
+      "name": "Utopian learning desk",
+      "group": "Further explorations",
+      "influence": "Community aesthetic",
+      "layout": "collage",
+      "motif": "globe",
+      "headline": "UNDERSTAND FIRST.",
+      "principle": "Pair an original diagram-like globe with explanations that make storage categories approachable.",
+      "boundary": "No stock collages are copied. Educational styling is not evidence that a recommendation is correct.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/utopian-scholastic",
+        "label": "CARI / Utopian Scholastic",
+        "evidence": "Community aesthetic taxonomy; not peer-reviewed"
+      },
+      "colors": [
+        "#A9BDB7",
+        "#F6F2DF",
+        "#263C46",
+        "#355B74"
+      ],
+      "font": "Ancizar Serif",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E07",
+      "name": "Cassette reserve deck",
+      "group": "Further explorations",
+      "influence": "Community retro-futurism",
+      "layout": "hardware",
+      "motif": "cassette",
+      "headline": "RESERVE CONTROL / MANUAL",
+      "principle": "Separate a recessed capacity readout, physical-looking set point and review rail.",
+      "boundary": "A static hardware metaphor: no live telemetry, physical controls or automatic deletion are implemented.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/cassette-futurism",
+        "label": "CARI / Cassette Futurism",
+        "evidence": "Community aesthetic taxonomy; not peer-reviewed"
+      },
+      "colors": [
+        "#BBB6A2",
+        "#E8E4D5",
+        "#292C27",
+        "#825020"
+      ],
+      "font": "IBM Plex Mono",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E08",
+      "name": "Vectorheart signal",
+      "group": "Further explorations",
+      "influence": "Community digital aesthetic",
+      "layout": "ribbon",
+      "motif": "vector",
+      "headline": "ROOM TO OPERATE.",
+      "principle": "Use directional vectors and compact industrial headings above a broad, readable evidence strip.",
+      "boundary": "Energy belongs in the identity band. Tiny type and dense technical ornament cannot carry decisions.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/vectorheart",
+        "label": "CARI / Vectorheart",
+        "evidence": "Community aesthetic taxonomy; not peer-reviewed"
+      },
+      "colors": [
+        "#DCE76C",
+        "#F3F4E8",
+        "#202620",
+        "#384C23"
+      ],
+      "font": "SF Pro",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E09",
+      "name": "Gen X city pause",
+      "group": "Further explorations",
+      "influence": "Community aesthetic",
+      "layout": "spatial",
+      "motif": "city",
+      "headline": "Space between tasks.",
+      "principle": "Place muted urban color fields behind a spare foreground panel with restrained sans-serif type.",
+      "boundary": "The soft backdrop is abstract, not archival photography or a literal reconstruction of the movement.",
+      "source": {
+        "url": "https://cari.institute/aesthetics/gen-x-soft-club",
+        "label": "CARI / Gen X Soft Club",
+        "evidence": "Community aesthetic taxonomy; not peer-reviewed"
+      },
+      "colors": [
+        "#8C9B90",
+        "#E9EDE4",
+        "#253830",
+        "#48604E"
+      ],
+      "font": "SF Pro",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E10",
+      "name": "Type specimen utility",
+      "group": "Further explorations",
+      "influence": "Original print-derived recipe",
+      "layout": "folio",
+      "motif": "specimen",
+      "headline": "Space, in good type.",
+      "principle": "Make the capacity reading a specimen of typographic hierarchy, with a ruled review column.",
+      "boundary": "A contemporary type-led proposal; it is not presented as an independently established movement.",
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-is-print",
+        "label": "V&A / What is print?",
+        "evidence": "Print-process reference; original UI translation"
+      },
+      "colors": [
+        "#DAD9D1",
+        "#FCF9EF",
+        "#222320",
+        "#843C31"
+      ],
+      "font": "Ancizar Serif",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E11",
+      "name": "Overprint workshop",
+      "group": "Further explorations",
+      "influence": "Original print-derived recipe",
+      "layout": "collage",
+      "motif": "overprint",
+      "headline": "MAKE SOME ROOM.",
+      "principle": "Overlap translucent ink-like circles while reserving clean paper for amounts and review evidence.",
+      "boundary": "Overprinted forms are ornament. Blending must not lower the contrast of text or category values.",
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-is-print",
+        "label": "V&A / What is print?",
+        "evidence": "Print-process reference; original UI translation"
+      },
+      "colors": [
+        "#CACBBA",
+        "#F7F5E8",
+        "#252A30",
+        "#2D5572"
+      ],
+      "font": "SF Pro",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E12",
+      "name": "Engraved inventory",
+      "group": "Further explorations",
+      "influence": "Original print-derived recipe",
+      "layout": "folio",
+      "motif": "engrave",
+      "headline": "An inventory of space.",
+      "principle": "Combine closely spaced hatch marks and precise rules with a measured, ledger-like reading order.",
+      "boundary": "Digital hatch marks suggest a print technique; they do not simulate a physical engraving process.",
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-is-print",
+        "label": "V&A / What is print?",
+        "evidence": "Print-process reference; original UI translation"
+      },
+      "colors": [
+        "#C8C0AD",
+        "#F5EFDF",
+        "#31342A",
+        "#515F3B"
+      ],
+      "font": "Ancizar Serif",
+      "round": 4,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E13",
+      "name": "Chrome ribbon",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "ribbon",
+      "motif": "chrome",
+      "headline": "A CLEARER SIGNAL.",
+      "principle": "Concentrate a silver highlight in the title band and keep inspection on an opaque surface.",
+      "boundary": "Static gradient approximation. Metallic appearance supplies identity, not operating state.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#BBC6D7",
+        "#F6F8FD",
+        "#1F2E44",
+        "#ADC0DE"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#25334A"
+    },
+    {
+      "id": "E14",
+      "name": "Holographic foil",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "ribbon",
+      "motif": "foil",
+      "headline": "ROOM FOR POSSIBILITY.",
+      "principle": "Use a restrained pearlescent band with flat, readable evidence and a strong review action.",
+      "boundary": "This is an original foil recipe, not an Apple material or a demonstrated optical simulation.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#D0C5EA",
+        "#FFF6F3",
+        "#352945",
+        "#E9D3C4"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#25334A"
+    },
+    {
+      "id": "E15",
+      "name": "Aurora focus",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "spatial",
+      "motif": "aurora",
+      "headline": "A softer kind of clarity.",
+      "principle": "Keep atmospheric light behind an opaque foreground inspector and a separate capacity reading.",
+      "boundary": "A static composition only; reduced-transparency and reduced-motion behavior require native work.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#BCCCE5",
+        "#F6F8FC",
+        "#253552",
+        "#587199"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E16",
+      "name": "Jelly category tiles",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "tiles",
+      "motif": "jelly",
+      "headline": "A little room to breathe.",
+      "principle": "Give each category a rounded, inset-lit tile with a consistent amount and consequence label.",
+      "boundary": "Soft appearance cannot imply that a category is safe. Review remains a separate step.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#DDD5E9",
+        "#FAF7FC",
+        "#3F3257",
+        "#745B94"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E17",
+      "name": "Porcelain instrument",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "hardware",
+      "motif": "porcelain",
+      "headline": "QUIET CONTROL",
+      "principle": "Translate ceramic restraint into an ivory instrument with thin blue rules and a single set point.",
+      "boundary": "The dial is an illustrative set point. Real keyboard adjustment and status announcements are unbuilt.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#CFD9DF",
+        "#F7F6EC",
+        "#233A52",
+        "#3F6486"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E18",
+      "name": "Darkroom layers",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "spatial",
+      "motif": "darkroom",
+      "headline": "Only what needs attention.",
+      "principle": "Separate illuminated reading planes from a deep backdrop, with the reserve reading in front.",
+      "boundary": "Depth and shadows are decoration. Focus order must follow the task, not visual depth.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#151C2B",
+        "#263348",
+        "#F0F3FB",
+        "#99B4EE"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#25334A"
+    },
+    {
+      "id": "E19",
+      "name": "Low-poly landscape",
+      "group": "Further explorations",
+      "influence": "Original geometric recipe",
+      "layout": "spatial",
+      "motif": "lowpoly",
+      "headline": "Find a little more space.",
+      "principle": "Place faceted original geometry beside an exact inspector instead of encoding ambiguous disk areas.",
+      "boundary": "The polygon landscape is not a treemap and carries no quantitative storage meaning.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#BCD1C7",
+        "#F3F8EF",
+        "#274332",
+        "#4E7157"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E20",
+      "name": "Wireframe lens",
+      "group": "Further explorations",
+      "influence": "Original geometric recipe",
+      "layout": "spatial",
+      "motif": "wire",
+      "headline": "Inspect beneath the surface.",
+      "principle": "Use an open contour field to suggest inspection while keeping paths and amounts on solid panels.",
+      "boundary": "Wire loops are not a filesystem graph, a scan result or proof of complete disk coverage.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#D6DFE5",
+        "#F9FAF9",
+        "#263C48",
+        "#3E667C"
+      ],
+      "font": "IBM Plex Mono",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E21",
+      "name": "Monolithic stone",
+      "group": "Further explorations",
+      "influence": "Original material recipe",
+      "layout": "ribbon",
+      "motif": "stone",
+      "headline": "SPACE. CONSIDERED.",
+      "principle": "Use broad stone-colored planes and almost imperceptible grain to make the review feel durable.",
+      "boundary": "Texture remains decorative. It must not obscure separators, focus indicators or small type.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#B5B6AF",
+        "#E8E8E0",
+        "#292F2D",
+        "#48554B"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E22",
+      "name": "Glass evidence ledger",
+      "group": "Further explorations",
+      "influence": "Original material and layout recipe",
+      "layout": "folio",
+      "motif": "engrave",
+      "headline": "Transparency, with evidence.",
+      "principle": "Pair a cool folio frame with an opaque ledger so the material idea supports an explicit audit trail.",
+      "boundary": "The metaphor is visual; evidence completeness comes from the future scanner, not transparency.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#BECDDA",
+        "#F6FBFD",
+        "#243F51",
+        "#3A687F"
+      ],
+      "font": "Ancizar Serif",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "E23",
+      "name": "Prismatic action dock",
+      "group": "Further explorations",
+      "influence": "Original material and layout recipe",
+      "layout": "tiles",
+      "motif": "foil",
+      "headline": "Make room for your next idea.",
+      "principle": "Separate a luminous reserve band, equal category tiles and a grounded review dock.",
+      "boundary": "Prismatic color does not encode risk or selection. Native materials need device-level verification.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#D4D7EA",
+        "#FAF9FF",
+        "#343657",
+        "#DDD5EA"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#25334A"
+    },
+    {
+      "id": "E24",
+      "name": "Quiet focus capsules",
+      "group": "Further explorations",
+      "influence": "Original material and layout recipe",
+      "layout": "tiles",
+      "motif": "porcelain",
+      "headline": "Less pressure. More room.",
+      "principle": "Use long, calm capsules for a reserve overview, three categories and a single review destination.",
+      "boundary": "A distinct component recipe, not an additional historical philosophy or tested usability result.",
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Vendor reference; original material recipe"
+      },
+      "colors": [
+        "#D8E1D4",
+        "#F6F7EF",
+        "#304632",
+        "#547250"
+      ],
+      "font": "SF Pro",
+      "round": 22,
+      "buttonInk": "#FFFFFF"
+    },
+    {
+      "id": "X01",
+      "name": "Transit interchange",
+      "layout": "route",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "R10 CDE workstation",
+      "principle": "A branching route makes review stages and excluded documents visible in one journey.",
+      "difference": "Sequence and branch position carry meaning; it replaces the desktop-panel hierarchy of R10.",
+      "learning": "Test whether users understand that the document branch stays excluded.",
+      "boundary": "A route is a proposed workflow, not a live scan or a time estimate.",
+      "colors": [
+        "#DEE9E5",
+        "#F9FCF9",
+        "#173C33",
+        "#16634C"
+      ],
+      "source": {
+        "url": "https://www.cooperhewitt.org/2023/09/18/context-is-everything/",
+        "label": "Cooper Hewitt / Symbols in context",
+        "evidence": "Museum research; original workflow translation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X02",
+      "name": "Departure board",
+      "layout": "departures",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "R18 Teletext service",
+      "principle": "A destination board prioritizes the pending action using split-flap category rows.",
+      "difference": "Wide mechanical rows organize destination, estimate and status instead of Teletext text blocks.",
+      "learning": "Test rapid scanning of pending versus excluded categories.",
+      "boundary": "Flap styling is static; animation must not delay reading or imply deletion.",
+      "colors": [
+        "#121F2A",
+        "#233442",
+        "#F3F5DC",
+        "#EACA52"
+      ],
+      "source": {
+        "url": "https://www.cooperhewitt.org/2023/09/18/context-is-everything/",
+        "label": "Cooper Hewitt / Symbols in context",
+        "evidence": "Museum research; original workflow translation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X03",
+      "name": "Harbor signal",
+      "layout": "harbor",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "T11 Industrial service",
+      "principle": "A two-band signal station pairs large labeled flags with a calm review manifest.",
+      "difference": "Signal shapes, a horizontal mast and a manifest replace industrial switches.",
+      "learning": "Test whether a redundant word label prevents misreading a flag.",
+      "boundary": "These are original shapes, not standardized maritime safety signals.",
+      "colors": [
+        "#DCE7F0",
+        "#FFFFFF",
+        "#142D47",
+        "#A82C30"
+      ],
+      "source": {
+        "url": "https://www.cooperhewitt.org/2023/09/18/context-is-everything/",
+        "label": "Cooper Hewitt / Symbols in context",
+        "evidence": "Museum research; original workflow translation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X04",
+      "name": "Symbol census",
+      "layout": "census",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "J Civic Clarity",
+      "principle": "A pictogram census makes category membership countable before showing exact estimates.",
+      "difference": "Repeated geometric folder marks form grouped populations instead of prose-first civic sections.",
+      "learning": "Test category recognition with labels present and in monochrome.",
+      "boundary": "Symbols denote category groups, not file counts or gigabytes.",
+      "colors": [
+        "#F2EAC8",
+        "#FFFEF6",
+        "#29352D",
+        "#24664C"
+      ],
+      "source": {
+        "url": "https://www.cooperhewitt.org/2023/09/18/context-is-everything/",
+        "label": "Cooper Hewitt / Symbols in context",
+        "evidence": "Museum research; original workflow translation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X05",
+      "name": "Library drawer",
+      "layout": "drawer",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E05 Frasurbane study",
+      "principle": "A catalog drawer exposes one indexed record with neighboring tabs for context.",
+      "difference": "Overlapping index tabs and a large selected catalogue slip replace the study-room dashboard.",
+      "learning": "Test whether the record hierarchy clarifies ownership and recreation cost.",
+      "boundary": "The drawer metaphor needs standard keyboard navigation if implemented.",
+      "colors": [
+        "#CCD8DC",
+        "#F5FBFC",
+        "#203B46",
+        "#255B75"
+      ],
+      "source": {
+        "url": "https://labs.cooperhewitt.org/2018/accessible-exhibition-guide-delivering-content-to-all/",
+        "label": "Cooper Hewitt / Accessible exhibition guide",
+        "evidence": "Museum practice; original archival metaphor"
+      },
+      "round": 6
+    },
+    {
+      "id": "X06",
+      "name": "Microfiche reader",
+      "layout": "microfiche",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "R13 Amber monitor",
+      "principle": "A luminous reading aperture isolates a candidate manifest inside a dark optical desk.",
+      "difference": "A film strip selects the record while a large projection window carries readable content.",
+      "learning": "Test whether context survives when only one record is enlarged.",
+      "boundary": "The film strip is a navigation proposal, not a scanned document.",
+      "colors": [
+        "#182322",
+        "#293D35",
+        "#F5F8E7",
+        "#C7DCA2"
+      ],
+      "source": {
+        "url": "https://labs.cooperhewitt.org/2018/accessible-exhibition-guide-delivering-content-to-all/",
+        "label": "Cooper Hewitt / Accessible exhibition guide",
+        "evidence": "Museum practice; original archival metaphor"
+      },
+      "round": 6
+    },
+    {
+      "id": "X07",
+      "name": "Punch-card manifest",
+      "layout": "punchcard",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "R14 DOS file manager",
+      "principle": "A perforated manifest gives a tactile code-and-record identity to a strict table.",
+      "difference": "A punched edge and fixed field columns organize the whole canvas, unlike terminal panes.",
+      "learning": "Test whether aligned fields outperform decorative density.",
+      "boundary": "Perforations are ornament and do not encode executable commands.",
+      "colors": [
+        "#D9D1BB",
+        "#FFFAE8",
+        "#33352B",
+        "#4F5840"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-was-modernism",
+        "label": "V&A / What was Modernism?",
+        "evidence": "Museum interpretation; original geometric composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X08",
+      "name": "Mechanical counter",
+      "layout": "counter",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E07 Cassette reserve deck",
+      "principle": "An odometer and a tall target ruler emphasize the reserve as a maintained quantity.",
+      "difference": "Rolling-number windows and a vertical scale replace a cassette's horizontal transport controls.",
+      "learning": "Test whether the gap remains clear beside the dramatic counter.",
+      "boundary": "Numbers are static sample values; the reserve is not guaranteed.",
+      "colors": [
+        "#DDDAD3",
+        "#FAFAF5",
+        "#252D32",
+        "#375B76"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-was-modernism",
+        "label": "V&A / What was Modernism?",
+        "evidence": "Museum interpretation; original geometric composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X09",
+      "name": "Rinpa folding reserve",
+      "layout": "folding",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E02 Woodblock landscape",
+      "principle": "A folding-screen rhythm separates current space, review and protected documents.",
+      "difference": "Three alternating planes and restrained original curved motifs replace a landscape scene.",
+      "learning": "Test whether open space can separate safety states without boxing every item.",
+      "boundary": "Rinpa has literary and historical depth; this is a limited compositional translation.",
+      "colors": [
+        "#BFAA67",
+        "#F9F5E6",
+        "#27382D",
+        "#38573D"
+      ],
+      "source": {
+        "url": "https://www.metmuseum.org/essays/rinpa-painting-style",
+        "label": "The Met / Rinpa painting style",
+        "evidence": "Museum interpretation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X10",
+      "name": "Precisionist silos",
+      "layout": "silos",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "T11 Industrial service",
+      "principle": "Architectural volumes act as an index to an exact storage manifest.",
+      "difference": "Cropped stepped volumes and hard planes replace a control-panel metaphor.",
+      "learning": "Test whether reduced geometry communicates category hierarchy without fictional measurements.",
+      "boundary": "Silo heights are decorative; the adjacent values are the sample evidence.",
+      "colors": [
+        "#CFDADB",
+        "#F7FAF5",
+        "#243C45",
+        "#AE3F2C"
+      ],
+      "source": {
+        "url": "https://www.metmuseum.org/essays/precisionism",
+        "label": "The Met / Precisionism",
+        "evidence": "Museum interpretation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X11",
+      "name": "Orphic orbit",
+      "layout": "orbit",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "P16 Op Art field",
+      "principle": "A field of offset circular bands leads toward a central evidence opening.",
+      "difference": "Concentric rhythm creates a radial composition instead of optical stripe interference.",
+      "learning": "Test whether the focal opening keeps operational text quiet amid color rhythm.",
+      "boundary": "The circular bands are decorative and are not a pie chart.",
+      "colors": [
+        "#DED3DE",
+        "#FAF4EE",
+        "#343047",
+        "#873F50"
+      ],
+      "source": {
+        "url": "https://www.guggenheim.org/exhibition/harmony-and-dissonance-orphism-in-paris-1910-1930",
+        "label": "Guggenheim / Harmony and Dissonance",
+        "evidence": "Museum exhibition; original circular composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X12",
+      "name": "Modernist floorplan",
+      "layout": "floorplan",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "P02 Bauhaus workshop",
+      "principle": "An orthogonal plan groups review functions as connected rooms.",
+      "difference": "Doorway gaps and a perimeter circulation path replace a poster-like geometric arrangement.",
+      "learning": "Test whether adjacency clarifies the relationship between scan, review and protection.",
+      "boundary": "The plan is an original organizational metaphor, not a building or historical reproduction.",
+      "colors": [
+        "#DCE1DE",
+        "#FBFCF9",
+        "#283E3C",
+        "#236E65"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-was-modernism",
+        "label": "V&A / What was Modernism?",
+        "evidence": "Museum interpretation; original geometric composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X13",
+      "name": "Postmodern portico",
+      "layout": "portico",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "N Memphis Studio",
+      "principle": "An exaggerated portal frames a plain evidence desk within architectural contradiction.",
+      "difference": "A pediment, paired columns and asymmetric plinth organize the hierarchy instead of scattered Memphis motifs.",
+      "learning": "Test whether a strong frame gives personality while preserving a conventional review area.",
+      "boundary": "Architectural play must not make decorative forms look clickable.",
+      "colors": [
+        "#E8CDDC",
+        "#FFF5E9",
+        "#492B40",
+        "#8B365E"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/info/collection-selection-boxes-postmodern-design",
+        "label": "V&A / Postmodern design",
+        "evidence": "Museum interpretation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X14",
+      "name": "Museum label wall",
+      "layout": "wall",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E12 Engraved inventory",
+      "principle": "A gallery wall pairs large category plaques with narrow interpretive labels.",
+      "difference": "Object-label placement and exhibition spacing replace an engraved folio.",
+      "learning": "Test whether explanation beside each category improves trust.",
+      "boundary": "Museum authority must not imply that a cleanup recommendation has been certified.",
+      "colors": [
+        "#662A36",
+        "#743440",
+        "#FFF6EF",
+        "#F0D18C"
+      ],
+      "source": {
+        "url": "https://labs.cooperhewitt.org/2018/accessible-exhibition-guide-delivering-content-to-all/",
+        "label": "Cooper Hewitt / Accessible exhibition guide",
+        "evidence": "Museum practice; original archival metaphor"
+      },
+      "round": 6
+    },
+    {
+      "id": "X15",
+      "name": "Concrete word field",
+      "layout": "wordfield",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E10 Type specimen utility",
+      "principle": "A typographic map arranges KEEP, REVIEW and SPACE as distinct semantic zones.",
+      "difference": "Words establish the plan itself rather than demonstrating type sizes in a specimen sheet.",
+      "learning": "Test whether typographic position helps users distinguish intent from quantity.",
+      "boundary": "Large words supplement plain labels and must not replace accessible reading order.",
+      "colors": [
+        "#E2E3EE",
+        "#FFFFFF",
+        "#25264A",
+        "#5136A1"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-was-modernism",
+        "label": "V&A / What was Modernism?",
+        "evidence": "Museum interpretation; original geometric composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X16",
+      "name": "Scientific specimen plate",
+      "layout": "specimen",
+      "influence": "Historical or physical reference / original translation",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "T16 Blueprint bench",
+      "principle": "A specimen plate uses leader lines and paired labels to examine two candidate classes.",
+      "difference": "Object callouts and a comparison margin replace an engineering drawing background.",
+      "learning": "Test whether localized annotations expose recreation cost before action.",
+      "boundary": "Callouts are illustrative; actual file-level provenance is still required.",
+      "colors": [
+        "#E5ECDA",
+        "#FFFFF7",
+        "#293D33",
+        "#2E6456"
+      ],
+      "source": {
+        "url": "https://labs.cooperhewitt.org/2018/accessible-exhibition-guide-delivering-content-to-all/",
+        "label": "Cooper Hewitt / Accessible exhibition guide",
+        "evidence": "Museum practice; original archival metaphor"
+      },
+      "round": 6
+    },
+    {
+      "id": "X17",
+      "name": "Nested area atlas",
+      "layout": "treemap",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "K Spatial Atlas",
+      "principle": "A candidate-only treemap uses proportional area with a linked exact-value inspector.",
+      "difference": "31.2 GB and 3.4 GB occupy a single enclosing candidate space, with explicit scope and values.",
+      "learning": "Test whether users can separate candidate area from total disk capacity.",
+      "boundary": "Area supports overview; it must not decide removal or substitute for exact rows.",
+      "colors": [
+        "#E0EEE9",
+        "#FFFFFF",
+        "#173D34",
+        "#276D56"
+      ],
+      "source": {
+        "url": "https://www.cs.umd.edu/projects/hcil/treemap/",
+        "label": "UMD HCIL / Treemap research",
+        "evidence": "Primary HCI research; static sample encoding"
+      },
+      "round": 6
+    },
+    {
+      "id": "X18",
+      "name": "Icicle directory",
+      "layout": "icicle",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "K Spatial Atlas",
+      "principle": "A layered adjacency diagram makes parent scope and category depth visible.",
+      "difference": "Equal-height depth bands replace nested rectangles; width encodes candidate estimates.",
+      "learning": "Test whether depth bands expose hierarchy better than nested area.",
+      "boundary": "This simplified two-level hierarchy is sample data, not a scanned filesystem.",
+      "colors": [
+        "#DFE6EF",
+        "#F8FBFF",
+        "#223956",
+        "#315EAA"
+      ],
+      "source": {
+        "url": "https://d3js.org/d3-hierarchy/partition",
+        "label": "D3 / Partition layouts",
+        "evidence": "Official visualization documentation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X19",
+      "name": "Candidate flow",
+      "layout": "flow",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "K Spatial Atlas",
+      "principle": "Two weighted streams converge into a proposed review total.",
+      "difference": "Directional width shows how candidate categories contribute to 34.6 GB, unlike spatial enclosure.",
+      "learning": "Test whether users understand that proposed inflow is not reclaimed storage.",
+      "boundary": "The flow is an estimate composition, not a completed deletion or measured free-space change.",
+      "colors": [
+        "#E6E0EE",
+        "#FFFBFF",
+        "#412750",
+        "#76539B"
+      ],
+      "source": {
+        "url": "https://github.com/d3/d3-sankey",
+        "label": "D3 / Sankey source and documentation",
+        "evidence": "Primary open-source documentation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X20",
+      "name": "Reserve waterfall",
+      "layout": "waterfall",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "C Precision Dark",
+      "principle": "A staged arithmetic bridge shows current free space plus candidates and the remaining target gap.",
+      "difference": "Sequential floating bars distinguish current, possible and still-needed space.",
+      "learning": "Test whether users understand 98.5 GB as hypothetical after candidate review.",
+      "boundary": "34.6 GB is an estimate; actual reclaimed space may differ.",
+      "colors": [
+        "#DDE9EF",
+        "#FFFFFF",
+        "#254359",
+        "#216B88"
+      ],
+      "source": {
+        "url": "https://www.nngroup.com/articles/dashboards-preattentive/",
+        "label": "NN/g / Dashboard visual encoding",
+        "evidence": "Practitioner analysis; original sample chart"
+      },
+      "round": 6
+    },
+    {
+      "id": "X21",
+      "name": "Lollipop ranking",
+      "layout": "lollipop",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "I Swiss Index",
+      "principle": "Aligned stems and endpoints expose the size difference between candidate categories.",
+      "difference": "A common horizontal scale replaces a text-led ledger or area map.",
+      "learning": "Test whether ranking speed improves without sacrificing exact values.",
+      "boundary": "Only two sample categories are shown; ordering does not imply deletion safety.",
+      "colors": [
+        "#EEE6ED",
+        "#FFF9FD",
+        "#482F43",
+        "#965275"
+      ],
+      "source": {
+        "url": "https://www.nngroup.com/articles/dashboards-preattentive/",
+        "label": "NN/g / Dashboard visual encoding",
+        "evidence": "Practitioner analysis; original sample chart"
+      },
+      "round": 6
+    },
+    {
+      "id": "X22",
+      "name": "Target bullet instrument",
+      "layout": "bullet",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "G Storage Instrument",
+      "principle": "A long reserve ruler places current space, hypothetical space and the target on one axis.",
+      "difference": "Three directly labeled markers replace a circular instrument gauge.",
+      "learning": "Test whether a shared linear scale makes the 86.1 GB gap easier to interpret.",
+      "boundary": "Hypothetical space includes unverified candidate estimates.",
+      "colors": [
+        "#E5E9D6",
+        "#FBFCF2",
+        "#314129",
+        "#52702D"
+      ],
+      "source": {
+        "url": "https://www.nngroup.com/articles/dashboards-preattentive/",
+        "label": "NN/g / Dashboard visual encoding",
+        "evidence": "Practitioner analysis; original sample chart"
+      },
+      "round": 6
+    },
+    {
+      "id": "X23",
+      "name": "Reserve mosaic",
+      "layout": "waffle",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "T04 Sticker comic",
+      "principle": "A 10 by 10 cell field expresses progress toward the chosen reserve.",
+      "difference": "A labeled proportional mosaic replaces categorical stickers and counts 42.6 of 100 cells.",
+      "learning": "Test whether the mosaic supports a quick approximate reading beside exact text.",
+      "boundary": "Each cell represents 1.5 GB of the target, not a file; exact text remains primary.",
+      "colors": [
+        "#F0DED6",
+        "#FFF7EF",
+        "#4F302A",
+        "#A44829"
+      ],
+      "source": {
+        "url": "https://www.nngroup.com/articles/dashboards-preattentive/",
+        "label": "NN/g / Dashboard visual encoding",
+        "evidence": "Practitioner analysis; original sample chart"
+      },
+      "round": 6
+    },
+    {
+      "id": "X24",
+      "name": "Radial directory",
+      "layout": "radial",
+      "influence": "Information visualization / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E20 Wireframe lens",
+      "principle": "An inner parent ring and split outer ring display a shallow candidate hierarchy.",
+      "difference": "Radial adjacency encodes two category shares rather than decorative wireframe circles.",
+      "learning": "Test whether circular depth is understood alongside the exact legend.",
+      "boundary": "Angles are hard to compare; this should retain a list alternative.",
+      "colors": [
+        "#D7E6EC",
+        "#F8FEFF",
+        "#173F50",
+        "#2C7390"
+      ],
+      "source": {
+        "url": "https://d3js.org/d3-hierarchy/partition",
+        "label": "D3 / Partition layouts",
+        "evidence": "Official visualization documentation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X25",
+      "name": "Review lanes",
+      "layout": "lanes",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "A Quiet Utility",
+      "principle": "A compact workflow board separates candidates, verification and excluded documents.",
+      "difference": "Three state columns replace a single scan dashboard; only candidate cards carry estimates.",
+      "learning": "Test whether explicit stages prevent users equating a candidate with an approved deletion.",
+      "boundary": "Dragging is only a proposed interaction; evidence checks cannot be bypassed.",
+      "colors": [
+        "#DEE3EB",
+        "#FAFCFF",
+        "#2B3954",
+        "#495C96"
+      ],
+      "source": {
+        "url": "https://carbondesignsystem.com/components/progress-indicator/usage/",
+        "label": "IBM Carbon / Progress indicators",
+        "evidence": "Official system guidance; original workflow study"
+      },
+      "round": 6
+    },
+    {
+      "id": "X26",
+      "name": "Disclosure dossier",
+      "layout": "accordion",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E22 Glass evidence ledger",
+      "principle": "One expanded evidence section keeps recreation cost next to the category estimate.",
+      "difference": "A full-width accordion makes information depth visible instead of glass ledger columns.",
+      "learning": "Test whether users open and read the evidence they need before reviewing files.",
+      "boundary": "Critical exclusion and action consequences remain visible outside collapsed content.",
+      "colors": [
+        "#DCEAE7",
+        "#FAFFFD",
+        "#21453C",
+        "#256C58"
+      ],
+      "source": {
+        "url": "https://carbondesignsystem.com/components/accordion/usage/",
+        "label": "IBM Carbon / Accordion usage",
+        "evidence": "Official system guidance; original composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X27",
+      "name": "Column trail",
+      "layout": "columns",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "R01 Macintosh monochrome",
+      "principle": "Persistent path columns retain category ancestry while exposing a detail inspector.",
+      "difference": "Three linked browsing columns replace a retro desktop shell and floating windows.",
+      "learning": "Test whether users can identify the selected item's parent without going back.",
+      "boundary": "Static paths are illustrative; native keyboard and selection behavior need implementation.",
+      "colors": [
+        "#E2E7EE",
+        "#FFFFFF",
+        "#2C3D54",
+        "#315C9D"
+      ],
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/column-views",
+        "label": "Apple HIG / Column views",
+        "evidence": "Official platform guidance; static interpretation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X28",
+      "name": "Focused checkpoint",
+      "layout": "checkpoint",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "L Calm Ambient",
+      "principle": "A narrow central review sheet and vertical step rail put one decision in focus.",
+      "difference": "A single task with explicit future steps replaces an ambient status view.",
+      "learning": "Test whether reduced simultaneous choices improve evidence comprehension.",
+      "boundary": "The step rail does not imply that review or removal has already happened.",
+      "colors": [
+        "#E6E7EF",
+        "#FFFFFF",
+        "#35364E",
+        "#605491"
+      ],
+      "source": {
+        "url": "https://carbondesignsystem.com/components/progress-indicator/usage/",
+        "label": "IBM Carbon / Progress indicators",
+        "evidence": "Official system guidance; original workflow study"
+      },
+      "round": 6
+    },
+    {
+      "id": "X29",
+      "name": "Before / possible",
+      "layout": "bookends",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "D Storage Journal",
+      "principle": "Two facing states isolate measured sample space from a hypothetical outcome.",
+      "difference": "A clear central comparison gutter replaces a narrative journal sequence.",
+      "learning": "Test whether users distinguish current free space from a conditional estimate.",
+      "boundary": "The possible state is not an actual result or a promise.",
+      "colors": [
+        "#DDDAD0",
+        "#FFFEF5",
+        "#343D31",
+        "#476741"
+      ],
+      "source": {
+        "url": "https://www.nngroup.com/articles/dashboards-preattentive/",
+        "label": "NN/g / Dashboard visual encoding",
+        "evidence": "Practitioner analysis; original sample chart"
+      },
+      "round": 6
+    },
+    {
+      "id": "X30",
+      "name": "Review itinerary",
+      "layout": "itinerary",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E08 Vectorheart signal",
+      "principle": "A time-ordered vertical itinerary pairs each review step with a compact evidence station.",
+      "difference": "Alternating stations expose sequence and stopping points without decorative signal diagonals.",
+      "learning": "Test whether users can locate the first unresolved step.",
+      "boundary": "No durations or completed steps are invented; this is a proposed workflow.",
+      "colors": [
+        "#EADDD7",
+        "#FFF9F5",
+        "#513A32",
+        "#9A573D"
+      ],
+      "source": {
+        "url": "https://carbondesignsystem.com/components/progress-indicator/usage/",
+        "label": "IBM Carbon / Progress indicators",
+        "evidence": "Official system guidance; original workflow study"
+      },
+      "round": 6
+    },
+    {
+      "id": "X31",
+      "name": "Evidence matrix",
+      "layout": "matrix",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "P15 Corporate manual",
+      "principle": "A row-by-column checklist makes missing ownership and recreation checks explicit.",
+      "difference": "Cross-indexed evidence states replace a manual's section hierarchy.",
+      "learning": "Test whether users spot unknown evidence before focusing on storage size.",
+      "boundary": "Unknown is not safe; a filled cell must have real evidence in implementation.",
+      "colors": [
+        "#DBE5E9",
+        "#F9FDFF",
+        "#293E4D",
+        "#336779"
+      ],
+      "source": {
+        "url": "https://carbondesignsystem.com/components/accordion/usage/",
+        "label": "IBM Carbon / Accordion usage",
+        "evidence": "Official system guidance; original composition"
+      },
+      "round": 6
+    },
+    {
+      "id": "X32",
+      "name": "Expandable outline",
+      "layout": "outline",
+      "influence": "Interaction model / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "P14 Web brutalist tool",
+      "principle": "A large indented outline keeps category structure and disclosure controls close to names.",
+      "difference": "Indentation, branch guides and an adjacent detail note replace a block-based brutalist layout.",
+      "learning": "Test whether hierarchy remains understandable in a dense keyboard-oriented view.",
+      "boundary": "Static disclosure controls are illustrative; their expanded states need native semantics.",
+      "colors": [
+        "#E5E5DF",
+        "#FFFFFF",
+        "#313A31",
+        "#45683D"
+      ],
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/column-views",
+        "label": "Apple HIG / Column views",
+        "evidence": "Official platform guidance; static interpretation"
+      },
+      "round": 6
+    },
+    {
+      "id": "X33",
+      "name": "Optical loupe",
+      "layout": "loupe",
+      "influence": "Material recipe / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "G09 Etched precision",
+      "principle": "An opaque magnifying aperture reveals the selected record above a translucent evidence field.",
+      "difference": "A circular focus window and peripheral context replace an etched rectangular panel.",
+      "learning": "Test whether isolation improves focus without hiding neighboring candidates.",
+      "boundary": "A loupe must offer a non-magnified list alternative; glass here is a static rendering.",
+      "colors": [
+        "#CADBE6",
+        "#F7FCFF",
+        "#254453",
+        "#32677B"
+      ],
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Official reference; original material recipe, not native rendering"
+      },
+      "round": 6
+    },
+    {
+      "id": "X34",
+      "name": "Glass light table",
+      "layout": "lighttable",
+      "influence": "Material recipe / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E18 Darkroom layers",
+      "principle": "A luminous ruled table supports two translucent evidence slides and one opaque label strip.",
+      "difference": "Parallel slides and a shared alignment rail replace stacked darkroom planes.",
+      "learning": "Test whether layered material can distinguish navigation from text-bearing content.",
+      "boundary": "Text stays on opaque planes; the mockup does not verify native transparency behavior.",
+      "colors": [
+        "#D8E4EE",
+        "#FFFFFF",
+        "#294254",
+        "#3E668F"
+      ],
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Official reference; original material recipe, not native rendering"
+      },
+      "round": 6
+    },
+    {
+      "id": "X35",
+      "name": "Cut-crystal aperture",
+      "layout": "facet",
+      "influence": "Material recipe / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "G10 Floating crystal",
+      "principle": "A faceted perimeter encloses a quiet rectangular evidence aperture.",
+      "difference": "Angular refraction is concentrated at the edge rather than floating rounded cards.",
+      "learning": "Test whether a distinctive perimeter can leave the working area calm.",
+      "boundary": "Facets are original decoration, not a quantitative chart or native optical simulation.",
+      "colors": [
+        "#D1E1E5",
+        "#FBFFFF",
+        "#24444A",
+        "#2D6770"
+      ],
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Official reference; original material recipe, not native rendering"
+      },
+      "round": 6
+    },
+    {
+      "id": "X36",
+      "name": "Lenticular rail",
+      "layout": "lenticular",
+      "influence": "Material recipe / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "G08 Fluted glass",
+      "principle": "A striped orientation rail separates three fixed views from a stable evidence panel.",
+      "difference": "Alternating broad face planes suggest view switching instead of a ribbed glass background.",
+      "learning": "Test whether selected-view labels remain clear without motion.",
+      "boundary": "No view actually changes with head position; motion would need a static alternative.",
+      "colors": [
+        "#E4DCEC",
+        "#FFFAFF",
+        "#47354F",
+        "#76518B"
+      ],
+      "source": {
+        "url": "https://developer.apple.com/design/human-interface-guidelines/materials",
+        "label": "Apple HIG / Materials",
+        "evidence": "Official reference; original material recipe, not native rendering"
+      },
+      "round": 6
+    },
+    {
+      "id": "X37",
+      "name": "Folded review steps",
+      "layout": "origami",
+      "influence": "Material recipe / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "T03 Cut-paper desk",
+      "principle": "A continuous folded strip carries review stages above a flat file-evidence area.",
+      "difference": "Connected accordion folds encode sequence, unlike layered cut-paper category shapes.",
+      "learning": "Test whether connected folds communicate order more clearly than separate cards.",
+      "boundary": "Paper folding is an original metaphor; decorative perspective must not distort text.",
+      "colors": [
+        "#E8DEC8",
+        "#FFFCF0",
+        "#413D2B",
+        "#756128"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-is-print",
+        "label": "V&A / What is print?",
+        "evidence": "Museum process reference; original material metaphor"
+      },
+      "round": 6
+    },
+    {
+      "id": "X38",
+      "name": "Woven evidence ledger",
+      "layout": "woven",
+      "influence": "Material recipe / original application",
+      "group": "Form & behavior / 38 distinct compositions",
+      "nearest": "E11 Overprint workshop",
+      "principle": "Interleaved row and column bands tie each category to its ownership and cost checks.",
+      "difference": "A disciplined woven table replaces overprinted poster layers and registration marks.",
+      "learning": "Test whether crossing bands help trace a row without confusing cell values.",
+      "boundary": "Weave is an original material recipe, not a claim about a specific textile tradition.",
+      "colors": [
+        "#D7E1D7",
+        "#FCFFF7",
+        "#314833",
+        "#436E47"
+      ],
+      "source": {
+        "url": "https://www.vam.ac.uk/articles/what-is-print",
+        "label": "V&A / What is print?",
+        "evidence": "Museum process reference; original material metaphor"
+      },
+      "round": 6
+    }
+  ]
+}

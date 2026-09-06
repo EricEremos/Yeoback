@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="300" viewBox="0 0 1280 300" role="img" aria-labelledby="title desc">
+  <title id="title">Yeoback. Room for your next idea.</title>
+  <desc id="desc">An ivory editorial banner with evergreen lettering and an open storage-volume motif.</desc>
+  <rect width="1280" height="300" fill="#F5F3EF"/>
+  <path d="M48 48H1232" stroke="#C5C9BF"/>
+  <g fill="#252C27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="48" y="89" font-size="17" font-weight="600" letter-spacing="3">YEOBACK</text>
+    <text x="45" y="163" font-size="60" font-weight="600" letter-spacing="-2">Room for your next idea.</text>
+    <text x="48" y="221" font-size="20" fill="#62675F">Understand your storage. Decide what stays.</text>
+  </g>
+  <g transform="translate(1080 94)" fill="none" stroke="#252C27" stroke-width="5">
+    <rect width="136" height="136" rx="23"/>
+    <path d="M24 104V28H112V104"/>
+    <path d="M44 46H91M44 65H91" stroke="#AE3529" stroke-linecap="round"/>
+  </g>
+  <path d="M48 252H1232" stroke="#C5C9BF"/>
+</svg>

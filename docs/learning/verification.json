@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-05",
+  "scope": "Cleanup comparative design learning foundation",
+  "status": "Verified within the stated static-review and reader scope",
+  "coverage": {
+    "individual_critiques": 150,
+    "unique_catalogue_ids": 150,
+    "conditional_rules": 11,
+    "transfer_exercises": 3,
+    "comparison_scale_artifacts_reviewed": 150,
+    "additional_full_size_checks": ["X15", "X36", "X20"],
+    "dispositions": {"shell candidate": 10, "module": 53, "accent": 79, "rework": 8}
+  },
+  "structural_checks": {
+    "builder": "PASS: exact catalogue equality, unique IDs, nonempty critique fields, valid rule and comparison references, existing previews",
+    "python_syntax": "PASS: ast.parse",
+    "reader_javascript_syntax": "PASS: node --check",
+    "internal_anchors": "PASS: every fragment target exists",
+    "HTTP": "PASS: reader, analysis JSON, synthesis Markdown and transfer evidence each return 200"
+  },
+  "real_browser_checks": {
+    "desktop": "1440 x 1000: inspected header, filters and three-column cards; no horizontal overflow",
+    "mobile": "390 x 844: inspected stacked filters and expanded X15 evidence; no horizontal overflow",
+    "search": "PASS: X15 gives one matching study; unmatched text gives empty state",
+    "reset": "PASS: restores 150 studies",
+    "disposition_filter": "PASS: eight rework studies",
+    "combined_filters": "PASS: rework plus F07 leaves X15",
+    "collection_filter": "PASS: Glass & materials gives 16 studies",
+    "comparison_link": "PASS: Compare I reveals and focuses study-I, restoring all studies",
+    "deep_link_regression": "Fixed hash navigation that left a target hidden by an active filter. Reloaded final build, selected Glass & materials, navigated to X15: all 150 visible and X15 not hidden",
+    "details": "PASS: expanded X15 original intent and evidence boundary in the real browser"
+  },
+  "durable_retrieval": {
+    "project_instructions": "AGENTS.md points future work to the foundation and relevant individual records",
+    "wiki_page": "06_Foundations/Evidence-Led Visual Communication Principles.md",
+    "wiki_validator": "PASS: zero errors, zero warnings",
+    "retrieval_query": "Cleanup design foundation structural novelty 150",
+    "retrieval_result": "Updated foundation returned first, with all six query terms matched",
+    "wiki_log": "Appended canonical change entry; its heading passes the linter format and operation vocabulary",
+    "wiki_lint_limits": "Whole-vault lint has unrelated existing log and freshness findings. Its Cleanup path warning truncates at the space in Cleanup APP; all three exact linked paths were checked and exist"
+  },
+  "limits": [
+    "The 150 critiques are author interpretations of static artifacts, not independent participant findings",
+    "Proposed verification prompts and transfer exercises are not executed user studies",
+    "No exhaustive full-size typography audit of all 150 designs, screen-reader audit, or native macOS behavior validation",
+    "Reference provenance is retained; this pass does not independently re-audit every original reference",
+    "Learning is persisted project and Wiki knowledge; no model-weight training or guaranteed future retrieval is claimed",
+    "No final visual direction is selected and no new Figma write is claimed in this learning pass",
+    "LSP checks were unavailable; Python syntax, JavaScript syntax, structural checks and real-browser behavior were verified instead",
+    "Cross-device Wiki synchronization was not verified"
+  ]
+}

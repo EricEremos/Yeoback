@@ -1,0 +1,6 @@
+.build/
+dist/
+.DS_Store
+docs/verification/
+docs/CLEANUP-REPORT.md
+docs/cleanup-rust-result.json

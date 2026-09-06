@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Debug-only provider used by connected tests; it is not in release APKs. -->
+        <activity android:name=".FixtureGrantHostActivity" android:exported="false" />
+        <activity android:name=".FixtureTreePickerActivity" android:exported="false" />
+        <provider
+            android:name=".FixtureDocumentsProvider"
+            android:authorities="com.yeoback.preview.fixture.documents"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
+    </application>
+</manifest>

@@ -1,0 +1,35 @@
+name: Verify macOS
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: macos-26
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Toolchain
+        run: swift --version && xcrun --show-sdk-version
+      - name: Prepare pinned cache provider
+        run: |
+          python3 -m venv "$RUNNER_TEMP/yeoback-providers"
+          "$RUNNER_TEMP/yeoback-providers/bin/python" -m pip install --isolated --disable-pip-version-check --only-binary=:all: --no-deps --require-hashes -r scripts/ci-providers.txt
+          mkdir -p "$HOME/.local/bin"
+          ln -s "$RUNNER_TEMP/yeoback-providers/bin/uv" "$HOME/.local/bin/uv"
+          "$HOME/.local/bin/uv" --version
+          /usr/bin/pip3 --version
+      - name: Fixture and lifecycle checks
+        run: zsh scripts/check-all.sh
+      - name: Build local app
+        run: zsh scripts/build-app.sh
+      - name: Verify bundle
+        run: codesign --verify --strict dist/Yeoback.app && plutil -lint dist/Yeoback.app/Contents/Info.plist

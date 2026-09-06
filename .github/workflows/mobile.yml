@@ -1,0 +1,109 @@
+name: Verify mobile preview
+on:
+  push:
+    branches: [main]
+    paths: ['mobile/**', 'Sources/Cleanup/WorkArtifact.swift', '.github/workflows/mobile.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  android:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Expose Android platform tools
+        run: echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+      - name: Start fixture emulator
+        run: |
+          trap 'tail -n 100 "$RUNNER_TEMP/emulator.log" 2>/dev/null || true' EXIT
+          export ANDROID_USER_HOME="$RUNNER_TEMP/yeoback-android"
+          export ANDROID_EMULATOR_HOME="$ANDROID_USER_HOME"
+          export ANDROID_AVD_HOME="$ANDROID_USER_HOME/avd"
+          mkdir -p "$ANDROID_AVD_HOME"
+          sudo chmod 666 /dev/kvm
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" 'platform-tools' 'system-images;android-35;google_apis;x86_64'
+          echo no | "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" create avd --name yeoback --path "$ANDROID_AVD_HOME/yeoback.avd" --package 'system-images;android-35;google_apis;x86_64'
+          test -f "$ANDROID_AVD_HOME/yeoback.ini"
+          "$ANDROID_HOME/emulator/emulator" -list-avds
+          "$ANDROID_HOME/emulator/emulator" -avd yeoback -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -verbose > "$RUNNER_TEMP/emulator.log" 2>&1 &
+          emulator_pid=$!
+          sleep 5
+          kill -0 "$emulator_pid"
+          timeout 240 adb wait-for-device
+          timeout 240 bash -c 'until [ "$(adb shell getprop sys.boot_completed | tr -d "\r")" = 1 ]; do sleep 2; done'
+          adb shell input keyevent 82
+      - name: Native Android build and unit tests
+        working-directory: mobile/android
+        run: |
+          export JAVA_HOME="$JAVA_HOME_17_X64"
+          export PATH="$JAVA_HOME/bin:$PATH"
+          ./gradlew --no-daemon testDebugUnitTest assembleDebug assembleDebugAndroidTest
+      - name: Native Android fixture UI tests
+        working-directory: mobile/android
+        run: |
+          export JAVA_HOME="$JAVA_HOME_17_X64"
+          export PATH="$JAVA_HOME/bin:$PATH"
+          ./gradlew --no-daemon -Pandroid.injected.androidTest.leaveApksInstalledAfterRun=true connectedDebugAndroidTest
+          adb exec-out screencap -p > app/build/Android-final-screen.png
+      - name: Collect Android fixture screenshots
+        if: always()
+        run: adb pull /sdcard/Android/data/com.yeoback.preview/files/yeoback-screenshots mobile/android/app/build/yeoback-screenshots || true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: yeoback-android-preview
+          path: |
+            mobile/android/app/build/outputs/apk
+            mobile/android/app/build/reports
+            mobile/android/app/build/outputs/androidTest-results
+            mobile/android/app/build/Android-final-screen.png
+            mobile/android/app/build/yeoback-screenshots
+          retention-days: 7
+  ios:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Generate native project
+        run: |
+          python3 mobile/ios/make-project.py
+          python3 mobile/ios/make-assets.py
+          xcodebuild -version
+          xcrun simctl list devices available -j > "$RUNNER_TEMP/devices.json"
+          python3 - <<'PY'
+          import json, os
+          devices = json.load(open(os.environ['RUNNER_TEMP'] + '/devices.json'))['devices']
+          phones = [d for runtime, rows in devices.items() if 'iOS' in runtime for d in rows if d['name'].startswith('iPhone') and d.get('isAvailable')]
+          if not phones: raise SystemExit('No available iPhone simulator')
+          chosen = sorted(phones, key=lambda d: d['name'])[0]
+          with open(os.environ['GITHUB_ENV'], 'a') as f: f.write('SIMULATOR_ID=' + chosen['udid'] + '\n')
+          print(chosen['name'], chosen['udid'])
+          PY
+      - name: Native build, safety tests and fixture UI
+        run: |
+          xcodebuild test -project mobile/ios/Yeoback.xcodeproj -scheme Yeoback -destination "platform=iOS Simulator,id=$SIMULATOR_ID" -parallel-testing-enabled NO -derivedDataPath "$RUNNER_TEMP/YeobackBuild" -resultBundlePath "$RUNNER_TEMP/Yeoback.xcresult" CODE_SIGNING_ALLOWED=NO
+      - name: Export native evidence and simulator app
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/mobile-evidence"
+          if [ -d "$RUNNER_TEMP/Yeoback.xcresult" ]; then
+            xcrun xcresulttool export attachments --path "$RUNNER_TEMP/Yeoback.xcresult" --output-path "$RUNNER_TEMP/mobile-evidence/screenshots" || true
+            ditto -c -k --sequesterRsrc --keepParent "$RUNNER_TEMP/Yeoback.xcresult" "$RUNNER_TEMP/mobile-evidence/Yeoback.xcresult.zip"
+          fi
+          if [ -d "$RUNNER_TEMP/YeobackBuild/Build/Products/Debug-iphonesimulator/Yeoback.app" ]; then
+            ditto -c -k --sequesterRsrc --keepParent "$RUNNER_TEMP/YeobackBuild/Build/Products/Debug-iphonesimulator/Yeoback.app" "$RUNNER_TEMP/mobile-evidence/Yeoback-iOS-Simulator.zip"
+          fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: yeoback-ios-preview
+          path: ${{ runner.temp }}/mobile-evidence
+          retention-days: 7

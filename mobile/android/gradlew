@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+set -eu
+
+GRADLE_VERSION=8.10.2
+GRADLE_SHA256=31c55713e40233a8303827ceb42ca48a47267a0ad4bab9177123121e71524c26
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+CACHE_DIR="${GRADLE_USER_HOME:-$SCRIPT_DIR/.gradle-user-home}/wrapper/dists/gradle-${GRADLE_VERSION}"
+ARCHIVE="$CACHE_DIR/gradle-${GRADLE_VERSION}-bin.zip"
+DIST_DIR="$CACHE_DIR/gradle-${GRADLE_VERSION}"
+
+if [ ! -x "$DIST_DIR/bin/gradle" ]; then
+  mkdir -p "$CACHE_DIR"
+  if [ ! -f "$ARCHIVE" ]; then
+    curl --fail --location --silent --show-error \
+      "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" \
+      --output "$ARCHIVE"
+  fi
+  printf '%s  %s\n' "$GRADLE_SHA256" "$ARCHIVE" | shasum -a 256 -c -
+  unzip -q "$ARCHIVE" -d "$CACHE_DIR"
+fi
+
+exec "$DIST_DIR/bin/gradle" "$@"

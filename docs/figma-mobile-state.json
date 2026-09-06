@@ -1,0 +1,20 @@
+{
+  "fileKey": "olCrS1PxKWJjMiVlGbC3zR",
+  "page": "0:1",
+  "section": "233:465",
+  "sectionName": "Yeoback / Mobile 0.1 — Selected folders",
+  "semanticCollection": "VariableCollectionId:196:417",
+  "screens": {
+    "inventoryLight": "236:465",
+    "inventoryDark": "237:484",
+    "reviewLight": "239:467",
+    "reviewDark": "239:495",
+    "filtersLight": "239:478",
+    "filtersDark": "239:506",
+    "resultsLight": "239:486",
+    "resultsDark": "239:514"
+  },
+  "layout": "Editable vertical Auto Layout frames, semantic Light/Dark variables. Existing primary button instances; mobile rows derived from existing workbench row.",
+  "status": "Flow and semantic design reference. Native SwiftUI and Compose controls adapt to platform; not a pixel-identical screenshot import or participant-validated design.",
+  "data": "Illustrative fixture sizes. Logical file size is distinct from measured free space. Changed-file refusal is an explicit outcome."
+}

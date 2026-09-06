@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="290" viewBox="0 0 640 290" role="img" aria-labelledby="title">
+  <title id="title">Yeoback. Room for your next idea.</title>
+  <rect width="640" height="290" fill="#F5F3EF"/>
+  <path d="M32 28H608M32 262H608" stroke="#C5C9BF" stroke-width="2"/>
+  <g fill="#252C27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">
+    <text x="32" y="76" font-size="26" letter-spacing="3">YEOBACK</text>
+    <text x="30" y="148" font-size="52" letter-spacing="-1">Room for your</text>
+    <text x="30" y="210" font-size="52" letter-spacing="-1">next idea.</text>
+  </g>
+  <path d="M522 182H590M522 204H590" stroke="#AE3529" stroke-width="6" stroke-linecap="round"/>
+</svg>
