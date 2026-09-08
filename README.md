@@ -5,9 +5,9 @@
 
 # Yeoback
 
-**Find the files your workflow leaves behind.** Review SVG drafts, work records, and developer caches. Choose what goes, and make room for what comes next.
+Review SVG drafts, work records, and developer caches. Choose what to remove. Keep what matters.
 
-[**Watch the brand film · 6 sec →**](https://github.com/EricEremos/Yeoback/raw/refs/heads/main/docs/github/images/yeoback-film.mp4) &nbsp; [Build the Mac app](#start-here) &nbsp; [Explore the design](docs/github/CASE-STUDY.md)
+[**Build the Mac app →**](#start-here) &nbsp; [Explore the design](docs/github/CASE-STUDY.md)
 
 Native SwiftUI · Local file analysis · Light & dark · Development preview
 
@@ -64,4 +64,4 @@ Mobile previews review folders you explicitly choose. They cannot clean the whol
 
 Built by [EricEremos](https://github.com/EricEremos). [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
-Screens show sample files from the 0.3.4 preview. [Brand artwork & film credits](docs/github/marketing/README.md). Source is public; no open-source license is granted.
+Screens show sample files from the 0.3.4 preview. [Artwork credits](docs/github/marketing/README.md). Source is public; no open-source license is granted.

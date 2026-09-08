@@ -1,8 +1,10 @@
-# Yeoback brand film
+# Yeoback brand artwork
 
-[Watch the film](../images/yeoback-film.mp4) · [Editable cover](hero.html) · [Native app design in Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=196-416)
+[Editable cover](hero.html) · [Native app design in Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=196-416)
 
-The ivory frame holds two coral blocks and an open bay. That space is the central idea of **여백**: room around what matters. The slow camera movement preserves the shape; the typography stays still and readable.
+The ivory frame holds two coral blocks and an open bay. That space is the central idea of **여백**: room around what matters. The README uses a still cover, with separate desktop and portrait compositions.
+
+The motion study below is retained as production history. It was removed from the product presentation at the owner's request on September 8, 2026.
 
 ## Production
 
@@ -10,7 +12,7 @@ The ivory frame holds two coral blocks and an open bay. That space is the centra
 - **Motion:** Higgsfield, Seedance 2.0 image-to-video, generated from the studio image on September 8, 2026. One continuous six-second shot.
 - **Typography:** deterministic AppKit composition using the macOS system font. Text is added after generation so it cannot drift or change spelling.
 - **Delivery:** 1920 × 1080, H.264, 24 fps, 6.04 seconds, silent. The film does not demonstrate cleanup or claim recovered capacity.
-- **App evidence:** README screenshots show the actual native app with disposable sample files. The film is presented separately from those screenshots.
+- **App evidence:** README screenshots show the actual native app with disposable sample files. Generated artwork does not establish application behavior.
 
 `hero.html` contains the desktop and portrait cover layout. `render-titles.swift` produces the transparent 1080p title layer:
 
