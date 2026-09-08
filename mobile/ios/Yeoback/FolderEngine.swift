@@ -65,7 +65,7 @@ enum ArtifactGroup: String, CaseIterable, Identifiable {
         case .artifacts: return item.clue != nil
         case .svg: return item.url.pathExtension.lowercased() == "svg"
         case .drafts: return WorkArtifact.draftClue(item.url, root: root)
-        case .records: return WorkArtifact.recordClue(item.url)
+        case .records: return WorkArtifact.recordClue(item.url, root: root)
         }
     }
 }

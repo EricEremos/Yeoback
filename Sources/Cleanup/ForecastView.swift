@@ -14,7 +14,6 @@ struct ForecastView: View {
         }
         let forecast = StorageForecast.evaluate(history, target: model.targetBytes)
         VStack(alignment: .leading, spacing: 10) {
-            Eyebrow(text: "Reserve forecast / measured trend")
             Text(forecast.title).font(.headline)
             Text(forecast.detail).font(.callout).fixedSize(horizontal: false, vertical: true)
             if forecast.samples > 0 {
@@ -23,7 +22,7 @@ struct ForecastView: View {
             }
             DisclosureGroup("Explain with on-device AI") {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Optional Apple model. Only aggregate capacity facts are supplied; no file names, paths or contents. Generated text may be wrong. The measurements above remain authoritative.")
+                    Text("On-device · aggregate capacity only. AI explanations may be inaccurate.")
                         .font(.caption).foregroundStyle(Palette.muted)
                     if let reason = LocalStorageAdvisor.unavailableReason { Text(reason).font(.callout) }
                     HStack {
@@ -39,13 +38,11 @@ struct ForecastView: View {
                             .font(.caption.weight(.semibold))
                         Text(explanationSnapshot).font(.caption).foregroundStyle(Palette.muted)
                         Text(explanation).font(.callout).textSelection(.enabled).fixedSize(horizontal: false, vertical: true)
-                        Text("AI describes a past reading. Future capacity and recovery are not guaranteed; the observation does not identify a cause.")
-                            .font(.caption).foregroundStyle(Palette.muted)
                     }
                     if let error { Text(error).font(.callout).foregroundStyle(Palette.accent) }
                 }.padding(.top, 8)
             }
-        }.padding(18).frame(maxWidth: .infinity, alignment: .leading).background(Palette.tint)
+        }.frame(maxWidth: .infinity, alignment: .leading)
             .onDisappear { cancel() }
     }
 

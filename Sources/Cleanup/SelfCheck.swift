@@ -35,6 +35,12 @@ enum SelfCheck {
             var filter = InventoryFilter()
             filter.search = "  RECENT-small  "
             try expect(filter.apply(expanded.items, selection: []).map(\.id) == [smallCandidate.id], "Search trims whitespace and matches names case-insensitively")
+            let homeCandidate = Candidate(url: fm.homeDirectoryForCurrentUser.appendingPathComponent(".codex/sessions"),
+                                          root: root, rootIdentity: smallCandidate.rootIdentity, identity: smallCandidate.identity,
+                                          bytes: 0, modified: Date(), kind: .cache, reason: "Synthetic search fixture",
+                                          selectable: false, bundleID: nil)
+            filter.search = "  ~/.codex/  "
+            try expect(filter.apply([homeCandidate], selection: []).count == 1, "Search accepts the displayed home-relative path")
             filter = InventoryFilter()
             filter.minimumSize = .mb25
             try expect(filter.apply(expanded.items, selection: []).isEmpty, "Minimum allocated-size filter produces an honest empty result")
@@ -83,6 +89,28 @@ enum SelfCheck {
                   let artworkTrash = try Storage.trash(artwork) else { throw StorageError.message("SVG fixture did not move to Trash") }
             try expect(!fm.fileExists(atPath: artwork.url.path) && fm.fileExists(atPath: artworkTrash.path), "Reviewed SVG uses the existing validated Trash path")
             try fm.moveItem(at: artworkTrash, to: artwork.url)
+            let recordNames = ["chat-history.ndjson", "rollout-20260908.jsonl", "handoff.md", "sessions/2026/opaque.jsonl", "conversations/opaque.json", ".planning/phases/01/summary.md", ".omo/plans/next.md", ".sisyphus/notepads/notes.md", ".codex/sessions/2026/opaque.jsonl", ".codex/archived_sessions/rollout.jsonl", ".codex/log/codex-tui.log", ".claude/projects/workspace/opaque.jsonl", ".claude/debug/opaque.txt", ".claude/todos/opaque.json"]
+            let ordinaryNames = ["conversationist.md", "assistantship.json", "session.png", "app-config.json", "sessions/settings.json", "sessions/README.md"]
+            let excludedNames = [".git/session.md", ".codex/auth.json", ".codex/session-index.json", ".codex/skills/session.md", ".codex/sessions/auth.json", ".claude/settings.json", ".claude/plugins/session.md", "node_modules/session.md", ".planning/config.json", ".planning/.secret.json"]
+            for name in recordNames + ordinaryNames + excludedNames {
+                let url = artifacts.appendingPathComponent(name)
+                try fm.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+                try Data("Disposable record fixture".utf8).write(to: url)
+            }
+            let records = Storage.scanDocuments(root: artifacts, includeSmallFiles: true)
+            filter.category = .records
+            let recordPaths = Set(filter.apply(records.items, selection: []).map(\.url.path))
+            let missingRecords = recordNames.filter { !recordPaths.contains(artifacts.appendingPathComponent($0).path) }
+            try expect(missingRecords.isEmpty, "Record filter finds plural folders, opaque logs, NDJSON, handoffs and hidden agent records\(missingRecords.isEmpty ? "" : ": missing \(missingRecords.joined(separator: ", "))")")
+            try expect(ordinaryNames.allSatisfy { !recordPaths.contains(artifacts.appendingPathComponent($0).path) }, "Record clues reject partial words, binary files, config and canonical instructions")
+            try expect(excludedNames.allSatisfy { name in !records.items.contains { $0.url.path == artifacts.appendingPathComponent(name).path } }, "Hidden credentials, Git, dependencies and hidden configuration stay excluded")
+            let protected = records.items.filter { WorkArtifact.isProtectedRecord($0.url) }
+            try expect(protected.count == 9 && protected.allSatisfy { item in !item.selectable && rejected { try Storage.validate(item) } }, "Hidden agent records are view-only and rejected by cleanup validation")
+            let directRecords = Storage.scanDocuments(root: artifacts.appendingPathComponent(".codex"), includeSmallFiles: true)
+            try expect(directRecords.items.count == 3 && directRecords.items.allSatisfy { !$0.selectable }, "Direct agent-root scan includes only named record subfolders, all view-only")
+            try expect(InventoryFilter.selectingVisible(protected, in: [], selected: true).isEmpty, "Bulk selection cannot include agent workspace records")
+            try expect(WorkArtifact.recordClue(artifacts.appendingPathComponent("sessions/opaque.jsonl"), root: artifacts.appendingPathComponent("sessions")), "Choosing the record folder itself preserves the clue")
+            try expect(WorkArtifact.reason(for: artifacts.appendingPathComponent("drafts/chat-history.jsonl"), root: artifacts)?.hasPrefix("Draft/export") == true, "Draft reason retains precedence over record clues")
             var firstCount = 0
             let firstTree = Storage.directorySize(root, deadline: Date().addingTimeInterval(10), count: &firstCount)
             let nested = root.appendingPathComponent("nested")
@@ -92,7 +120,10 @@ enum SelfCheck {
             let secondTree = Storage.directorySize(root, deadline: Date().addingTimeInterval(10), count: &secondCount)
             try expect(firstTree.1 && secondTree.1 && firstTree.2 != secondTree.2, "Tree fingerprint detects nested content changes")
             let partial = Storage.scanDocuments(root: root, limit: 1)
-            try expect(partial.partial, "Entry limit produces a partial result")
+            try expect(partial.partial && partial.issues.contains { $0.contains("1-entry limit") }, "Entry limit reports its actual configured value")
+            let timedOut = Storage.scanDocuments(root: root, timeLimit: .leastNonzeroMagnitude)
+            try expect(timedOut.partial && timedOut.items.isEmpty, "Document timeout discloses incomplete coverage")
+            try expect(Storage.scanDocuments(root: root, limit: 0).partial, "Invalid document budget is rejected")
             try Storage.validate(item)
             passed.append("Unchanged reviewed fixture validates")
             try Data("changed".utf8).write(to: document)

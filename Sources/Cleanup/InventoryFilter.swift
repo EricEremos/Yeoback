@@ -8,14 +8,14 @@ enum FileCategory: String, CaseIterable, Identifiable {
         let ext = item.url.pathExtension.lowercased()
         switch self {
         case .all: return true
-        case .documents: return ["pdf", "doc", "docx", "ppt", "pptx", "xls", "xlsx", "pages", "key", "numbers", "rtf", "txt", "csv", "md", "markdown", "json", "jsonl", "log", "html"].contains(ext)
+        case .documents: return ["pdf", "doc", "docx", "ppt", "pptx", "xls", "xlsx", "pages", "key", "numbers", "rtf", "txt", "csv", "md", "markdown", "json", "jsonl", "ndjson", "log", "html"].contains(ext)
         case .images: return ["jpg", "jpeg", "png", "heic", "gif", "tiff", "svg", "webp"].contains(ext)
         case .media: return ["mp4", "mov", "mkv", "avi", "mp3", "wav", "m4a"].contains(ext)
         case .archives: return ["zip", "7z", "tar", "gz", "dmg", "pkg", "iso"].contains(ext)
         case .workArtifacts: return item.artifactReason != nil
         case .svg: return ext == "svg"
         case .drafts: return item.kind == .document && WorkArtifact.draftClue(item.url, root: item.root)
-        case .records: return item.kind == .document && WorkArtifact.recordClue(item.url)
+        case .records: return item.kind == .document && WorkArtifact.recordClue(item.url, root: item.root)
         }
     }
     var isArtifactView: Bool { [.workArtifacts, .svg, .drafts, .records].contains(self) }
@@ -49,7 +49,8 @@ struct InventoryFilter: Equatable {
     var isRestricted: Bool { !search.isEmpty || category != .all || minimumSize != .any || age != .any || selectedOnly || eligibleOnly }
 
     func apply(_ items: [Candidate], selection: Set<String>, now: Date = Date()) -> [Candidate] {
-        let query = search.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmed = search.trimmingCharacters(in: .whitespacesAndNewlines)
+        let query = trimmed.hasPrefix("~/") ? (trimmed as NSString).expandingTildeInPath : trimmed
         return items.filter { item in
             (query.isEmpty || item.url.path.localizedCaseInsensitiveContains(query)) && category.matches(item) &&
             item.bytes >= minimumSize.rawValue && (age == .any || now.timeIntervalSince(item.modified) >= Double(age.rawValue) * 86400) &&

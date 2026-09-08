@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased · 2026-09-08
+
+- Expand storage inventory to supported developer, application, and agent work locations; keep informational stores separate from supported cleanup operations.
+- Mark incomplete measurements, refuse their cleanup, and exclude partial folder scans from saved growth comparisons.
+- Recognize additional work-record formats and folders while protecting hidden agent workspace records from removal.
+- Add cache-inventory and growth regression fixtures, and align the iOS work-record filter with the chosen folder root.
+- Simplify scan controls, filters, and reserve history while retaining explicit review and per-item outcomes.
+- Introduce an icon-led studio cover, a portrait cover, and a six-second Higgsfield brand film with fixed typography. Shorten the public README around the product and its actual scope.
+
 ## 0.3.4 (8) · 2026-09-06
 
 - Discover small SVG, WebP, Markdown, JSON, JSONL, log and HTML files in the document workbench.

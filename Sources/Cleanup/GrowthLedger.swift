@@ -12,6 +12,8 @@ struct GrowthSnapshot: Codable, Sendable, Equatable {
 struct GrowthScan: Sendable {
     let snapshot: GrowthSnapshot?
     let issue: String?
+    var incompleteSnapshot: GrowthSnapshot? = nil
+    var inaccessiblePaths: [String] = []
 }
 
 struct GrowthChange: Codable, Sendable, Equatable {
@@ -26,8 +28,8 @@ enum GrowthLedger {
     private static let filesInRoot = "(Files in folder)"
 
     static func scan(root rawRoot: URL,
-                     maxEntries: Int = 75_000,
-                     timeLimit: TimeInterval = 30,
+                     maxEntries: Int = 10_000_000,
+                     timeLimit: TimeInterval = 3_600,
                      progress: @Sendable (Int) -> Void = { _ in }) -> GrowthScan {
         guard maxEntries > 0 else { return GrowthScan(snapshot: nil, issue: "Growth scan entry limit must be positive.") }
         guard timeLimit > 0 else { return GrowthScan(snapshot: nil, issue: "Growth scan time limit must be positive.") }
@@ -52,6 +54,7 @@ enum GrowthLedger {
         var buckets: [String: Int64] = [:]
         var seenFiles = Set<String>()
         var issue: String?
+        var inaccessiblePaths: [String] = []
 
         func fail(_ message: String) {
             if issue == nil { issue = message }
@@ -62,6 +65,11 @@ enum GrowthLedger {
             includingPropertiesForKeys: [.isUbiquitousItemKey],
             options: [],
             errorHandler: { url, error in
+                let failure = error as NSError
+                if (failure.domain == NSCocoaErrorDomain && failure.code == NSFileReadNoPermissionError) ||
+                    (failure.domain == NSPOSIXErrorDomain && [Int(EACCES), Int(EPERM)].contains(failure.code)) {
+                    if inaccessiblePaths.count < 8 && !inaccessiblePaths.contains(url.path) { inaccessiblePaths.append(url.path) }
+                }
                 fail("Could not inspect \(url.lastPathComponent): \(error.localizedDescription)")
                 return true
             }
@@ -72,42 +80,42 @@ enum GrowthLedger {
 
         while let url = enumerator.nextObject() as? URL {
             if Task.isCancelled {
-                fail("Growth scan was cancelled.")
+                issue = "Growth scan was cancelled."
                 break
             }
             if visited >= maxEntries {
-                fail("Growth scan reached its \(maxEntries.formatted())-entry limit.")
+                issue = "Growth scan reached its \(maxEntries.formatted())-entry limit."
                 break
             }
             if Date().timeIntervalSince(started) >= timeLimit {
-                fail("Growth scan reached its \(timeLimit.formatted())-second limit.")
+                issue = "Growth scan reached its \(timeLimit.formatted())-second limit."
                 break
             }
             visited += 1
             progress(visited)
 
             guard let identity = lstatIdentity(url) else {
+                if [EACCES, EPERM].contains(errno), inaccessiblePaths.count < 8, !inaccessiblePaths.contains(url.path) { inaccessiblePaths.append(url.path) }
                 fail("Could not inspect \(url.lastPathComponent).")
                 enumerator.skipDescendants()
                 continue
             }
             guard identity.device == rootIdentity.device else {
                 fail("A cross-volume entry was encountered; the aggregate is incomplete.")
-                enumerator.skipDescendants()
+                if identity.isDirectory { enumerator.skipDescendants() }
                 continue
             }
             if identity.isSymlink {
-                enumerator.skipDescendants()
                 continue
             }
             guard let ubiquitous = ubiquitousValue(url) else {
                 fail("Could not determine cloud-sync state for \(url.lastPathComponent).")
-                enumerator.skipDescendants()
+                if identity.isDirectory { enumerator.skipDescendants() }
                 continue
             }
             if ubiquitous {
                 fail("Cloud-synced content was skipped; the aggregate is incomplete.")
-                enumerator.skipDescendants()
+                if identity.isDirectory { enumerator.skipDescendants() }
                 continue
             }
             if identity.isDirectory { continue }
@@ -133,7 +141,6 @@ enum GrowthLedger {
         }
 
         if Task.isCancelled { fail("Growth scan was cancelled.") }
-        guard issue == nil else { return GrowthScan(snapshot: nil, issue: issue) }
         guard let finalIdentity = lstatIdentity(root), finalIdentity.isDirectory,
               finalIdentity.device == rootIdentity.device,
               finalIdentity.inode == rootIdentity.inode else {
@@ -142,8 +149,9 @@ enum GrowthLedger {
         guard noSymlinkAncestry(root) else {
             return GrowthScan(snapshot: nil, issue: "The scan root acquired a symbolic-link ancestor while it was being inspected.")
         }
-        return GrowthScan(snapshot: GrowthSnapshot(date: Date(), rootKey: rootIdentity.key,
-                                                   buckets: buckets, visited: visited), issue: nil)
+        let snapshot = GrowthSnapshot(date: Date(), rootKey: rootIdentity.key, buckets: buckets, visited: visited)
+        return GrowthScan(snapshot: issue == nil ? snapshot : nil, issue: issue,
+                          incompleteSnapshot: issue == nil ? nil : snapshot, inaccessiblePaths: inaccessiblePaths)
     }
 
     static func changes(previous: GrowthSnapshot, current: GrowthSnapshot) -> [GrowthChange] {

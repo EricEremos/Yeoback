@@ -1,66 +1,46 @@
 <picture>
-  <source media="(max-width: 600px)" srcset="docs/github/images/yeoback-cover-mobile.svg">
-  <img src="docs/github/images/yeoback-cover.svg" width="1280" alt="Yeoback. Room for your next idea.">
+  <source media="(max-width: 600px)" srcset="docs/github/images/yeoback-hero-mobile.png">
+  <img src="docs/github/images/yeoback-hero.png" width="1600" alt="Yeoback. Keep the work. Lose the leftovers. An ivory sculpture of the app icon leaves one compartment open. Storage review for your Mac.">
 </picture>
 
 # Yeoback
 
-**A calmer way to understand your storage.**
+**Find the files your workflow leaves behind.** Review SVG drafts, work records, and developer caches. Choose what goes, and make room for what comes next.
 
-Find what is taking up space. Review what will change. Keep the decision yours.
+[**Watch the brand film · 6 sec →**](https://github.com/EricEremos/Yeoback/raw/refs/heads/main/docs/github/images/yeoback-film.mp4) &nbsp; [Build the Mac app](#start-here) &nbsp; [Explore the design](docs/github/CASE-STUDY.md)
 
-**macOS · SwiftUI · Local data · Development preview**
+Native SwiftUI · Local file analysis · Light & dark · Development preview
 
-[Design case study](docs/github/CASE-STUDY.md) · [Build the app](#start-here) · [Engineering](docs/github/ARCHITECTURE.md)
+![The native Mac app: filter SVG drafts, inspect file paths, select files together, and review cleanup. Screen uses sample files.](docs/github/images/workbench.png)
 
-![Yeoback Documents in light appearance, showing selected work files, their paths, and an explicit review action](docs/github/images/workbench.png)
+## From leftover files to a clear decision.
 
-*The native Mac workbench with disposable fixture files. Selection, file evidence, and the review action stay visible together.*
+- **Find the trail.** Filter SVGs, drafts, exports, and work records by name, size, and date. Inspect the path and the reason each file appeared.
+- **Clear the buildup.** Review files together, remove eligible apps, and clean supported **uv** and **pip** caches. See each operation's outcome.
+- **Watch what grows.** Compare folder snapshots and monitor your free-space reserve. Optional on-device AI explains measured trends on compatible Macs.
+
+You choose every file. Filename and folder clues suggest candidates; they do not prove AI origin or that a file is unused. **Moving files to Trash does not usually free space until Trash is emptied.** Yeoback never empties it automatically.
 
 <details>
-<summary><strong>See the native dark appearance</strong></summary>
+<summary><strong>After hours — the native dark appearance</strong></summary>
 
-![Yeoback native dark workbench with the same document review structure](docs/github/images/workbench-dark.png)
+![Yeoback document review in dark appearance, using sample files](docs/github/images/workbench-dark.png)
 
-Ivory, evergreen, and coral carry across both appearances. System, Light, and Dark can be selected in Reserve settings or the native Appearance menu. See the [design contract](docs/github/DESIGN.md) for tokens and capture limitations.
+Choose System, Light, or Dark. Both appearances use the same review flow. [Colors, type, and spacing →](docs/github/DESIGN.md)
 
 </details>
 
-## Make room, with context
+## A little more 여백.
 
-Storage cleanup is a decision about someone's work. A filename can suggest a leftover; it cannot establish that a file is safe to remove. Yeoback keeps that distinction visible through the whole flow.
+Yeoback takes its name from the Korean word for the space around what matters. The icon leaves a bay open. The app leaves the decision with you.
 
-**Measure → Find → Filter → Select → Review → Clean → Check the result**
-
-| Understand | Decide | Follow through |
-| :--- | :--- | :--- |
-| Read measured capacity, compare folder growth, and set a reserve target. | Search documents, inspect paths and clues, then review your exact selection. | See individual outcomes, actual Trash destinations, and interrupted operations. |
-
-Nothing is selected automatically. Hidden selections are disclosed during review, and each candidate is revalidated before cleanup. **Moving files to Trash usually does not free disk space yet.** Selected bytes are never presented as recovered space, and Trash is never emptied automatically.
-
-## Design decisions that reach the implementation
-
-Yeoback takes its name from **여백**, the room around what matters. That idea shapes both the quiet interface and the pause before cleanup.
-
-**Evidence belongs beside the action.** File paths, eligibility, selection counts, and consequences share the workbench. Filters help narrow the list without concealing the existence of selected items.
-
-**A reserve is a target.** Measured free space, candidate estimates, and the remaining gap have different meanings. The interface preserves those meanings instead of promising a future capacity result.
-
-**Interruption needs an honest outcome.** Cleanup runs in bounded batches. Pending paths are saved before each batch; an interrupted operation is disclosed on relaunch and is never automatically replayed.
-
-[Read the case study →](docs/github/CASE-STUDY.md) The problem, visual direction, implementation choices, and evidence still needed.
-
-## A Mac app, with mobile explorations
-
-The Mac app is the main implementation. It includes document review, eligible application removal, supported **uv** and **pip** cache cleanup, folder growth comparisons, activity, and a monitored reserve. Other detected cache stores remain informational. Optional on-device AI explains measured trends on compatible Macs; it has no deletion tools.
-
-The **iPhone and Android development previews** explore the same review principles within folders chosen through the operating system. Mobile cleanup and recovery differ from the Mac app; system Trash and Undo are not guaranteed. These previews are not general device cleaners.
-
-[Mobile scope and builds](mobile/README.md) · [Editable mobile flows in Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=233-465)
+[The design story](docs/github/CASE-STUDY.md) · [150 design explorations](docs/DESIGN-FOUNDATION.md) · [How it works](docs/github/ARCHITECTURE.md)
 
 ## Start here
 
-**Mac local preview: 0.3.4 (8).** Recorded runtime verification covers Apple Silicon on macOS 26.5.2. The deployment target is macOS 14; older macOS versions and Intel runtime behavior remain unverified. Building requires an Apple toolchain with the macOS 26 SDK for Foundation Models APIs.
+**Mac development preview · 0.3.4 (8)**
+
+Requires Xcode with the **macOS 26 SDK**. Builds target macOS 14+; recorded runtime checks cover Apple Silicon on macOS 26.5.2. This is a locally built, ad-hoc signed app, not a notarized public release.
 
 ```sh
 git clone https://github.com/EricEremos/Yeoback.git
@@ -69,33 +49,19 @@ zsh scripts/build-app.sh
 open dist/Yeoback.app
 ```
 
-There are **no external Swift package dependencies** and no privileged helper. This creates an ad-hoc signed local app, not an Apple-notarized public release.
+[First cleanup & shortcuts](docs/github/GETTING-STARTED.md) · [Safety & privacy](docs/github/SAFETY.md) · [Test evidence & known limits](docs/github/QUALITY.md)
 
-[First cleanup, filters, shortcuts, and local installer →](docs/github/GETTING-STARTED.md)
+<details>
+<summary><strong>iPhone & Android previews</strong></summary>
 
-## Quality you can inspect
+Mobile previews review folders you explicitly choose. They cannot clean the whole device, and system Trash or Undo is not guaranteed.
 
-```sh
-zsh scripts/check-all.sh
-```
+[Builds and platform scope](mobile/README.md) · [Mobile flows in Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=233-465)
 
-The [quality report](docs/github/QUALITY.md) records automated checks, native UI observations, and remaining gaps separately. Coverage includes disposable-file operations, changed-file refusals, mixed batches, interrupted-state recovery, process locking, provider timeouts, forecasts, and growth. Mobile evidence covers simulator and emulator fixtures; physical-device and real cloud-provider behavior remains unverified.
-
-The current evidence does not establish participant-validated usability, a complete accessibility audit, or public-release readiness.
-
-## Explore the project
-
-| For a closer look | Read |
-| :--- | :--- |
-| Product reasoning and design tradeoffs | [Case study](docs/github/CASE-STUDY.md) |
-| Components, ownership, and recovery | [Architecture](docs/github/ARCHITECTURE.md) |
-| Scope checks and cleanup boundaries | [Safety and privacy](docs/github/SAFETY.md) |
-| Palette, typography, and appearances | [Implemented design contract](docs/github/DESIGN.md) |
-| Rules drawn from 150 design explorations | [Design foundation](docs/DESIGN-FOUNDATION.md) |
-| Changes over time | [Changelog](CHANGELOG.md) |
-
-[Mac designs in Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=196-416) · [Typography and spacing](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=210-465) · [Icon rationale](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=185-417)
+</details>
 
 ---
 
-Created by [EricEremos](https://github.com/EricEremos). This is the main repository for Yeoback's ongoing development, source code, and design documentation. Earlier development history is preserved separately in a private repository. The app retains its development-preview status. See [contribution guidelines](CONTRIBUTING.md) and [security reporting](SECURITY.md) before proposing changes. Public visibility does not grant an open-source license.
+Built by [EricEremos](https://github.com/EricEremos). [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+
+Screens show sample files from the 0.3.4 preview. [Brand artwork & film credits](docs/github/marketing/README.md). Source is public; no open-source license is granted.

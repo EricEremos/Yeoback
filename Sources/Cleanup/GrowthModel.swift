@@ -9,13 +9,19 @@ struct TrackedFolder: Codable, Identifiable {
 }
 
 @MainActor final class GrowthModel: ObservableObject {
+    static let maximumFolders = 12
     @Published private(set) var folders: [TrackedFolder] = []
-    @Published var selectedID: UUID?
+    @Published var selectedID: UUID? {
+        didSet { issue = nil; incompleteMeasurement = nil; inaccessiblePaths = [] }
+    }
     @Published private(set) var busy = false
     @Published private(set) var visited = 0
     @Published private(set) var issue: String?
+    @Published private(set) var incompleteMeasurement: GrowthSnapshot?
+    @Published private(set) var inaccessiblePaths: [String] = []
     @Published private(set) var persistenceIssue: String?
     private var task: Task<GrowthScan, Never>?
+    private var choosingFolder = false
     private let stateURL: URL
 
     var selected: TrackedFolder? { folders.first { $0.id == selectedID } }
@@ -30,7 +36,7 @@ struct TrackedFolder: Codable, Identifiable {
                 throw CocoaError(.fileReadCorruptFile)
             }
             let saved = try JSONDecoder().decode([TrackedFolder].self, from: Data(contentsOf: stateURL))
-            guard saved.count <= 3, Set(saved.map(\.id)).count == saved.count,
+            guard saved.count <= Self.maximumFolders, Set(saved.map(\.id)).count == saved.count,
                   saved.allSatisfy({ folder in
                       folder.path.hasPrefix("/") && folder.snapshots.count <= 12 &&
                       folder.snapshots.allSatisfy { snapshot in
@@ -46,17 +52,20 @@ struct TrackedFolder: Codable, Identifiable {
     }
 
     func chooseFolder() {
-        guard !busy, folders.count < 3, persistenceIssue == nil else { return }
+        guard !busy, !choosingFolder, folders.count < Self.maximumFolders, persistenceIssue == nil else { return }
+        choosingFolder = true
+        defer { choosingFolder = false }
         let panel = NSOpenPanel()
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.allowsMultipleSelection = false
         panel.prompt = "Track folder"
-        panel.message = "Choose a local cache or project folder. Yeoback saves sizes, never file contents."
+        panel.message = "Choose a folder to measure."
         guard panel.runModal() == .OK, let url = panel.url else { return }
         if let existing = folders.first(where: { $0.path == url.standardizedFileURL.path }) {
             selectedID = existing.id
         } else {
+            guard folders.count < Self.maximumFolders else { return }
             let folder = TrackedFolder(id: UUID(), path: url.standardizedFileURL.path)
             folders.append(folder)
             selectedID = folder.id
@@ -70,6 +79,8 @@ struct TrackedFolder: Codable, Identifiable {
         busy = true
         visited = 0
         issue = nil
+        incompleteMeasurement = nil
+        inaccessiblePaths = []
         let id = selected.id
         let root = selected.url
         let owner = self
@@ -88,6 +99,9 @@ struct TrackedFolder: Codable, Identifiable {
             busy = false
             task = nil
             issue = result.issue
+            inaccessiblePaths = result.inaccessiblePaths
+            incompleteMeasurement = result.incompleteSnapshot
+            if let partial = result.incompleteSnapshot { visited = partial.visited }
             guard let snapshot = result.snapshot,
                   let index = folders.firstIndex(where: { $0.id == id }) else { return }
             visited = snapshot.visited

@@ -48,7 +48,11 @@ struct GrowthCheck {
         try check("removal reports negative Beta delta", removal.contains { $0.name == "Beta" && $0.delta < 0 })
 
         let capped = GrowthLedger.scan(root: root, maxEntries: 1)
-        try check("entry cap withholds snapshot", capped.snapshot == nil && capped.issue != nil)
+        try check("entry cap withholds snapshot and reports actual limit", capped.snapshot == nil && capped.issue?.contains("1-entry limit") == true)
+        try check("entry cap retains inspected coverage outside comparable history", capped.incompleteSnapshot?.visited == 1)
+        let timedOut = GrowthLedger.scan(root: root, timeLimit: .leastNonzeroMagnitude)
+        try check("timeout withholds snapshot", timedOut.snapshot == nil && timedOut.issue != nil)
+        try check("invalid budget is rejected", GrowthLedger.scan(root: root, maxEntries: 0).snapshot == nil)
 
         let cancelledTask = Task {
             GrowthLedger.scan(root: root, progress: { count in
@@ -57,6 +61,16 @@ struct GrowthCheck {
         }
         let cancelled = await cancelledTask.value
         try check("cancellation withholds snapshot", cancelled.snapshot == nil && cancelled.issue != nil)
+        try check("cancelled scan retains inspected coverage", cancelled.incompleteSnapshot?.visited == 1)
+
+        let denied = root.appendingPathComponent("Denied")
+        try fm.createDirectory(at: denied, withIntermediateDirectories: true)
+        try Data("Access fixture".utf8).write(to: denied.appendingPathComponent("record.txt"))
+        try fm.setAttributes([.posixPermissions: 0o000], ofItemAtPath: denied.path)
+        let deniedScan = GrowthLedger.scan(root: root)
+        try fm.setAttributes([.posixPermissions: 0o700], ofItemAtPath: denied.path)
+        try check("permission failure exposes a bounded recovery path", deniedScan.snapshot == nil && deniedScan.incompleteSnapshot != nil && deniedScan.inaccessiblePaths.contains(denied.path) && deniedScan.inaccessiblePaths.count <= 8)
+        try fm.removeItem(at: denied)
 
         let otherRoot = GrowthSnapshot(date: Date(), rootKey: "different:root", buckets: removed.buckets, visited: removed.visited)
         try check("identity mismatch suppresses changes", GrowthLedger.changes(previous: removed, current: otherRoot).isEmpty)
@@ -68,6 +82,21 @@ struct GrowthCheck {
         ]
         try check("recurrence follows measured fall", GrowthLedger.recurrenceLabel(history, name: "Alpha") == "Growth recurred")
         try check("no recurrence before measured fall", GrowthLedger.recurrenceLabel([history[0], history[2]], name: "Alpha") == nil)
+        if CommandLine.arguments.contains("--large-scan") {
+            let large = parent.appendingPathComponent("large")
+            try fm.createDirectory(at: large, withIntermediateDirectories: true)
+            for index in 0..<76_000 {
+                guard fm.createFile(atPath: large.appendingPathComponent("record-\(index).txt").path, contents: Data()) else {
+                    throw GrowthError.failed("Could not create large-scan fixture")
+                }
+            }
+            let started = Date()
+            let measured = try snapshot(GrowthLedger.scan(root: large), "large scan")
+            try check("default Growth scan completes 76,000 entries", measured.visited == 76_000)
+            let documents = Storage.scanDocuments(root: large, includeSmallFiles: true)
+            try check("default Documents scan completes 76,000 entries", !documents.partial && documents.visited == 76_000 && documents.items.count == 76_000)
+            print("Large scan verification: \(Date().timeIntervalSince(started).formatted()) seconds")
+        }
         print("Growth checks passed")
     }
 }

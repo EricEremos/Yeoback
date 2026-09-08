@@ -7,6 +7,7 @@ enum Palette {
     static let muted = adaptive(0x62675F, 0xB8BDB4)
     static let line = adaptive(0xC5C9BF, 0x535D52)
     static let accent = adaptive(0xAE3529, 0xFF9988)
+    static let controlAccent = adaptive(0xAE3529, 0xB44134)
     static let tint = adaptive(0xE6E9E1, 0x353A35)
     static let surface = adaptive(0xFFFEFA, 0x252725)
 
@@ -34,7 +35,7 @@ struct ContentView: View {
             sidebar.frame(width: 220).background(Palette.surface)
             Rectangle().fill(Palette.line).frame(width: 1)
             VStack(alignment: .leading, spacing: 0) {
-                if model.busy || model.removing { HStack {
+                if (model.busy && !model.isInventory) || model.removing { HStack {
                     if model.busy { ProgressView().controlSize(.small); Text("Scanning \(model.scanSection?.rawValue ?? "storage")").font(.caption); Button(model.cancellingScan ? "Stopping…" : "Stop scan") { model.cancelScan() }.disabled(model.cancellingScan) }
                     else if model.removing { ProgressView().controlSize(.small); Text(model.currentOperation).font(.caption) }
                     Spacer()
@@ -55,12 +56,14 @@ struct ContentView: View {
                         }
                     }.padding(32).frame(maxWidth: .infinity, alignment: .leading)
                 } }
-                if [.developer, .applications, .documents].contains(model.section) || (!model.selection.isEmpty && model.section != .activity) {
+                if !model.selection.isEmpty && model.section != .activity {
                     Rule()
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(model.selection.isEmpty ? "Select items to clean up" : "\(model.selection.count) selected · \(sizeText(model.selectedBytes)) on disk").fontWeight(.semibold)
-                            Text(model.isInventory && model.hiddenSelectionCount > 0 ? "\(model.hiddenSelectionCount) selected outside these results. Review includes all selections." : "Review exact paths and actions before removal.").font(.caption).foregroundStyle(Palette.muted)
+                            if model.isInventory && model.hiddenSelectionCount > 0 {
+                                Text("\(model.hiddenSelectionCount) selected outside these results").font(.caption).foregroundStyle(Palette.muted)
+                            }
                         }
                         Spacer()
                         if !model.selection.isEmpty {
@@ -86,7 +89,6 @@ struct ContentView: View {
                 Image(nsImage: NSApp.applicationIconImage).resizable().frame(width: 36, height: 36).accessibilityHidden(true)
                 Text("Yeoback").font(.system(size: 22, weight: .semibold)).tracking(-0.5)
             }.padding(.top, 24)
-            Text("Your space, back.").font(.caption).foregroundStyle(Palette.muted).padding(.top, 6)
             VStack(spacing: 6) {
                 ForEach(Section.allCases.filter { $0 != .review }) { section in
                     if section == .activity || section == .reserve { Rule().padding(.vertical, 12) }
@@ -110,8 +112,6 @@ struct ContentView: View {
             Rule()
             VStack(alignment: .leading, spacing: 7) {
                 Text(model.monitorLabel).font(.system(size: 12, weight: .semibold))
-                Text("\(Int(model.state.targetGB)) GB reserve").font(.caption).foregroundStyle(Palette.muted)
-                Text(model.state.monitoring ? "Monitoring while app runs" : "Monitoring paused").font(.system(size: 12)).foregroundStyle(Palette.muted)
             }.padding(.vertical, 20)
         }.padding(.horizontal, 20)
     }
@@ -124,7 +124,9 @@ struct PageHeading: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title).font(.system(size: 28, weight: .semibold)).tracking(-0.5).fixedSize(horizontal: false, vertical: true)
-            Text(description).font(.system(size: 14)).foregroundStyle(Palette.muted).lineSpacing(4).fixedSize(horizontal: false, vertical: true)
+            if !description.isEmpty {
+                Text(description).font(.system(size: 14)).foregroundStyle(Palette.muted).lineSpacing(4).fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 }
@@ -133,7 +135,7 @@ struct OverviewView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         HStack(alignment: .center, spacing: 24) {
-            PageHeading(index: "", title: "Make room for what’s next.", description: "Start with rebuildable caches. Review every cleanup before it runs.")
+            PageHeading(index: "", title: "Home", description: "")
             Spacer(minLength: 0)
             Button("Find cleanup") { model.scan(.developer) }.buttonStyle(.borderedProminent).controlSize(.large)
                 .disabled(model.busy || model.removing)
@@ -142,9 +144,11 @@ struct OverviewView: View {
         if let capacity = model.capacity {
             HStack(alignment: .top, spacing: 20) {
                 Metric(label: "Available now", value: Double(capacity.free)/1e9, accent: true)
-                Metric(label: "Your reserve", value: model.state.targetGB)
-                Metric(label: "Shortfall", value: Double(model.shortfall)/1e9)
             }
+            Text(model.shortfall > 0 ? "\(sizeText(model.shortfall)) below your \(Int(model.state.targetGB)) GB target" : "\(Int(model.state.targetGB)) GB target met")
+                .foregroundStyle(Palette.muted)
+            DisclosureGroup("Capacity details") {
+            VStack(alignment: .leading, spacing: 12) {
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     Rectangle().fill(Palette.tint)
@@ -157,6 +161,8 @@ struct OverviewView: View {
                 Spacer()
                 Text("Red marker: reserve boundary")
             }.font(.caption).foregroundStyle(Palette.muted)
+            }.padding(.top, 12)
+            }
             HStack {
                 Text("Measured \(capacity.date.formatted(date: .omitted, time: .shortened)) · Home volume (\(NSHomeDirectory()))")
                 Spacer()
@@ -166,32 +172,6 @@ struct OverviewView: View {
             Text("Capacity is unavailable. Refresh to ask macOS for a new reading.")
             Button("Refresh capacity") { model.refresh() }
         }
-        Rule()
-        VStack(spacing: 0) {
-            actionRow("01", "Clean up caches", "Find unused uv data and pip downloads", section: .developer, action: "Find cleanup")
-            Rule()
-            actionRow("02", "Applications", "Review app bundles before uninstalling", section: .applications, action: "Scan apps")
-            Rule()
-            actionRow("03", "Documents", "Choose a folder for large and older files", section: .documents, action: "Choose folder")
-        }
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Your reserve is a target").font(.callout.weight(.semibold))
-            Text("Yeoback checks your reserve every minute while running. Nothing is removed automatically. Moving files to Trash usually does not free space until Trash is emptied in Finder.")
-                .font(.callout).foregroundStyle(Palette.muted).lineSpacing(3)
-            Button("View reserve forecast") { model.section = .reserve }.buttonStyle(.link)
-        }.padding(18).frame(maxWidth: .infinity, alignment: .leading).background(Palette.tint)
-    }
-
-    private func actionRow(_ number: String, _ title: String, _ detail: String, section: Section, action: String) -> some View {
-        HStack(spacing: 18) {
-            Text(number).font(.system(size: 11, design: .monospaced)).foregroundStyle(Palette.muted)
-            VStack(alignment: .leading, spacing: 6) {
-                Text(title).font(.system(size: 17, weight: .semibold))
-                Text(detail).font(.caption).foregroundStyle(Palette.muted)
-            }
-            Spacer()
-            Button(action) { model.scan(section) }.disabled(model.busy || model.removing)
-        }.padding(.vertical, 20)
     }
 }
 
@@ -212,6 +192,8 @@ struct Metric: View {
 
 struct InventoryView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var filtersExpanded = false
     @FocusState private var searchFocused: Bool
     private var kind: CandidateKind { model.inventoryKind }
     private var data: [Candidate] { model.visibleItems }
@@ -235,8 +217,9 @@ struct InventoryView: View {
                 Button("Select all visible") { model.selectVisible(true) }
                     .disabled(eligible.isEmpty || eligible.allSatisfy { model.selection.contains($0.id) } || model.busy || model.removing)
                     .help("Select all eligible matching results, including rows below the viewport.")
-                Button("Deselect visible") { model.selectVisible(false) }
+                if visibleSelected > 0 { Button("Deselect visible") { model.selectVisible(false) }
                     .disabled(visibleSelected == 0 || model.busy || model.removing)
+                }
             }.font(.caption).padding(.horizontal, 24).padding(.vertical, 12)
             Rule()
             ScrollView {
@@ -275,8 +258,6 @@ struct InventoryView: View {
             HStack(alignment: .center) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(model.section.rawValue).font(.system(size: 26, weight: .semibold)).tracking(-0.5)
-                    Text(kind == .document ? "Files, SVG drafts and work records. You decide what stays." : kind == .application ? "App bundles move to Trash; support data stays." : "Review rebuildable caches before cleaning.")
-                        .font(.system(size: 13)).foregroundStyle(Palette.muted)
                 }
                 Spacer(minLength: 8)
                 if kind == .document {
@@ -311,6 +292,8 @@ struct InventoryView: View {
                 Button("Find") { searchFocused = true }.keyboardShortcut("f").hidden().frame(width: 0)
             }.padding(10).background(Palette.surface, in: RoundedRectangle(cornerRadius: 6))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(searchFocused ? Palette.accent : Palette.line, lineWidth: searchFocused ? 2 : 1))
+            DisclosureGroup(isExpanded: $filtersExpanded) {
+            VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 10) {
                 if kind == .document {
                     Picker("Type", selection: filter.category) {
@@ -338,7 +321,7 @@ struct InventoryView: View {
                             Button(category.rawValue) { model.filter.category = category }
                         }
                     }.menuStyle(.borderlessButton).foregroundStyle(Palette.ink).fixedSize()
-                        .help("Find SVGs and filename clues from drafts, exports and work records. These are review candidates, not proven unused files.")
+                        .help("Find SVGs, drafts, exports and work records by name or folder. Hidden agent workspace records are view-only. Scans allow up to 10 million entries or 1 hour.")
                 }
                 if model.filter.isRestricted {
                     Button("Reset filters") {
@@ -349,9 +332,13 @@ struct InventoryView: View {
                 }
             }.font(.caption)
             if kind == .document && model.filter.category.isArtifactView {
-                Text("Filename clues only · AI origin and project usage are not verified. Review before removal.")
+                Text("Filename clues only. AI origin and project usage are unverified; hidden workspace records are view-only.")
                     .font(.caption).foregroundStyle(Palette.muted).fixedSize(horizontal: false, vertical: true)
             }
+            }.padding(.top, 10)
+            } label: {
+                Text(model.filter.isRestricted ? "Filters · active" : "Filters")
+            }.animation(reduceMotion ? nil : .easeOut(duration: 0.18), value: filtersExpanded)
         }
     }
 
@@ -367,8 +354,8 @@ struct InventoryView: View {
                 Text("\(model.scanProgress.visited.formatted()) inspected · \(model.scanProgress.candidates.formatted()) found")
                 Text(model.scanProgress.path.isEmpty ? "Preparing this location…" : model.scanProgress.path.replacingOccurrences(of: NSHomeDirectory(), with: "~"))
                     .lineLimit(1).truncationMode(.middle).foregroundStyle(Palette.muted)
-                if !model.inventoryItems.isEmpty { Text("Previous results remain visible until this scan finishes.").foregroundStyle(Palette.muted) }
             }.font(.caption)
+            Button(model.cancellingScan ? "Stopping…" : "Stop scan") { model.cancelScan() }.disabled(model.cancellingScan)
         }
     }
 
@@ -415,7 +402,8 @@ struct CandidateRow: View {
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
             VStack(alignment: .trailing, spacing: 8) {
-                Text(sizeText(item.bytes)).font(.system(size: 14, weight: .semibold)).monospacedDigit()
+                Text(item.sizeComplete ? sizeText(item.bytes) : item.bytes > 0 ? "≥ " + sizeText(item.bytes) : "Not measured")
+                    .font(.system(size: 14, weight: .semibold)).monospacedDigit()
                 HStack(spacing: 8) {
                 if item.selectable {
                     Button("Review…") { model.prepareReview(item) }.disabled(model.busy || model.removing)
@@ -433,7 +421,7 @@ struct CandidateRow: View {
 struct ReviewView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
-        PageHeading(index: "05 / Deliberate cleanup", title: "One last look.", description: "Only your selections appear here. Review the paths and consequences before moving anything.")
+        PageHeading(index: "", title: "Review", description: "")
         Rule()
         if model.selected.isEmpty {
             Text("Your review is empty.").font(.headline)
@@ -500,7 +488,7 @@ struct ConfirmView: View {
 struct ActivityView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
-        PageHeading(index: "", title: model.removing ? "Cleaning your selections…" : model.lastCleanup != nil ? "Your cleanup results." : "Activity", description: "Each action is recorded here. Available space is measured again after cleanup.")
+        PageHeading(index: "", title: model.removing ? "Cleaning…" : "Activity", description: "")
         if model.removing {
             VStack(alignment: .leading, spacing: 10) {
                 ProgressView(value: Double(model.operationCompleted), total: Double(max(1, model.operationTotal)))
@@ -560,49 +548,56 @@ struct ActivityView: View {
 
 struct ReserveView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @AppStorage("appearance") private var appearance = "system"
+    @AppStorage("showMenuBar") private var showMenuBar = true
+    @State private var forecastExpanded = false
+    @State private var historyExpanded = false
     var body: some View {
-        PageHeading(index: "07 / Reserve policy", title: "Leave yourself room.", description: "Set the available space you want on your home volume. Yeoback makes the gap visible and leaves removal decisions with you.")
+        PageHeading(index: "", title: "Reserve", description: "")
         Rule()
-        VStack(alignment: .leading, spacing: 10) {
+        HStack {
+            Text("Keep available").font(.headline)
+            Spacer()
+            TextField("Reserve in GB", value: Binding(get: { model.state.targetGB }, set: { model.setTarget($0) }), format: .number)
+                .textFieldStyle(.roundedBorder).frame(width: 100).accessibilityLabel("Available-space target in gigabytes")
+                .help("Available-space target, from 1 to 10,000 decimal gigabytes. No files are removed automatically.")
+            Text("GB")
+        }
+        Toggle("Monitor while app is open", isOn: Binding(get: { model.state.monitoring }, set: { model.state.monitoring = $0; model.save() }))
+            .help("Refresh capacity every minute. Monitoring never deletes files.")
+        Toggle("Show in menu bar", isOn: $showMenuBar)
+        if let capacity = model.capacity, model.targetBytes > capacity.total {
+            Text("Target exceeds this volume’s capacity.").foregroundStyle(Palette.accent)
+        }
+        if model.capacity != nil {
+            Text(model.shortfall > 0 ? "\(sizeText(model.shortfall)) below target" : "Target met")
+                .font(.callout).foregroundStyle(Palette.muted)
+        }
+        DisclosureGroup("Forecast", isExpanded: $forecastExpanded) {
+            ForecastView().padding(.top, 12)
+        }.animation(reduceMotion ? nil : .easeOut(duration: 0.18), value: forecastExpanded)
+        Rule()
+        HStack {
             Text("Appearance").font(.headline)
+            Spacer()
             Picker("Appearance", selection: $appearance) {
                 Text("System").tag("system")
                 Text("Light").tag("light")
                 Text("Dark").tag("dark")
-            }.pickerStyle(.segmented).frame(maxWidth: 360).labelsHidden()
-                .accessibilityLabel("Appearance")
-            Text("System follows your Mac. Your choice is saved for the next launch.")
-                .font(.caption).foregroundStyle(Palette.muted)
+            }.pickerStyle(.segmented).frame(width: 260).labelsHidden().accessibilityLabel("Appearance")
         }
         Rule()
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Available-space target").font(.headline)
-                Text("Decimal gigabytes · 1–10,000 GB").font(.caption).foregroundStyle(Palette.muted)
-            }
-            Spacer()
-            TextField("Reserve in GB", value: Binding(get: { model.state.targetGB }, set: { model.setTarget($0) }), format: .number)
-                .textFieldStyle(.roundedBorder).frame(width: 100).accessibilityLabel("Available-space target in gigabytes")
-            Text("GB")
-        }
-        Toggle("Monitor capacity every minute while Yeoback is running", isOn: Binding(get: { model.state.monitoring }, set: { model.state.monitoring = $0; model.save() }))
-        if let capacity = model.capacity, model.targetBytes > capacity.total {
-            Text("This target exceeds the volume’s total capacity. Choose a smaller target to make it attainable.").foregroundStyle(Palette.accent)
-        }
-        Text("Monitoring updates the menu-bar reading and reserve status. It does not launch at login, send notifications, empty Trash, or delete files in the background.")
-            .font(.callout).foregroundStyle(Palette.muted).lineSpacing(3)
-        Rule()
-        ForecastView()
-        Eyebrow(text: "Recent observations")
-        ForEach(Array(model.state.history.suffix(8).reversed().enumerated()), id: \.offset) { _, reading in
-            HStack {
-                Text(reading.date.formatted(date: .omitted, time: .standard)).foregroundStyle(Palette.muted)
-                Spacer()
-                Text("\(sizeText(reading.free)) available").monospacedDigit()
-            }.font(.callout)
-        }
-        Text("Stores up to 180 readings locally. Other apps, snapshots and macOS can change availability between readings. This history does not identify which process wrote bytes.")
-            .font(.caption).foregroundStyle(Palette.muted)
+        DisclosureGroup("Recent readings", isExpanded: $historyExpanded) {
+            VStack(spacing: 12) {
+                ForEach(Array(model.state.history.suffix(8).reversed().enumerated()), id: \.offset) { _, reading in
+                    HStack {
+                        Text(reading.date.formatted(date: .abbreviated, time: .shortened)).foregroundStyle(Palette.muted)
+                        Spacer()
+                        Text("\(sizeText(reading.free)) available").monospacedDigit()
+                    }.font(.callout)
+                }
+            }.padding(.top, 12)
+        }.animation(reduceMotion ? nil : .easeOut(duration: 0.18), value: historyExpanded)
     }
 }

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yeoback — brand artwork</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+  body { background: #222923; color: #f5f3ef; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+  .art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  main { position: relative; width: 100%; height: 100%; padding: 68px 76px; }
+  .brand { font-size: 36px; font-weight: 650; letter-spacing: -1.2px; }
+  .brand span { margin-left: 18px; font-size: 18px; font-weight: 400; color: #bdc6b9; letter-spacing: 0; }
+  h1 { position: absolute; top: 245px; left: 76px; margin: 0; font-size: 83px; line-height: 1.04; letter-spacing: -4.4px; font-weight: 580; }
+  h1 em { font-style: normal; color: #fa9c8d; }
+  .sub { position: absolute; top: 468px; left: 80px; font-size: 24px; line-height: 1.5; color: #cbd1c7; }
+  footer { position: absolute; bottom: 62px; left: 80px; right: 76px; display: flex; justify-content: space-between; font-size: 16px; color: #cbd1c7; }
+  footer span:first-child { border-left: 3px solid #e58170; padding-left: 16px; }
+  @media (max-width: 1000px) {
+    main { padding: 56px; }
+    .brand { font-size: 39px; }
+    .brand span { font-size: 21px; }
+    .art { inset: auto; bottom: -55px; right: -130px; width: 1390px; height: 782px; max-width: none; mask-image: linear-gradient(to bottom, transparent, black 19%); }
+    h1 { top: 157px; left: 56px; font-size: 86px; letter-spacing: -4px; z-index: 1; }
+    .sub { top: 365px; left: 60px; font-size: 26px; z-index: 1; }
+    footer { bottom: 42px; left: 60px; right: 56px; font-size: 18px; }
+    footer span:last-child { display: none; }
+  }
+</style>
+<img class="art" src="../images/yeoback-studio.png" alt="">
+<main>
+  <div class="brand">Yeoback<span>여백</span></div>
+  <h1>Keep the work.<br><em>Lose the leftovers.</em></h1>
+  <p class="sub">Storage review for your Mac.</p>
+  <footer><span>Room for your next idea.</span><span>Made for macOS</span></footer>
+</main>
+</html>

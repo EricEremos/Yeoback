@@ -6,6 +6,7 @@ import AppKit
     @StateObject private var model: AppModel
     @StateObject private var growth: GrowthModel
     @AppStorage("appearance") private var appearance = "system"
+    @AppStorage("showMenuBar") private var showMenuBar = true
     private static let applicationLock = ApplicationLock()
 
     init() {
@@ -41,7 +42,7 @@ import AppKit
             ContentView().environmentObject(model).environmentObject(growth)
                 .onAppear { appDelegate.model = model }
                 .frame(minWidth: 920, minHeight: 660)
-                .tint(Palette.accent)
+                .tint(Palette.controlAccent)
                 .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)
         }
         .defaultSize(width: 1120, height: 780)
@@ -64,11 +65,8 @@ import AppKit
                     .disabled(!model.isInventory || model.busy || model.removing || model.visibleItems.isEmpty)
             }
         }
-        MenuBarExtra {
+        MenuBarExtra("Yeoback", systemImage: "internaldrive", isInserted: $showMenuBar) {
             MenuPanel().environmentObject(model)
-        } label: {
-            Image(systemName: model.shortfall > 0 ? "externaldrive.badge.exclamationmark" : "externaldrive")
-            Text(model.capacity.map { sizeText($0.free) } ?? "Yeoback")
         }
     }
 }
@@ -77,6 +75,9 @@ struct MenuPanel: View {
     @EnvironmentObject var model: AppModel
     @Environment(\.openWindow) var openWindow
     var body: some View {
+        if let capacity = model.capacity {
+            Text("\(sizeText(capacity.free)) available")
+        }
         Text("\(model.monitorLabel) · \(Int(model.state.targetGB)) GB target")
         Text(model.state.monitoring ? "Checks every minute while running" : "Monitoring paused")
         Divider()

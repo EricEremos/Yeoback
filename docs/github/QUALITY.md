@@ -1,6 +1,14 @@
-# Verified quality · 0.3.4 (8)
+# Quality evidence
 
-## Current revision evidence
+## Source update · 2026-09-08
+
+The integrated source update passed `zsh scripts/check-all.sh` and `zsh scripts/check-mobile-core.sh` during implementation. The recorded execution covers filesystem self-checks, batched cleanup fixtures, lifecycle/recovery, providers, cache inventory, forecasts, growth, and the iOS folder-engine core. These runs were observed in the implementation session; full terminal logs were not retained as repository artifacts.
+
+A subsequent `zsh scripts/build-app.sh` completed and produced an ad-hoc signed local app. This update has not been reinstalled over the user's existing app. New cache inventory was tested with fixtures; this does not establish live results across every personal cache store or cloud provider. The mobile core check is not a full iPhone build or physical-device test.
+
+The desktop and portrait brand covers were visually inspected. The six-second, 1080p film was inspected across sampled frames and played to completion in a browser. These checks establish media delivery, not app usability or cleanup correctness. README app screenshots remain from the 0.3.4 preview below; they are not evidence of the updated native layout.
+
+## Installed preview evidence · 0.3.4 (8)
 
 The installed 0.3.4 build passed **108 assertions**: 40 filesystem/artifact, 12 batch, 23 release/lifecycle, 7 provider, 16 forecast and 10 growth. Six new checks cover small SVG discovery, case-insensitive filtering, filename false positives, work records, draft uncertainty and a real SVG Trash move followed by restoration. A subsequent menu-contrast correction passed a release build and native Light inspection; it did not change storage logic.
 
