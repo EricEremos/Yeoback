@@ -1,0 +1,29 @@
+{
+  "fileKey": "olCrS1PxKWJjMiVlGbC3zR",
+  "page": "0:1",
+  "section": "266:490",
+  "sectionName": "Yeoback / 0.3.5 — Focused workspace",
+  "appearanceCollection": "VariableCollectionId:196:417",
+  "modes": { "Light": "196:0", "Dark": "196:1" },
+  "frames": {
+    "homeLight": "266:493",
+    "homeDark": "266:541",
+    "cleanupLight": "267:511",
+    "cleanupDark": "267:632",
+    "applicationsLight": "267:753",
+    "applicationsDark": "267:855",
+    "documentsLight": "249:476",
+    "documentsDark": "268:803",
+    "growthLight": "268:679",
+    "growthDark": "250:483",
+    "activityLight": "268:539",
+    "activityDark": "268:609",
+    "reserveLight": "266:589",
+    "reserveDark": "247:469"
+  },
+  "grid": "Four columns of 1120 × 780 frames at 1160-point pitch; Light rows above Dark rows. Each frame sets the Appearance collection mode explicitly, so both appearances share one structure.",
+  "layout": "Root frames are fixed 1120 × 780 horizontal auto layout: a 220-point sidebar cloned from the Documents reference (Navigation / Item instances, semantic variable bindings) and a filling main column. Route content is nested vertical auto layout with 32-point page inset, 24-point section rhythm, 1-point rules and 6-point control corners. Text uses SF Pro; paths use JetBrains Mono because SF Mono is unavailable in the connected Figma environment.",
+  "routes": "Home, Clean up, Applications, Documents, Growth, Activity, Reserve settings — the seven sidebar destinations of the focused Mac workspace introduced on 2026-09-08.",
+  "status": "Editable direction frames for the implemented native app. Values are illustrative fixture data (200 GB reserve, 68.3 GB shortfall, sample cache owners and applications), not measured user data. Native controls and the installed app remain the product and QA surface; no participant validation is claimed.",
+  "history": "On 2026-09-08 three frames (Documents/Light, Reserve/Dark, Growth/Dark) were created but left at page level, with the Growth frame unfinished. On 2026-09-24 the Growth and Reserve main columns were rebuilt, eleven frames were added, and all fourteen were placed in this section. The same pass re-parented 0.3.4 / Reserve settings / Light (200:444) into section 196:416 and the four mobile Dark frames into section 233:465."
+}

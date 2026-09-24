@@ -471,6 +471,9 @@ struct ConfirmView: View {
                             if let provider = item.kind == .cache ? CacheProvider.matching(item.url) : nil {
                                 Text(provider.consequence).font(.caption).foregroundStyle(Palette.muted).fixedSize(horizontal: false, vertical: true)
                             }
+                            if item.kind == .document, let note = Storage.syncedFolderNote(for: item.url) {
+                                Text(note).font(.caption).foregroundStyle(Palette.accent).fixedSize(horizontal: false, vertical: true)
+                            }
                         }
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)

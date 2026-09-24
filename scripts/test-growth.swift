@@ -4,7 +4,7 @@ import Foundation
 struct GrowthCheck {
     static func main() async throws {
         let fm = FileManager.default
-        let parent = URL(fileURLWithPath: fm.currentDirectoryPath).appendingPathComponent(".build/cleanup-growth-\(UUID().uuidString)")
+        let parent = Storage.disposableFixtureParent("cleanup-growth")
         let root = parent.appendingPathComponent("documents")
         let alpha = root.appendingPathComponent("Alpha")
         let beta = root.appendingPathComponent("Beta")

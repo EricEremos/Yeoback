@@ -57,7 +57,7 @@ The foundation grew through **150 design explorations**. These are comparisons o
 
 *Native dark capture. The quality record notes that this capture preceded a subsequent menu-only styling correction; it is not evidence for every final visual detail.*
 
-System, Light, and Dark appearances preserve the task structure. The [implemented design contract](DESIGN.md) records palette values, typography, spacing, and measured contrast limits. [Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=196-416) retains the editable design work.
+System, Light, and Dark appearances preserve the task structure. The [implemented design contract](DESIGN.md) records palette values, typography, spacing, and measured contrast limits. [Figma](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=196-416) retains the editable design work. The [focused workspace section](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=266-490) holds the seven current routes in Light and Dark; [figma-focused-state.json](../figma-focused-state.json) records every frame.
 
 ## 05 / Carry the principle across platforms
 

@@ -4,7 +4,7 @@ import Combine
 @main struct BatchCheck {
     @MainActor static func main() async throws {
         let fm = FileManager.default
-        let parent = URL(fileURLWithPath: fm.currentDirectoryPath).appendingPathComponent(".build/batch-check-\(UUID())")
+        let parent = Storage.disposableFixtureParent("batch-check")
         let root = parent.appendingPathComponent("documents")
         try fm.createDirectory(at: root, withIntermediateDirectories: true)
         defer { try? fm.removeItem(at: parent) }

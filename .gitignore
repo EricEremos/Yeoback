@@ -4,3 +4,4 @@ dist/
 docs/verification/
 docs/CLEANUP-REPORT.md
 docs/cleanup-rust-result.json
+xcuserdata/

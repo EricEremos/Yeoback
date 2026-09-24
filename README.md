@@ -26,7 +26,7 @@ You choose every file. Filename and folder clues suggest candidates; they do not
 
 ![Yeoback document review in dark appearance, using sample files](docs/github/images/workbench-dark.png)
 
-Choose System, Light, or Dark. Both appearances use the same review flow. [Colors, type, and spacing →](docs/github/DESIGN.md)
+Choose System, Light, or Dark. Both appearances use the same review flow. [Colors, type, and spacing →](docs/github/DESIGN.md) · [Focused workspace frames in Figma →](https://www.figma.com/design/olCrS1PxKWJjMiVlGbC3zR?node-id=266-490)
 
 </details>
 
@@ -38,7 +38,7 @@ Yeoback takes its name from the Korean word for the space around what matters. T
 
 ## Start here
 
-**Mac development preview · 0.3.4 (8)**
+**Mac development preview · 0.3.5 (9)**
 
 Requires Xcode with the **macOS 26 SDK**. Builds target macOS 14+; recorded runtime checks cover Apple Silicon on macOS 26.5.2. This is a locally built, ad-hoc signed app, not a notarized public release.
 

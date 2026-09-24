@@ -1,5 +1,22 @@
 # Quality evidence
 
+## Installed preview evidence · 0.3.5 (9) · 2026-09-24
+
+This update ships two controls derived from the 2026-09-07 incident record: a Trash move counts only when macOS returns a destination that exists and the original is gone, and files inside a version-controlled tree are view-only and refused at cleanup time. The self-check suite gained eleven assertions for these controls: a git working tree with `data/raw/evidence.json` and `README.md` listed view-only with the reason visible, validation refusal, bulk-selection exclusion, a scan root inside the repository inheriting the protection, a stale selectable candidate refused at Trash time and left in place, a `.git` file (linked worktree) protecting its tree, three unconfirmed-move cases (no destination, missing destination, original still present), one verified move, and the absence of a sync note outside iCloud-managed folders.
+
+`zsh scripts/check-all.sh` passed in 2 m 33 s: **62 self-check assertions**, 103 further script checks across batch, release/lifecycle, provider, cache inventory and growth, and 16 forecast checks. Verification fixtures now live under `~/.yeoback-checks` rather than the repository's `.build` folder, because the new protection correctly classified files inside this working tree as view-only; every run removed its fixture directory.
+
+The release build was packaged, signature-verified with `--strict`, and installed over 0.3.4 after a normal quit. The installed executable matches the staged build, the installed binary passed the same 62 assertions when run from the home directory, and the relaunched app reported 0.3.5 (9). Full Disk Access is tied to the previous signature; if Growth reports access denials, re-add the app in System Settings.
+
+```text
+0.3.5 executable SHA-256
+fa0062f4ac03ebd137a73a49775a8e342e057e29e666b5651f851ea28aa8ecb9
+Yeoback-0.3.5-arm64-local.dmg SHA-256
+966da1df4f221597fa328d726f532efba9661a63c4f185d36dd74e2a2dcf45d3
+```
+
+The Figma focused-workspace section (fourteen frames, seven routes in Light and Dark) was completed and screenshot-inspected on the same day; its node ledger is `docs/figma-focused-state.json`. Those frames are editable references, not native captures. The iCloud review note was verified by fixture and code reading, not by a native screenshot of the review sheet. An independent Codex review of the uncommitted diff (`codex review --uncommitted`, 2026-09-24) traced the Trash confirmation and version-control protection through the executor and model, reported no correctness defect, and found two documentation defects: an evidence claim written ahead of its proof and a stale version in SECURITY.md. Both were corrected before the commit. Remote CI results are recorded separately in GitHub Actions.
+
 ## Source update · 2026-09-08
 
 The integrated source update passed `zsh scripts/check-all.sh` and `zsh scripts/check-mobile-core.sh` during implementation. The recorded execution covers filesystem self-checks, batched cleanup fixtures, lifecycle/recovery, providers, cache inventory, forecasts, growth, and the iOS folder-engine core. These runs were observed in the implementation session; full terminal logs were not retained as repository artifacts.

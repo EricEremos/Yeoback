@@ -1,13 +1,17 @@
 # Changelog
 
-## Unreleased · 2026-09-08
+## 0.3.5 (9) · 2026-09-24
 
+- Confirm every Trash move: an outcome counts as completed only when macOS returns a destination that exists and the original path is gone. Anything else is recorded as "Not confirmed moved" and the item stays selected for a new review.
+- List files inside version-controlled projects as view-only, refuse them at cleanup time even from a stale selection, and add regression fixtures modeled on the 2026-09-07 sweep of a git-tracked project tree.
+- Note items under iCloud-mirrored Desktop and Documents folders in the review sheet, because a confirmed move can propagate and Trash recovery is not guaranteed.
 - Expand storage inventory to supported developer, application, and agent work locations; keep informational stores separate from supported cleanup operations.
 - Mark incomplete measurements, refuse their cleanup, and exclude partial folder scans from saved growth comparisons.
 - Recognize additional work-record formats and folders while protecting hidden agent workspace records from removal.
 - Add cache-inventory and growth regression fixtures, and align the iOS work-record filter with the chosen folder root.
 - Simplify scan controls, filters, and reserve history while retaining explicit review and per-item outcomes.
 - Introduce an icon-led studio cover, a portrait cover, and a six-second Higgsfield brand film with fixed typography. Shorten the public README around the product and its actual scope.
+- Complete the Figma focused-workspace section: fourteen route frames in Light and Dark with a recorded node ledger, rebuilt Growth and Reserve references, and the Reserve/Light and mobile Dark frames returned to their sections.
 
 ## 0.3.4 (8) · 2026-09-06
 

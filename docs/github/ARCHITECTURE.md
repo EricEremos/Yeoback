@@ -23,7 +23,7 @@ flowchart LR
 
 | Component | Responsibility |
 | --- | --- |
-| `Storage.swift` | Capacity readings, bounded scans, candidate identities, scope checks, native Trash validation. |
+| `Storage.swift` | Capacity readings, bounded scans, candidate identities, scope checks, version-control protection, native Trash validation and move confirmation. |
 | `Inventory.swift` | Search, filters, sort order and visible-selection semantics. |
 | `AppModel.swift` | Review snapshots, lifecycle transitions, journals, results and bounded persistence. |
 | `CleanupExecutor.swift` | Document batching and isolated provider operations. |
@@ -49,4 +49,4 @@ No telemetry or cloud upload is implemented. Activity and recovery records conta
 
 ## Build and validation
 
-Use `zsh scripts/check-all.sh` for the local suite, `zsh scripts/build-app.sh` for the app, and `zsh scripts/package-app.sh --skip-build` for the DMG. CI uses the explicitly selected [GitHub macOS 26 image](https://github.com/actions/runner-images/blob/main/images/macos/macos-26-Readme.md), whose toolchain includes the required SDK. GUI acceptance and real AI availability are separate from hosted tests.
+Use `zsh scripts/check-all.sh` for the local suite, `zsh scripts/build-app.sh` for the app, and `zsh scripts/package-app.sh --skip-build` for the DMG. Document fixtures are created under `~/.yeoback-checks` (or `/Users/Shared/yeoback-checks`), outside any version-controlled tree, because files inside a working tree are view-only by design; each run removes its fixture directory. CI uses the explicitly selected [GitHub macOS 26 image](https://github.com/actions/runner-images/blob/main/images/macos/macos-26-Readme.md), whose toolchain includes the required SDK. GUI acceptance and real AI availability are separate from hosted tests.

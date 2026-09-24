@@ -318,7 +318,7 @@ struct SavedState: Codable {
                     if outcome.success { removedIDs.insert(item.id) }
                     entries.append(Activity(id: UUID(), date: Date(), name: item.url.lastPathComponent,
                                             detail: outcome.detail, destination: outcome.destination?.path, success: outcome.success,
-                                            operation: item.kind == .cache ? (outcome.success ? "Cache cleanup completed" : "Cache cleanup not completed") : (outcome.success ? nil : "Not moved to Trash")))
+                                            operation: item.kind == .cache ? (outcome.success ? "Cache cleanup completed" : "Cache cleanup not completed") : (outcome.success ? nil : outcome.unconfirmed ? "Not confirmed moved" : "Not moved to Trash")))
                 }
                 state.activity = Array((entries.reversed() + state.activity).prefix(100))
                 operationCompleted += outcomes.count

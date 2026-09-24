@@ -16,11 +16,17 @@ There is no automatic personal-file deletion, Trash emptying, support-file unins
 
 The implementation checks scope, link ancestry, filesystem identity, eligible type, and supported root. App checks also consider metadata fingerprints and running state. Protected roots, symbolic-link targets, ubiquitous iCloud items, hard links and recognized app/build data are excluded or view-only. Read-only scans have time and entry limits and disclose partial coverage.
 
+Files inside a version-controlled project are view-only: if any ancestor directory contains `.git`, `.hg` or `.svn`, including a scan root that sits inside a repository or a linked worktree marked by a `.git` file, the file is listed with that reason, cannot be bulk-selected, and is refused again at cleanup time even if a stale selection claims otherwise. This control follows the 2026-09-07 incident in which a development build swept a git-tracked project tree; its fixtures are part of the self-check suite.
+
+Items under Desktop or Documents while an iCloud Drive mirror of that folder exists carry an explicit note in the review sheet: a confirmed move can propagate to other devices and recovery through Trash is not guaranteed. The note is a hint derived from the mirror's presence, not proof of synchronization state.
+
 These checks reduce mistakes but are **not an atomic security boundary**: Foundation's path-based Trash operation leaves a concurrent-change race. Other synced folders can propagate a confirmed move to other devices. Review original paths and current synchronization behavior.
 
 ## During and after cleanup
 
 Pending paths are persisted before mutation. A crash may leave uncertain outcomes, including files already moved. Yeoback shows the pending paths and never replays them automatically. Recording the notice acknowledges uncertainty; it does not prove a file was restored or deleted.
+
+A Trash move is recorded as completed only when macOS returns a destination that exists and the original path is gone. Any other result, including a missing destination, is recorded as **Not confirmed moved**; the item keeps its selection and must be scanned and reviewed again. "Moved to Trash" therefore means the file was observed in the Trash at that moment; it does not track later emptying or synchronization.
 
 Normal quit is refused while cleanup is active. Use **Stop after current batch**, then wait for saved results. Force quit and machine failure remain possible. The state file is bounded, local JSON, not a tamper-proof audit log.
 

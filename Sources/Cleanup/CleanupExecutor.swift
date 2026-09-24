@@ -5,6 +5,8 @@ struct CleanupOutcome: Sendable {
     let success: Bool
     let detail: String
     let destination: URL?
+    /// macOS returned no verifiable result; the file may or may not have moved.
+    var unconfirmed: Bool = false
 }
 
 enum CleanupExecutor {
@@ -47,7 +49,9 @@ enum CleanupExecutor {
             }
             let destination = try Storage.trash(item)
             return CleanupOutcome(item: item, success: true,
-                                  detail: "Moved to Trash · allocated estimate \(sizeText(item.bytes)). Original: \(item.url.path)" + (destination == nil ? " macOS did not return a destination; inspect Trash in Finder." : ""), destination: destination)
+                                  detail: "Moved to Trash · allocated estimate \(sizeText(item.bytes)). Original: \(item.url.path)", destination: destination)
+        } catch StorageError.unconfirmed(let message) {
+            return CleanupOutcome(item: item, success: false, detail: message + " Original: \(item.url.path)", destination: nil, unconfirmed: true)
         } catch {
             return CleanupOutcome(item: item, success: false, detail: error.localizedDescription, destination: nil)
         }

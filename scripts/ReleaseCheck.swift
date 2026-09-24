@@ -4,7 +4,7 @@ import AppKit
 @main struct ReleaseCheck {
     @MainActor static func main() async throws {
         let fm = FileManager.default
-        let root = URL(fileURLWithPath: fm.currentDirectoryPath).appendingPathComponent(".build/release-check-\(UUID())")
+        let root = Storage.disposableFixtureParent("release-check")
         try fm.createDirectory(at: root, withIntermediateDirectories: true)
         defer { try? fm.removeItem(at: root) }
         func expect(_ condition: Bool, _ message: String) {

@@ -18,7 +18,13 @@ struct Capacity: Codable, Sendable {
 
 enum StorageError: LocalizedError {
     case message(String)
-    var errorDescription: String? { if case .message(let value) = self { return value }; return nil }
+    /// The operation may or may not have happened; macOS gave no verifiable result.
+    case unconfirmed(String)
+    var errorDescription: String? {
+        switch self {
+        case .message(let value), .unconfirmed(let value): return value
+        }
+    }
 }
 
 struct Identity: Equatable, Sendable {
@@ -57,6 +63,8 @@ struct Candidate: Identifiable, Sendable {
     let bundleID: String?
     var treeStamp: String? = nil
     var sizeComplete: Bool = true
+    /// True when an ancestor directory is a version-control working tree. Such files are never selectable.
+    var versionControlled: Bool = false
     var name: String { url.deletingPathExtension().lastPathComponent }
     var artifactReason: String? { kind == .document ? WorkArtifact.reason(for: url, root: root) : nil }
 }
@@ -107,6 +115,57 @@ enum Storage {
         return true
     }
 
+    static let versionControlMarkers = [".git", ".hg", ".svn"]
+    static let versionControlReason = "Inside a version-controlled project · view only; Yeoback never removes tracked project files"
+    static let unconfirmedMoveMessage = "macOS did not confirm the move to Trash. Inspect the original location and Finder’s Trash before continuing."
+
+    /// True when the directory itself contains a version-control marker.
+    static func isVersionControlRoot(_ directory: URL) -> Bool {
+        versionControlMarkers.contains { FileManager.default.fileExists(atPath: directory.appendingPathComponent($0).path) }
+    }
+
+    /// The nearest ancestor working tree of `url`, checking every directory up to the filesystem root.
+    static func versionControlRoot(for url: URL) -> URL? {
+        var cursor = url.standardizedFileURL.deletingLastPathComponent()
+        while cursor.path != "/" {
+            if isVersionControlRoot(cursor) { return cursor }
+            cursor.deleteLastPathComponent()
+        }
+        return nil
+    }
+
+    /// Paths iCloud Drive may synchronize when Desktop & Documents syncing is enabled. Presence of the mirror is a hint, not proof.
+    static func syncedFolderNote(for url: URL) -> String? {
+        let home = URL(fileURLWithPath: NSHomeDirectory()).standardizedFileURL
+        let path = url.standardizedFileURL.path
+        for folder in ["Documents", "Desktop"] {
+            let local = home.appendingPathComponent(folder).path
+            let mirror = home.appendingPathComponent("Library/Mobile Documents/com~apple~CloudDocs/\(folder)").path
+            if path.hasPrefix(local + "/"), FileManager.default.fileExists(atPath: mirror) {
+                return "May be synced by iCloud Drive (\(folder)) · a confirmed move can propagate to other devices; recovery through Trash is not guaranteed"
+            }
+        }
+        return nil
+    }
+
+    /// A disposable fixture location for verification runs, outside any version-controlled tree so the
+    /// protection rules classify the fixtures as ordinary personal files. Callers remove it when done.
+    static func disposableFixtureParent(_ name: String) -> URL {
+        let candidates = [URL(fileURLWithPath: NSHomeDirectory()).appendingPathComponent(".yeoback-checks", isDirectory: true),
+                          URL(fileURLWithPath: "/Users/Shared/yeoback-checks", isDirectory: true)]
+        let base = candidates.first { !isVersionControlRoot($0) && versionControlRoot(for: $0.appendingPathComponent("probe")) == nil } ?? candidates[0]
+        return base.appendingPathComponent("\(name)-\(UUID().uuidString)", isDirectory: true)
+    }
+
+    /// A Trash move counts only when macOS returned a destination that exists and the original path is gone.
+    static func confirmedTrashDestination(for original: URL, reported destination: URL?) throws -> URL {
+        let fm = FileManager.default
+        guard let destination, fm.fileExists(atPath: destination.path), !fm.fileExists(atPath: original.path) else {
+            throw StorageError.unconfirmed(unconfirmedMoveMessage)
+        }
+        return destination
+    }
+
     static func documentRootAllowed(_ root: URL) -> Bool {
         let path = root.standardizedFileURL.path
         let home = URL(fileURLWithPath: NSHomeDirectory()).standardizedFileURL.path
@@ -136,6 +195,12 @@ enum Storage {
         }
         let start = Date()
         var seen = Set<String>()
+        // Version-control protection: the scan root may sit inside a working tree, and nested repositories are recorded as they are visited.
+        let rootVersionControlled = isVersionControlRoot(root) || versionControlRoot(for: root.appendingPathComponent("probe")) != nil
+        var versionControlRoots: [String] = []
+        func versionControlled(_ url: URL) -> Bool {
+            rootVersionControlled || versionControlRoots.contains { url.path.hasPrefix($0 + "/") }
+        }
         let enumerator = FileManager.default.enumerator(at: root, includingPropertiesForKeys: [.isPackageKey, .isUbiquitousItemKey, .isHiddenKey], options: [.skipsPackageDescendants], errorHandler: { url, error in
             if result.issues.count < 8 { result.issues.append("\(url.lastPathComponent): \(error.localizedDescription)") }
             result.partial = true
@@ -160,6 +225,7 @@ enum Storage {
                 continue
             }
             if identity.isDirectory {
+                if !rootVersionControlled && isVersionControlRoot(url) { versionControlRoots.append(url.path) }
                 if ["Library", "node_modules", "vendor", "Pods", "build", "dist"].contains(url.lastPathComponent) { enumerator?.skipDescendants() }
                 continue
             }
@@ -169,10 +235,11 @@ enum Storage {
             let date = Date(timeIntervalSince1970: TimeInterval(identity.modifiedSeconds))
             let old = Date().timeIntervalSince(date) > 180 * 86400
             guard includeSmallFiles || identity.size >= 25_000_000 || (old && identity.size >= 1_000_000) else { continue }
+            let tracked = versionControlled(url)
             let reason = identity.size >= 25_000_000 ? "Large file · review whether you still need it" : old && identity.size >= 1_000_000 ? "Unchanged for over 180 days · age does not imply unused" : "Personal file · review whether you still need it"
             result.items.append(Candidate(url: url, root: root, rootIdentity: rootID, identity: identity, bytes: allocated(url), modified: date, kind: .document,
-                                          reason: protectedRecord ? "Agent workspace record · inspect in Finder; excluded from removal" : identity.links > 1 ? "Hard-linked file · inspect in Finder; excluded from removal" : reason,
-                                          selectable: identity.links == 1 && !protectedRecord, bundleID: nil))
+                                          reason: protectedRecord ? "Agent workspace record · inspect in Finder; excluded from removal" : identity.links > 1 ? "Hard-linked file · inspect in Finder; excluded from removal" : tracked ? versionControlReason : reason,
+                                          selectable: identity.links == 1 && !protectedRecord && !tracked, bundleID: nil, versionControlled: tracked))
         }
         if enumerator == nil { result.partial = true; result.issues.append("macOS could not enumerate this folder. Check access in System Settings.") }
         result.items.sort { $0.bytes > $1.bytes }
@@ -334,6 +401,9 @@ enum Storage {
         if item.kind == .document {
             guard documentRootAllowed(item.root), !WorkArtifact.isProtectedRecord(item.url), item.identity.isRegular, item.identity.links == 1,
                   documentExtensions.contains(item.url.pathExtension.lowercased()) else { throw StorageError.message("This is not an eligible personal document.") }
+            guard !item.versionControlled, versionControlRoot(for: item.url) == nil else {
+                throw StorageError.message("This file is inside a version-controlled project. Yeoback does not remove tracked project files.")
+            }
         } else {
             let roots = ["/Applications", NSHomeDirectory() + "/Applications"]
             guard roots.contains(item.root.path), item.url.deletingLastPathComponent() == item.root,
@@ -352,7 +422,7 @@ enum Storage {
         }
     }
 
-    static func trash(_ item: Candidate) throws -> URL? {
+    static func trash(_ item: Candidate) throws -> URL {
         try validate(item)
         guard try Identity.read(item.url) == item.identity, noLinkAncestry(item.url) else {
             throw StorageError.message("The reviewed item changed during validation. Scan again.")
@@ -362,7 +432,7 @@ enum Storage {
         }
         var destination: NSURL?
         try FileManager.default.trashItem(at: item.url, resultingItemURL: &destination)
-        return destination as URL?
+        return try confirmedTrashDestination(for: item.url, reported: destination as URL?)
     }
 }
 

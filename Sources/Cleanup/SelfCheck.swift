@@ -4,7 +4,8 @@ import AppKit
 enum SelfCheck {
     static func run() -> Bool {
         let fm = FileManager.default
-        let parent = URL(fileURLWithPath: fm.currentDirectoryPath).appendingPathComponent(".build/cleanup-check-\(UUID().uuidString)")
+        // Fixtures live outside the repository: files inside a version-controlled tree are view-only by design.
+        let parent = Storage.disposableFixtureParent("cleanup-check")
         let root = parent.appendingPathComponent("documents")
         var passed: [String] = []
         func expect(_ condition: Bool, _ description: String) throws {
@@ -60,7 +61,7 @@ enum SelfCheck {
             filter = InventoryFilter()
             filter.selectedOnly = true
             try expect(filter.apply(expanded.items, selection: [smallCandidate.id]).map(\.id) == [smallCandidate.id], "Selected-only view includes exactly the selected result")
-            guard let smallTrash = try Storage.trash(smallCandidate) else { throw StorageError.message("Small fixture moved, but no restore destination was returned.") }
+            let smallTrash = try Storage.trash(smallCandidate)
             try expect(!fm.fileExists(atPath: small.path) && fm.fileExists(atPath: smallTrash.path), "Explicitly reviewed small document moves to native Trash")
             try fm.moveItem(at: smallTrash, to: small)
             try expect(!Storage.inside(outside, root: root), "Scope containment rejects siblings")
@@ -85,8 +86,8 @@ enum SelfCheck {
             filter.category = .drafts
             let drafts = filter.apply(artifactReport.items, selection: [])
             try expect(drafts.count == 1 && drafts[0].artifactReason?.contains("may still be used") == true, "Draft clues retain project-use uncertainty")
-            guard let artwork = artifactReport.items.first(where: { $0.url.lastPathComponent == "logo.svg" }),
-                  let artworkTrash = try Storage.trash(artwork) else { throw StorageError.message("SVG fixture did not move to Trash") }
+            guard let artwork = artifactReport.items.first(where: { $0.url.lastPathComponent == "logo.svg" }) else { throw StorageError.message("SVG fixture missing") }
+            let artworkTrash = try Storage.trash(artwork)
             try expect(!fm.fileExists(atPath: artwork.url.path) && fm.fileExists(atPath: artworkTrash.path), "Reviewed SVG uses the existing validated Trash path")
             try fm.moveItem(at: artworkTrash, to: artwork.url)
             let recordNames = ["chat-history.ndjson", "rollout-20260908.jsonl", "handoff.md", "sessions/2026/opaque.jsonl", "conversations/opaque.json", ".planning/phases/01/summary.md", ".omo/plans/next.md", ".sisyphus/notepads/notes.md", ".codex/sessions/2026/opaque.jsonl", ".codex/archived_sessions/rollout.jsonl", ".codex/log/codex-tui.log", ".claude/projects/workspace/opaque.jsonl", ".claude/debug/opaque.txt", ".claude/todos/opaque.json"]
@@ -139,10 +140,40 @@ enum SelfCheck {
             try expect(filter.apply(hardLinks.items, selection: []).isEmpty, "Eligible-only filter hides protected entries")
             try fm.removeItem(at: root.appendingPathComponent("hard-link.pdf"))
             guard let fresh = Storage.scanDocuments(root: root).items.first else { throw StorageError.message("Missing refreshed fixture") }
-            guard let trashed = try Storage.trash(fresh) else { throw StorageError.message("Document fixture moved, but no restore destination was returned.") }
+            let trashed = try Storage.trash(fresh)
             try expect(!fm.fileExists(atPath: document.path) && fm.fileExists(atPath: trashed.path), "Native Trash returns a real destination and moves only the fixture")
             try fm.moveItem(at: trashed, to: document)
             try expect(fm.fileExists(atPath: outside.path), "Unselected sibling survives the operation")
+            // Regression fixtures modeled on the 2026-09-07 sweep of a git-tracked project tree.
+            let repo = parent.appendingPathComponent("repo")
+            try fm.createDirectory(at: repo.appendingPathComponent(".git"), withIntermediateDirectories: true)
+            try Data("ref: refs/heads/main".utf8).write(to: repo.appendingPathComponent(".git/HEAD"))
+            let evidence = repo.appendingPathComponent("data/raw/evidence.json")
+            try fm.createDirectory(at: evidence.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try Data("{\"kept\": true}".utf8).write(to: evidence)
+            try Data("# Tracked notes".utf8).write(to: repo.appendingPathComponent("README.md"))
+            let tracked = Storage.scanDocuments(root: repo, includeSmallFiles: true)
+            try expect(tracked.items.count == 2 && tracked.items.allSatisfy { !$0.selectable && $0.versionControlled && $0.reason.contains("version-controlled") }, "Files inside a git working tree are listed view-only with a visible reason")
+            try expect(tracked.items.allSatisfy { item in rejected { try Storage.validate(item) } }, "Cleanup validation refuses files inside a version-controlled project")
+            try expect(InventoryFilter.selectingVisible(tracked.items, in: [], selected: true).isEmpty, "Bulk selection cannot include version-controlled files")
+            let nestedRoot = Storage.scanDocuments(root: repo.appendingPathComponent("data"), includeSmallFiles: true)
+            try expect(nestedRoot.items.count == 1 && nestedRoot.items[0].selectable == false, "A scan root inside a git working tree inherits the protection")
+            let stale = Candidate(url: evidence, root: repo, rootIdentity: try Identity.read(repo), identity: try Identity.read(evidence), bytes: 0, modified: Date(), kind: .document, reason: "Stale fixture", selectable: true, bundleID: nil)
+            try expect(rejected { _ = try Storage.trash(stale) } && fm.fileExists(atPath: evidence.path), "A stale selectable candidate inside a git tree is refused at Trash time and stays in place")
+            let worktree = parent.appendingPathComponent("worktree")
+            try fm.createDirectory(at: worktree, withIntermediateDirectories: true)
+            try Data("gitdir: ../repo/.git/worktrees/wt".utf8).write(to: worktree.appendingPathComponent(".git"))
+            try Data("export".utf8).write(to: worktree.appendingPathComponent("draft.svg"))
+            try expect(Storage.scanDocuments(root: worktree, includeSmallFiles: true).items.allSatisfy { !$0.selectable }, "A .git file (linked worktree) also protects its tree")
+            try expect(rejected { _ = try Storage.confirmedTrashDestination(for: outside, reported: nil) }, "A missing Trash destination is reported as unconfirmed, not success")
+            try expect(rejected { _ = try Storage.confirmedTrashDestination(for: outside, reported: parent.appendingPathComponent("ghost.txt")) }, "A destination that does not exist is reported as unconfirmed")
+            try expect(rejected { _ = try Storage.confirmedTrashDestination(for: outside, reported: outside) }, "An original that still exists is reported as unconfirmed")
+            let movedSource = parent.appendingPathComponent("moved.txt")
+            let movedDestination = parent.appendingPathComponent("moved-destination.txt")
+            try Data("moved".utf8).write(to: movedSource)
+            try fm.moveItem(at: movedSource, to: movedDestination)
+            try expect(try Storage.confirmedTrashDestination(for: movedSource, reported: movedDestination) == movedDestination, "A verified move returns its destination")
+            try expect(Storage.syncedFolderNote(for: parent.appendingPathComponent("plain.txt")) == nil, "Folders outside iCloud-managed locations carry no sync note")
             let appRoot = fm.homeDirectoryForCurrentUser.appendingPathComponent("Applications", isDirectory: true)
             let app = appRoot.appendingPathComponent("Cleanup-Check-\(UUID().uuidString).app")
             let contents = app.appendingPathComponent("Contents")
@@ -155,7 +186,7 @@ enum SelfCheck {
             let appTree = Storage.directorySize(app, deadline: Date().addingTimeInterval(10), count: &appCount)
             let appCandidate = Candidate(url: app, root: appRoot, rootIdentity: try Identity.read(appRoot), identity: try Identity.read(app), bytes: appTree.0, modified: Date(), kind: .application, reason: "Disposable verification fixture", selectable: true, bundleID: bundleID, treeStamp: appTree.2)
             try Storage.validate(appCandidate)
-            guard let appTrash = try Storage.trash(appCandidate) else { throw StorageError.message("App fixture moved, but no restore destination was returned.") }
+            let appTrash = try Storage.trash(appCandidate)
             try expect(!fm.fileExists(atPath: app.path) && fm.fileExists(atPath: appTrash.path), "Disposable app bundle uninstalls through native Trash")
             try fm.moveItem(at: appTrash, to: app)
             try Data("nested change".utf8).write(to: contents.appendingPathComponent("changed"))
